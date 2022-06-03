@@ -1,0 +1,765 @@
+TimeQuest Timing Analyzer report for contador_sincrono
+Fri Jun 03 08:40:56 2022
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Clocks
+  4. Slow Model Fmax Summary
+  5. Slow Model Setup Summary
+  6. Slow Model Hold Summary
+  7. Slow Model Recovery Summary
+  8. Slow Model Removal Summary
+  9. Slow Model Minimum Pulse Width Summary
+ 10. Slow Model Setup: 'JK_FF:FF2|QX'
+ 11. Slow Model Setup: 'JK_FF:FF0|QX'
+ 12. Slow Model Setup: 'JK_FF:FF1|QX'
+ 13. Slow Model Setup: 'clk'
+ 14. Slow Model Hold: 'clk'
+ 15. Slow Model Hold: 'JK_FF:FF1|QX'
+ 16. Slow Model Hold: 'JK_FF:FF0|QX'
+ 17. Slow Model Hold: 'JK_FF:FF2|QX'
+ 18. Slow Model Minimum Pulse Width: 'clk'
+ 19. Slow Model Minimum Pulse Width: 'JK_FF:FF0|QX'
+ 20. Slow Model Minimum Pulse Width: 'JK_FF:FF1|QX'
+ 21. Slow Model Minimum Pulse Width: 'JK_FF:FF2|QX'
+ 22. Clock to Output Times
+ 23. Minimum Clock to Output Times
+ 24. Fast Model Setup Summary
+ 25. Fast Model Hold Summary
+ 26. Fast Model Recovery Summary
+ 27. Fast Model Removal Summary
+ 28. Fast Model Minimum Pulse Width Summary
+ 29. Fast Model Setup: 'JK_FF:FF2|QX'
+ 30. Fast Model Setup: 'JK_FF:FF0|QX'
+ 31. Fast Model Setup: 'JK_FF:FF1|QX'
+ 32. Fast Model Setup: 'clk'
+ 33. Fast Model Hold: 'clk'
+ 34. Fast Model Hold: 'JK_FF:FF1|QX'
+ 35. Fast Model Hold: 'JK_FF:FF0|QX'
+ 36. Fast Model Hold: 'JK_FF:FF2|QX'
+ 37. Fast Model Minimum Pulse Width: 'clk'
+ 38. Fast Model Minimum Pulse Width: 'JK_FF:FF0|QX'
+ 39. Fast Model Minimum Pulse Width: 'JK_FF:FF1|QX'
+ 40. Fast Model Minimum Pulse Width: 'JK_FF:FF2|QX'
+ 41. Clock to Output Times
+ 42. Minimum Clock to Output Times
+ 43. Multicorner Timing Analysis Summary
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Setup Transfers
+ 47. Hold Transfers
+ 48. Report TCCS
+ 49. Report RSKM
+ 50. Unconstrained Paths
+ 51. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; contador_sincrono                                                 ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C35F672C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                     ;
++--------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------+
+; Clock Name   ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets          ;
++--------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------+
+; clk          ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }          ;
+; JK_FF:FF0|QX ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { JK_FF:FF0|QX } ;
+; JK_FF:FF1|QX ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { JK_FF:FF1|QX } ;
+; JK_FF:FF2|QX ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { JK_FF:FF2|QX } ;
++--------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                              ;
++-------------+-----------------+--------------+-------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name   ; Note                                                  ;
++-------------+-----------------+--------------+-------------------------------------------------------+
+; 1610.31 MHz ; 500.0 MHz       ; JK_FF:FF2|QX ; limit due to high minimum pulse width violation (tch) ;
++-------------+-----------------+--------------+-------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------------+
+; Slow Model Setup Summary             ;
++--------------+-------+---------------+
+; Clock        ; Slack ; End Point TNS ;
++--------------+-------+---------------+
+; JK_FF:FF2|QX ; 0.379 ; 0.000         ;
+; JK_FF:FF0|QX ; 0.958 ; 0.000         ;
+; JK_FF:FF1|QX ; 1.106 ; 0.000         ;
+; clk          ; 2.258 ; 0.000         ;
++--------------+-------+---------------+
+
+
++---------------------------------------+
+; Slow Model Hold Summary               ;
++--------------+--------+---------------+
+; Clock        ; Slack  ; End Point TNS ;
++--------------+--------+---------------+
+; clk          ; -1.988 ; -1.988        ;
+; JK_FF:FF1|QX ; -0.836 ; -0.836        ;
+; JK_FF:FF0|QX ; -0.688 ; -0.688        ;
+; JK_FF:FF2|QX ; 0.391  ; 0.000         ;
++--------------+--------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++--------------+--------+----------------+
+; Clock        ; Slack  ; End Point TNS  ;
++--------------+--------+----------------+
+; clk          ; -1.380 ; -2.380         ;
+; JK_FF:FF0|QX ; -0.500 ; -1.000         ;
+; JK_FF:FF1|QX ; -0.500 ; -1.000         ;
+; JK_FF:FF2|QX ; -0.500 ; -1.000         ;
++--------------+--------+----------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'JK_FF:FF2|QX'                                                                           ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; 0.379 ; JK_FF:FF3|QX ; JK_FF:FF3|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; 1.000        ; 0.000      ; 0.657      ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'JK_FF:FF0|QX'                                                                           ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; 0.958 ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 0.500        ; 0.829      ; 0.657      ;
+; 1.458 ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 1.000        ; 0.829      ; 0.657      ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'JK_FF:FF1|QX'                                                                           ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; 1.106 ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 0.500        ; 0.977      ; 0.657      ;
+; 1.606 ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 1.000        ; 0.977      ; 0.657      ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clk'                                                                                   ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; 2.258 ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; clk         ; 0.500        ; 2.129      ; 0.657      ;
+; 2.758 ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; clk         ; 1.000        ; 2.129      ; 0.657      ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clk'                                                                                     ;
++--------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node    ; To Node      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; -1.988 ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; clk         ; 0.000        ; 2.129      ; 0.657      ;
+; -1.488 ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; clk         ; -0.500       ; 2.129      ; 0.657      ;
++--------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'JK_FF:FF1|QX'                                                                             ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack  ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; -0.836 ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 0.000        ; 0.977      ; 0.657      ;
+; -0.336 ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF1|QX ; -0.500       ; 0.977      ; 0.657      ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'JK_FF:FF0|QX'                                                                             ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack  ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; -0.688 ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 0.000        ; 0.829      ; 0.657      ;
+; -0.188 ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF0|QX ; -0.500       ; 0.829      ; 0.657      ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'JK_FF:FF2|QX'                                                                            ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; 0.391 ; JK_FF:FF3|QX ; JK_FF:FF3|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; 0.000        ; 0.000      ; 0.657      ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clk'                                                         ;
++--------+--------------+----------------+------------------+-------+------------+--------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target       ;
++--------+--------------+----------------+------------------+-------+------------+--------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Fall       ; JK_FF:FF0|QX ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Fall       ; JK_FF:FF0|QX ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; FF0|QX|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; FF0|QX|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout  ;
++--------+--------------+----------------+------------------+-------+------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'JK_FF:FF0|QX'                                                        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; JK_FF:FF1|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Rise       ; JK_FF:FF1|QX  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; FF0|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Rise       ; FF0|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; FF1|QX|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Rise       ; FF1|QX|clk    ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'JK_FF:FF1|QX'                                                        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; JK_FF:FF2|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Rise       ; JK_FF:FF2|QX  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; FF1|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Rise       ; FF1|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; FF2|QX|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Rise       ; FF2|QX|clk    ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'JK_FF:FF2|QX'                                                        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; JK_FF:FF3|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Rise       ; JK_FF:FF3|QX  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; FF2|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Rise       ; FF2|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; FF3|QX|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Rise       ; FF3|QX|clk    ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+--------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+--------------+-------+-------+------------+-----------------+
+; cout[*]   ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 3.451 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
++-----------+--------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-----------+--------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+--------------+-------+-------+------------+-----------------+
+; cout[*]   ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 4.489 ; 3.451 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 3.451 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
++-----------+--------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------+
+; Fast Model Setup Summary             ;
++--------------+-------+---------------+
+; Clock        ; Slack ; End Point TNS ;
++--------------+-------+---------------+
+; JK_FF:FF2|QX ; 0.665 ; 0.000         ;
+; JK_FF:FF0|QX ; 0.776 ; 0.000         ;
+; JK_FF:FF1|QX ; 0.849 ; 0.000         ;
+; clk          ; 1.459 ; 0.000         ;
++--------------+-------+---------------+
+
+
++---------------------------------------+
+; Fast Model Hold Summary               ;
++--------------+--------+---------------+
+; Clock        ; Slack  ; End Point TNS ;
++--------------+--------+---------------+
+; clk          ; -1.079 ; -1.079        ;
+; JK_FF:FF1|QX ; -0.469 ; -0.469        ;
+; JK_FF:FF0|QX ; -0.396 ; -0.396        ;
+; JK_FF:FF2|QX ; 0.215  ; 0.000         ;
++--------------+--------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++--------------+--------+----------------+
+; Clock        ; Slack  ; End Point TNS  ;
++--------------+--------+----------------+
+; clk          ; -1.380 ; -2.380         ;
+; JK_FF:FF0|QX ; -0.500 ; -1.000         ;
+; JK_FF:FF1|QX ; -0.500 ; -1.000         ;
+; JK_FF:FF2|QX ; -0.500 ; -1.000         ;
++--------------+--------+----------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'JK_FF:FF2|QX'                                                                           ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; 0.665 ; JK_FF:FF3|QX ; JK_FF:FF3|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; 1.000        ; 0.000      ; 0.367      ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'JK_FF:FF0|QX'                                                                           ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; 0.776 ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 0.500        ; 0.470      ; 0.367      ;
+; 1.276 ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 1.000        ; 0.470      ; 0.367      ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'JK_FF:FF1|QX'                                                                           ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; 0.849 ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 0.500        ; 0.543      ; 0.367      ;
+; 1.349 ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 1.000        ; 0.543      ; 0.367      ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clk'                                                                                   ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; 1.459 ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; clk         ; 0.500        ; 1.153      ; 0.367      ;
+; 1.959 ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; clk         ; 1.000        ; 1.153      ; 0.367      ;
++-------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clk'                                                                                     ;
++--------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node    ; To Node      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+; -1.079 ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; clk         ; 0.000        ; 1.153      ; 0.367      ;
+; -0.579 ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; JK_FF:FF0|QX ; clk         ; -0.500       ; 1.153      ; 0.367      ;
++--------+--------------+--------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'JK_FF:FF1|QX'                                                                             ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack  ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; -0.469 ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 0.000        ; 0.543      ; 0.367      ;
+; 0.031  ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; JK_FF:FF1|QX ; -0.500       ; 0.543      ; 0.367      ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'JK_FF:FF0|QX'                                                                             ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack  ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; -0.396 ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 0.000        ; 0.470      ; 0.367      ;
+; 0.104  ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF1|QX ; JK_FF:FF0|QX ; -0.500       ; 0.470      ; 0.367      ;
++--------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'JK_FF:FF2|QX'                                                                            ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; Slack ; From Node    ; To Node      ; Launch Clock ; Latch Clock  ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+; 0.215 ; JK_FF:FF3|QX ; JK_FF:FF3|QX ; JK_FF:FF2|QX ; JK_FF:FF2|QX ; 0.000        ; 0.000      ; 0.367      ;
++-------+--------------+--------------+--------------+--------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clk'                                                         ;
++--------+--------------+----------------+------------------+-------+------------+--------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target       ;
++--------+--------------+----------------+------------------+-------+------------+--------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Fall       ; JK_FF:FF0|QX ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Fall       ; JK_FF:FF0|QX ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; FF0|QX|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; FF0|QX|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout  ;
++--------+--------------+----------------+------------------+-------+------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'JK_FF:FF0|QX'                                                        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; JK_FF:FF1|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Rise       ; JK_FF:FF1|QX  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; FF0|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Rise       ; FF0|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; FF1|QX|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Rise       ; FF1|QX|clk    ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'JK_FF:FF1|QX'                                                        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; JK_FF:FF2|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Rise       ; JK_FF:FF2|QX  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; FF1|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Rise       ; FF1|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; FF2|QX|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Rise       ; FF2|QX|clk    ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'JK_FF:FF2|QX'                                                        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; JK_FF:FF3|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Rise       ; JK_FF:FF3|QX  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; FF2|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Rise       ; FF2|QX|regout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; FF3|QX|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Rise       ; FF3|QX|clk    ;
++--------+--------------+----------------+------------------+--------------+------------+---------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+--------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+--------------+-------+-------+------------+-----------------+
+; cout[*]   ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 1.866 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
++-----------+--------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-----------+--------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+--------------+-------+-------+------------+-----------------+
+; cout[*]   ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 2.442 ; 1.866 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 1.866 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
++-----------+--------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+-------+--------+----------+---------+---------------------+
+; Clock            ; Setup ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-------+--------+----------+---------+---------------------+
+; Worst-case Slack ; 0.379 ; -1.988 ; N/A      ; N/A     ; -1.380              ;
+;  JK_FF:FF0|QX    ; 0.776 ; -0.688 ; N/A      ; N/A     ; -0.500              ;
+;  JK_FF:FF1|QX    ; 0.849 ; -0.836 ; N/A      ; N/A     ; -0.500              ;
+;  JK_FF:FF2|QX    ; 0.379 ; 0.215  ; N/A      ; N/A     ; -0.500              ;
+;  clk             ; 1.459 ; -1.988 ; N/A      ; N/A     ; -1.380              ;
+; Design-wide TNS  ; 0.0   ; -3.512 ; 0.0      ; 0.0     ; -5.38               ;
+;  JK_FF:FF0|QX    ; 0.000 ; -0.688 ; N/A      ; N/A     ; -1.000              ;
+;  JK_FF:FF1|QX    ; 0.000 ; -0.836 ; N/A      ; N/A     ; -1.000              ;
+;  JK_FF:FF2|QX    ; 0.000 ; 0.000  ; N/A      ; N/A     ; -1.000              ;
+;  clk             ; 0.000 ; -1.988 ; N/A      ; N/A     ; -2.380              ;
++------------------+-------+--------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+--------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+--------------+-------+-------+------------+-----------------+
+; cout[*]   ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 3.451 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
++-----------+--------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-----------+--------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+--------------+-------+-------+------------+-----------------+
+; cout[*]   ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 2.442 ; 1.866 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 1.866 ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
++-----------+--------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Transfers                                                         ;
++--------------+--------------+----------+----------+----------+----------+
+; From Clock   ; To Clock     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++--------------+--------------+----------+----------+----------+----------+
+; JK_FF:FF0|QX ; clk          ; 0        ; 0        ; 1        ; 1        ;
+; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 1        ; 1        ; 0        ; 0        ;
+; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 1        ; 1        ; 0        ; 0        ;
+; JK_FF:FF2|QX ; JK_FF:FF2|QX ; 1        ; 0        ; 0        ; 0        ;
++--------------+--------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------+
+; Hold Transfers                                                          ;
++--------------+--------------+----------+----------+----------+----------+
+; From Clock   ; To Clock     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++--------------+--------------+----------+----------+----------+----------+
+; JK_FF:FF0|QX ; clk          ; 0        ; 0        ; 1        ; 1        ;
+; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 1        ; 1        ; 0        ; 0        ;
+; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 1        ; 1        ; 0        ; 0        ;
+; JK_FF:FF2|QX ; JK_FF:FF2|QX ; 1        ; 0        ; 0        ; 0        ;
++--------------+--------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 5     ; 5    ;
+; Unconstrained Output Port Paths ; 5     ; 5    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Jun 03 08:40:55 2022
+Info: Command: quartus_sta contador_sincrono -c contador_sincrono
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'contador_sincrono.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name JK_FF:FF0|QX JK_FF:FF0|QX
+    Info (332105): create_clock -period 1.000 -name JK_FF:FF1|QX JK_FF:FF1|QX
+    Info (332105): create_clock -period 1.000 -name JK_FF:FF2|QX JK_FF:FF2|QX
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Info (332146): Worst-case setup slack is 0.379
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.379         0.000 JK_FF:FF2|QX 
+    Info (332119):     0.958         0.000 JK_FF:FF0|QX 
+    Info (332119):     1.106         0.000 JK_FF:FF1|QX 
+    Info (332119):     2.258         0.000 clk 
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case hold slack is -1.988
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.988        -1.988 clk 
+    Info (332119):    -0.836        -0.836 JK_FF:FF1|QX 
+    Info (332119):    -0.688        -0.688 JK_FF:FF0|QX 
+    Info (332119):     0.391         0.000 JK_FF:FF2|QX 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -2.380 clk 
+    Info (332119):    -0.500        -1.000 JK_FF:FF0|QX 
+    Info (332119):    -0.500        -1.000 JK_FF:FF1|QX 
+    Info (332119):    -0.500        -1.000 JK_FF:FF2|QX 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Info (332146): Worst-case setup slack is 0.665
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.665         0.000 JK_FF:FF2|QX 
+    Info (332119):     0.776         0.000 JK_FF:FF0|QX 
+    Info (332119):     0.849         0.000 JK_FF:FF1|QX 
+    Info (332119):     1.459         0.000 clk 
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case hold slack is -1.079
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.079        -1.079 clk 
+    Info (332119):    -0.469        -0.469 JK_FF:FF1|QX 
+    Info (332119):    -0.396        -0.396 JK_FF:FF0|QX 
+    Info (332119):     0.215         0.000 JK_FF:FF2|QX 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -2.380 clk 
+    Info (332119):    -0.500        -1.000 JK_FF:FF0|QX 
+    Info (332119):    -0.500        -1.000 JK_FF:FF1|QX 
+    Info (332119):    -0.500        -1.000 JK_FF:FF2|QX 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4519 megabytes
+    Info: Processing ended: Fri Jun 03 08:40:56 2022
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
