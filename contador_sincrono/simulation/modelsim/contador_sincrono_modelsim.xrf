@@ -1,6 +1,7 @@
 vendor_name = ModelSim
 source_file = 1, C:/xampp/htdocs/projects/VHDL/contador_sincrono/JK_FF.vhd
 source_file = 1, C:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono.vhd
+source_file = 1, C:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono_simple_tb.vhd
 source_file = 1, C:/xampp/htdocs/projects/VHDL/contador_sincrono/db/contador_sincrono.cbx.xml
 source_file = 1, c:/altera/13.0sp1/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
 source_file = 1, c:/altera/13.0sp1/quartus/libraries/vhdl/ieee/prmtvs_p.vhd

@@ -1,5 +1,5 @@
 EDA Netlist Writer report for contador_sincrono
-Fri Jun 03 08:40:57 2022
+Tue Jun 07 15:28:38 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri Jun 03 08:40:57 2022 ;
+; EDA Netlist Writer Status ; Successful - Tue Jun 07 15:28:38 2022 ;
 ; Revision Name             ; contador_sincrono                     ;
 ; Top-level Entity Name     ; contador_sincrono                     ;
 ; Family                    ; Cyclone II                            ;
@@ -84,13 +84,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jun 03 08:40:57 2022
+    Info: Processing started: Tue Jun 07 15:28:37 2022
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off contador_sincrono -c contador_sincrono
 Info (204026): Generated files "contador_sincrono.vho", "contador_sincrono_fast.vho", "contador_sincrono_vhd.sdo" and "contador_sincrono_vhd_fast.sdo" in directory "C:/xampp/htdocs/projects/VHDL/contador_sincrono/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4510 megabytes
-    Info: Processing ended: Fri Jun 03 08:40:57 2022
-    Info: Elapsed time: 00:00:00
+    Info: Processing ended: Tue Jun 07 15:28:38 2022
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 
 

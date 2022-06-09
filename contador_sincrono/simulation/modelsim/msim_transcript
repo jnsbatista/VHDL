@@ -22,18 +22,34 @@
 # -- Compiling entity contador_sincrono
 # -- Compiling architecture structure of contador_sincrono
 # 
-vsim +altera -do contador_sincrono_run_msim_gate_vhdl.do -l msim_transcript -gui -sdftyp /=C:/altera/13.0sp1/projetos/contador_sincrono/simulation/modelsim/contador_sincrono_vhd.sdo work.contador_sincrono
-# vsim +altera -do contador_sincrono_run_msim_gate_vhdl.do -l msim_transcript -gui -sdftyp /=C:/altera/13.0sp1/projetos/contador_sincrono/simulation/modelsim/contador_sincrono_vhd.sdo work.contador_sincrono 
+# vcom -93 -work work {C:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono_simple_tb.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity contador_sincrono_simple_tb
+# -- Compiling architecture arch of contador_sincrono_simple_tb
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneii_atom_pack
+# -- Loading package cycloneii_components
+# -- Loading entity contador_sincrono
+# 
+# vsim -t 1ps +transport_int_delays +transport_path_delays -sdftyp /U_contador_sincrono=contador_sincrono_vhd.sdo -L cycloneii -L gate_work -L work -voptargs="+acc"  contador_sincrono_simple_tb
+# vsim +transport_int_delays +transport_path_delays -L cycloneii -L gate_work -L work -voptargs=\"+acc\" -sdftyp /U_contador_sincrono=contador_sincrono_vhd.sdo -t 1ps contador_sincrono_simple_tb 
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
 # Loading cycloneii.cycloneii_atom_pack(body)
 # Loading cycloneii.cycloneii_components
-# Loading work.contador_sincrono(structure)
+# Loading work.contador_sincrono_simple_tb(arch)
 # SDF 10.1d Compiler 2012.11 Nov  2 2012
 # 
+# Loading work.contador_sincrono(structure)
 # Loading ieee.std_logic_arith(body)
 # Loading cycloneii.cycloneii_io(structure)
 # Loading cycloneii.cycloneii_mux21(altvital)
@@ -42,73 +58,14 @@ vsim +altera -do contador_sincrono_run_msim_gate_vhdl.do -l msim_transcript -gui
 # Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
 # Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
 # Loading cycloneii.cycloneii_and1(altvital)
-# Loading instances from C:/altera/13.0sp1/projetos/contador_sincrono/simulation/modelsim/contador_sincrono_vhd.sdo
-# Loading timing data from C:/altera/13.0sp1/projetos/contador_sincrono/simulation/modelsim/contador_sincrono_vhd.sdo
+# Loading instances from contador_sincrono_vhd.sdo
+# Loading timing data from contador_sincrono_vhd.sdo
 # ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
-#    Time: 0 ps  Iteration: 0  Instance: /contador_sincrono File: contador_sincrono.vho
-# do contador_sincrono_run_msim_gate_vhdl.do 
-# if {[file exists gate_work]} {
-# 	vdel -lib gate_work -all
-# }
-# vlib gate_work
-# vmap work gate_work
-# Modifying modelsim.ini
+#    Time: 0 ps  Iteration: 0  Instance: /contador_sincrono_simple_tb File: C:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono_simple_tb.vhd
 # 
-# vcom -93 -work work {contador_sincrono.vho}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package VITAL_Timing
-# -- Loading package VITAL_Primitives
-# -- Loading package cycloneii_atom_pack
-# -- Loading package cycloneii_components
-# -- Compiling entity contador_sincrono
-# -- Compiling architecture structure of contador_sincrono
-# 
-add wave  \
-sim:/contador_sincrono/cout \
-sim:/contador_sincrono/clk
-do C:/altera/13.0sp1/projetos/contador_sincrono/simulation/modelsim/stimulus.do
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 1000 ns

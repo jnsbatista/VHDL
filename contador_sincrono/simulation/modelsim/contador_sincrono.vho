@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
--- DATE "06/03/2022 08:40:57"
+-- DATE "06/07/2022 15:28:38"
 
 -- 
 -- Device: Altera EP2C35F672C6 Package FBGA672
@@ -70,7 +70,6 @@ SIGNAL \FF2|QX~0_combout\ : std_logic;
 SIGNAL \FF2|QX~regout\ : std_logic;
 SIGNAL \FF3|QX~0_combout\ : std_logic;
 SIGNAL \FF3|QX~regout\ : std_logic;
-SIGNAL \ALT_INV_clk~combout\ : std_logic;
 SIGNAL \FF3|ALT_INV_QX~regout\ : std_logic;
 SIGNAL \FF2|ALT_INV_QX~regout\ : std_logic;
 SIGNAL \FF1|ALT_INV_QX~regout\ : std_logic;
@@ -84,7 +83,6 @@ QRR <= ww_QRR;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
-\ALT_INV_clk~combout\ <= NOT \clk~combout\;
 \FF3|ALT_INV_QX~regout\ <= NOT \FF3|QX~regout\;
 \FF2|ALT_INV_QX~regout\ <= NOT \FF2|QX~regout\;
 \FF1|ALT_INV_QX~regout\ <= NOT \FF1|QX~regout\;
@@ -133,7 +131,7 @@ PORT MAP (
 -- Location: LCFF_X30_Y35_N1
 \FF0|QX\ : cycloneii_lcell_ff
 PORT MAP (
-	clk => \ALT_INV_clk~combout\,
+	clk => \clk~combout\,
 	datain => \FF0|QX~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
@@ -156,7 +154,7 @@ PORT MAP (
 -- Location: LCFF_X30_Y35_N31
 \FF1|QX\ : cycloneii_lcell_ff
 PORT MAP (
-	clk => \FF0|QX~regout\,
+	clk => \FF0|ALT_INV_QX~regout\,
 	datain => \FF1|QX~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
@@ -179,7 +177,7 @@ PORT MAP (
 -- Location: LCFF_X29_Y35_N13
 \FF2|QX\ : cycloneii_lcell_ff
 PORT MAP (
-	clk => \FF1|QX~regout\,
+	clk => \FF1|ALT_INV_QX~regout\,
 	datain => \FF2|QX~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
@@ -202,7 +200,7 @@ PORT MAP (
 -- Location: LCFF_X29_Y35_N1
 \FF3|QX\ : cycloneii_lcell_ff
 PORT MAP (
-	clk => \FF2|QX~regout\,
+	clk => \FF2|ALT_INV_QX~regout\,
 	datain => \FF3|QX~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
@@ -227,7 +225,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \FF0|ALT_INV_QX~regout\,
+	datain => \FF0|QX~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -253,7 +251,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \FF1|ALT_INV_QX~regout\,
+	datain => \FF1|QX~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -279,7 +277,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \FF2|ALT_INV_QX~regout\,
+	datain => \FF2|QX~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -305,7 +303,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \FF3|ALT_INV_QX~regout\,
+	datain => \FF3|QX~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -331,7 +329,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \FF3|QX~regout\,
+	datain => \FF3|ALT_INV_QX~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,

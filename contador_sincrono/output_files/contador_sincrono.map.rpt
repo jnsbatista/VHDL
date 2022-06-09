@@ -1,5 +1,5 @@
 Analysis & Synthesis report for contador_sincrono
-Fri Jun 03 08:40:45 2022
+Tue Jun 07 15:28:31 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -44,7 +44,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 03 08:40:45 2022           ;
+; Analysis & Synthesis Status        ; Successful - Tue Jun 07 15:28:31 2022           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; contador_sincrono                               ;
 ; Top-level Entity Name              ; contador_sincrono                               ;
@@ -270,7 +270,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jun 03 08:40:44 2022
+    Info: Processing started: Tue Jun 07 15:28:29 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off contador_sincrono -c contador_sincrono
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file jk_ff.vhd
@@ -279,6 +279,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file jk_ff.v
 Info (12021): Found 2 design units, including 1 entities, in source file contador_sincrono.vhd
     Info (12022): Found design unit 1: contador_sincrono-comportamento
     Info (12023): Found entity 1: contador_sincrono
+Info (12021): Found 2 design units, including 1 entities, in source file contador_sincrono_simple_tb.vhd
+    Info (12022): Found design unit 1: contador_sincrono_simple_tb-arch
+    Info (12023): Found entity 1: contador_sincrono_simple_tb
 Info (12127): Elaborating entity "contador_sincrono" for the top level hierarchy
 Info (12128): Elaborating entity "JK_FF" for hierarchy "JK_FF:FF0"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -288,9 +291,9 @@ Info (21057): Implemented 10 device resources after synthesis - the final resour
     Info (21059): Implemented 5 output pins
     Info (21061): Implemented 4 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4631 megabytes
-    Info: Processing ended: Fri Jun 03 08:40:45 2022
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4639 megabytes
+    Info: Processing ended: Tue Jun 07 15:28:31 2022
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

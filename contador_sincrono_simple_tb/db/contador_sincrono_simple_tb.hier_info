@@ -1,0 +1,68 @@
+|contador_sincrono_simple_tb
+
+
+|contador_sincrono_simple_tb|contador_sincrono:UUT
+clk => JK_FF:FF0.CLOCK
+cout[0] <= JK_FF:FF0.Q
+cout[1] <= JK_FF:FF1.Q
+cout[2] <= JK_FF:FF2.Q
+cout[3] <= JK_FF:FF3.Q
+QRR <= JK_FF:FF3.QR
+
+
+|contador_sincrono_simple_tb|contador_sincrono:UUT|JK_FF:FF0
+J => process_0.IN0
+J => process_0.IN0
+J => process_0.IN0
+J => process_0.IN0
+K => process_0.IN1
+K => process_0.IN1
+K => process_0.IN1
+K => process_0.IN1
+CLOCK => QX.CLK
+Q <= QX.DB_MAX_OUTPUT_PORT_TYPE
+QR <= QX.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|contador_sincrono_simple_tb|contador_sincrono:UUT|JK_FF:FF1
+J => process_0.IN0
+J => process_0.IN0
+J => process_0.IN0
+J => process_0.IN0
+K => process_0.IN1
+K => process_0.IN1
+K => process_0.IN1
+K => process_0.IN1
+CLOCK => QX.CLK
+Q <= QX.DB_MAX_OUTPUT_PORT_TYPE
+QR <= QX.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|contador_sincrono_simple_tb|contador_sincrono:UUT|JK_FF:FF2
+J => process_0.IN0
+J => process_0.IN0
+J => process_0.IN0
+J => process_0.IN0
+K => process_0.IN1
+K => process_0.IN1
+K => process_0.IN1
+K => process_0.IN1
+CLOCK => QX.CLK
+Q <= QX.DB_MAX_OUTPUT_PORT_TYPE
+QR <= QX.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|contador_sincrono_simple_tb|contador_sincrono:UUT|JK_FF:FF3
+J => process_0.IN0
+J => process_0.IN0
+J => process_0.IN0
+J => process_0.IN0
+K => process_0.IN1
+K => process_0.IN1
+K => process_0.IN1
+K => process_0.IN1
+CLOCK => QX.CLK
+Q <= QX.DB_MAX_OUTPUT_PORT_TYPE
+QR <= QX.DB_MAX_OUTPUT_PORT_TYPE
+
+

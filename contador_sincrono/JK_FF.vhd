@@ -1,12 +1,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_arith.all;
-use ieee.std_logic_unsigned.all;
-
 
 entity JK_FF is
 	PORT( J, K, CLOCK: in std_logic;
-			Q, QR: out std_logic);
+			Q, QN: out std_logic);
 end JK_FF;
  
 Architecture behavioral of JK_FF is
@@ -22,6 +19,6 @@ begin
 				end if;
 			end if;
 	end process;
-	Q <= not QX;
-	QR <= QX;
+	QN <= not QX;
+	Q <= QX;
 end behavioral;

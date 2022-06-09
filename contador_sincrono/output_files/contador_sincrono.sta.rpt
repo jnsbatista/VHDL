@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for contador_sincrono
-Fri Jun 03 08:40:56 2022
+Fri Jun 03 22:23:18 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -104,13 +104,13 @@ applicable agreement for further details.
 +--------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------+
 
 
-+------------------------------------------------------------------------------------------------------+
-; Slow Model Fmax Summary                                                                              ;
-+-------------+-----------------+--------------+-------------------------------------------------------+
-; Fmax        ; Restricted Fmax ; Clock Name   ; Note                                                  ;
-+-------------+-----------------+--------------+-------------------------------------------------------+
-; 1610.31 MHz ; 500.0 MHz       ; JK_FF:FF2|QX ; limit due to high minimum pulse width violation (tch) ;
-+-------------+-----------------+--------------+-------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                             ;
++-------------+-----------------+--------------+------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name   ; Note                                                 ;
++-------------+-----------------+--------------+------------------------------------------------------+
+; 1610.31 MHz ; 500.0 MHz       ; JK_FF:FF2|QX ; limit due to low minimum pulse width violation (tcl) ;
++-------------+-----------------+--------------+------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -246,8 +246,8 @@ No paths to report.
 ; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target       ;
 +--------+--------------+----------------+------------------+-------+------------+--------------+
 ; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk          ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Fall       ; JK_FF:FF0|QX ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Fall       ; JK_FF:FF0|QX ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; JK_FF:FF0|QX ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; JK_FF:FF0|QX ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; FF0|QX|clk   ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; FF0|QX|clk   ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout  ;
@@ -260,8 +260,8 @@ No paths to report.
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
 ; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; JK_FF:FF1|QX  ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Rise       ; JK_FF:FF1|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF0|QX ; Fall       ; JK_FF:FF1|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Fall       ; JK_FF:FF1|QX  ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; FF0|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Rise       ; FF0|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; FF1|QX|clk    ;
@@ -274,8 +274,8 @@ No paths to report.
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
 ; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; JK_FF:FF2|QX  ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Rise       ; JK_FF:FF2|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF1|QX ; Fall       ; JK_FF:FF2|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Fall       ; JK_FF:FF2|QX  ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; FF1|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Rise       ; FF1|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; FF2|QX|clk    ;
@@ -288,8 +288,8 @@ No paths to report.
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
 ; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; JK_FF:FF3|QX  ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Rise       ; JK_FF:FF3|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF2|QX ; Fall       ; JK_FF:FF3|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Fall       ; JK_FF:FF3|QX  ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; FF2|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Rise       ; FF2|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; FF3|QX|clk    ;
@@ -302,20 +302,20 @@ No paths to report.
 +-----------+--------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+--------------+-------+-------+------------+-----------------+
-; cout[*]   ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
-; QRR       ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ;       ; 3.451 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[3]  ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 3.647 ;       ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 3.647 ;       ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ;       ; 3.647 ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 3.647 ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 3.442 ;       ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 3.442 ;       ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 3.442 ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 3.442 ; Fall       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 3.451 ;       ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 3.451 ;       ; Rise       ; JK_FF:FF2|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 3.451 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Fall       ; JK_FF:FF2|QX    ;
 +-----------+--------------+-------+-------+------------+-----------------+
 
 
@@ -324,20 +324,20 @@ No paths to report.
 +-----------+--------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+--------------+-------+-------+------------+-----------------+
-; cout[*]   ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
-; QRR       ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 4.489 ; 3.451 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ;       ; 3.451 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[3]  ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 3.647 ;       ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 3.647 ;       ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ;       ; 3.647 ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 3.647 ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 3.442 ;       ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 3.442 ;       ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 3.442 ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 3.442 ; Fall       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 3.451 ;       ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 3.451 ;       ; Rise       ; JK_FF:FF2|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 4.489 ; 3.451 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 3.451 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Fall       ; JK_FF:FF2|QX    ;
 +-----------+--------------+-------+-------+------------+-----------------+
 
 
@@ -473,8 +473,8 @@ No paths to report.
 ; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target       ;
 +--------+--------------+----------------+------------------+-------+------------+--------------+
 ; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk          ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Fall       ; JK_FF:FF0|QX ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Fall       ; JK_FF:FF0|QX ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; JK_FF:FF0|QX ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; JK_FF:FF0|QX ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; FF0|QX|clk   ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; FF0|QX|clk   ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout  ;
@@ -487,8 +487,8 @@ No paths to report.
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
 ; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; JK_FF:FF1|QX  ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Rise       ; JK_FF:FF1|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF0|QX ; Fall       ; JK_FF:FF1|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Fall       ; JK_FF:FF1|QX  ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; FF0|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF0|QX ; Rise       ; FF0|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF0|QX ; Rise       ; FF1|QX|clk    ;
@@ -501,8 +501,8 @@ No paths to report.
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
 ; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; JK_FF:FF2|QX  ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Rise       ; JK_FF:FF2|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF1|QX ; Fall       ; JK_FF:FF2|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Fall       ; JK_FF:FF2|QX  ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; FF1|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF1|QX ; Rise       ; FF1|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF1|QX ; Rise       ; FF2|QX|clk    ;
@@ -515,8 +515,8 @@ No paths to report.
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
 ; Slack  ; Actual Width ; Required Width ; Type             ; Clock        ; Clock Edge ; Target        ;
 +--------+--------------+----------------+------------------+--------------+------------+---------------+
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; JK_FF:FF3|QX  ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Rise       ; JK_FF:FF3|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; JK_FF:FF2|QX ; Fall       ; JK_FF:FF3|QX  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Fall       ; JK_FF:FF3|QX  ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; FF2|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; JK_FF:FF2|QX ; Rise       ; FF2|QX|regout ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; JK_FF:FF2|QX ; Rise       ; FF3|QX|clk    ;
@@ -529,20 +529,20 @@ No paths to report.
 +-----------+--------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+--------------+-------+-------+------------+-----------------+
-; cout[*]   ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
-; QRR       ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ;       ; 1.866 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[3]  ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 1.942 ;       ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 1.942 ;       ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ;       ; 1.942 ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 1.942 ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 1.855 ;       ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 1.855 ;       ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 1.855 ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 1.855 ; Fall       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 1.866 ;       ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 1.866 ;       ; Rise       ; JK_FF:FF2|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 1.866 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Fall       ; JK_FF:FF2|QX    ;
 +-----------+--------------+-------+-------+------------+-----------------+
 
 
@@ -551,20 +551,20 @@ No paths to report.
 +-----------+--------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+--------------+-------+-------+------------+-----------------+
-; cout[*]   ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
-; QRR       ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 2.442 ; 1.866 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ;       ; 1.866 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[3]  ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 1.942 ;       ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 1.942 ;       ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ;       ; 1.942 ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 1.942 ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 1.855 ;       ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 1.855 ;       ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 1.855 ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 1.855 ; Fall       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 1.866 ;       ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 1.866 ;       ; Rise       ; JK_FF:FF2|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 2.442 ; 1.866 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 1.866 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Fall       ; JK_FF:FF2|QX    ;
 +-----------+--------------+-------+-------+------------+-----------------+
 
 
@@ -591,20 +591,20 @@ No paths to report.
 +-----------+--------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+--------------+-------+-------+------------+-----------------+
-; cout[*]   ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ;       ; 3.647 ; Rise       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ; 3.647 ;       ; Fall       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ;       ; 3.442 ; Rise       ; JK_FF:FF1|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ; 3.442 ;       ; Fall       ; JK_FF:FF1|QX    ;
-; QRR       ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ;       ; 3.451 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[3]  ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ; 3.451 ;       ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 3.647 ;       ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 3.647 ;       ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ;       ; 3.647 ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 3.647 ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 3.442 ;       ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 3.442 ;       ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 3.442 ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 3.442 ; Fall       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 3.451 ;       ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 3.451 ;       ; Rise       ; JK_FF:FF2|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 3.451 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 4.489 ; 4.489 ; Fall       ; JK_FF:FF2|QX    ;
 +-----------+--------------+-------+-------+------------+-----------------+
 
 
@@ -613,20 +613,20 @@ No paths to report.
 +-----------+--------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port   ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+--------------+-------+-------+------------+-----------------+
-; cout[*]   ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ;       ; 1.942 ; Rise       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
-;  cout[0]  ; JK_FF:FF0|QX ; 1.942 ;       ; Fall       ; JK_FF:FF0|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ;       ; 1.855 ; Rise       ; JK_FF:FF1|QX    ;
-; cout[*]   ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
-;  cout[1]  ; JK_FF:FF1|QX ; 1.855 ;       ; Fall       ; JK_FF:FF1|QX    ;
-; QRR       ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 2.442 ; 1.866 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ;       ; 1.866 ; Rise       ; JK_FF:FF2|QX    ;
-;  cout[3]  ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Rise       ; JK_FF:FF2|QX    ;
-; cout[*]   ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
-;  cout[2]  ; JK_FF:FF2|QX ; 1.866 ;       ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ; 1.942 ;       ; Rise       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ; 1.942 ;       ; Rise       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF0|QX ;       ; 1.942 ; Fall       ; JK_FF:FF0|QX    ;
+;  cout[0]  ; JK_FF:FF0|QX ;       ; 1.942 ; Fall       ; JK_FF:FF0|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ; 1.855 ;       ; Rise       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ; 1.855 ;       ; Rise       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF1|QX ;       ; 1.855 ; Fall       ; JK_FF:FF1|QX    ;
+;  cout[1]  ; JK_FF:FF1|QX ;       ; 1.855 ; Fall       ; JK_FF:FF1|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 1.866 ;       ; Rise       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ; 1.866 ;       ; Rise       ; JK_FF:FF2|QX    ;
+; QRR       ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Fall       ; JK_FF:FF2|QX    ;
+; cout[*]   ; JK_FF:FF2|QX ; 2.442 ; 1.866 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[2]  ; JK_FF:FF2|QX ;       ; 1.866 ; Fall       ; JK_FF:FF2|QX    ;
+;  cout[3]  ; JK_FF:FF2|QX ; 2.442 ; 2.442 ; Fall       ; JK_FF:FF2|QX    ;
 +-----------+--------------+-------+-------+------------+-----------------+
 
 
@@ -635,10 +635,10 @@ No paths to report.
 +--------------+--------------+----------+----------+----------+----------+
 ; From Clock   ; To Clock     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------+--------------+----------+----------+----------+----------+
-; JK_FF:FF0|QX ; clk          ; 0        ; 0        ; 1        ; 1        ;
-; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 1        ; 1        ; 0        ; 0        ;
-; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 1        ; 1        ; 0        ; 0        ;
-; JK_FF:FF2|QX ; JK_FF:FF2|QX ; 1        ; 0        ; 0        ; 0        ;
+; JK_FF:FF0|QX ; clk          ; 1        ; 1        ; 0        ; 0        ;
+; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 0        ; 0        ; 1        ; 1        ;
+; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 0        ; 0        ; 1        ; 1        ;
+; JK_FF:FF2|QX ; JK_FF:FF2|QX ; 0        ; 0        ; 0        ; 1        ;
 +--------------+--------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -648,10 +648,10 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------+--------------+----------+----------+----------+----------+
 ; From Clock   ; To Clock     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------+--------------+----------+----------+----------+----------+
-; JK_FF:FF0|QX ; clk          ; 0        ; 0        ; 1        ; 1        ;
-; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 1        ; 1        ; 0        ; 0        ;
-; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 1        ; 1        ; 0        ; 0        ;
-; JK_FF:FF2|QX ; JK_FF:FF2|QX ; 1        ; 0        ; 0        ; 0        ;
+; JK_FF:FF0|QX ; clk          ; 1        ; 1        ; 0        ; 0        ;
+; JK_FF:FF1|QX ; JK_FF:FF0|QX ; 0        ; 0        ; 1        ; 1        ;
+; JK_FF:FF2|QX ; JK_FF:FF1|QX ; 0        ; 0        ; 1        ; 1        ;
+; JK_FF:FF2|QX ; JK_FF:FF2|QX ; 0        ; 0        ; 0        ; 1        ;
 +--------------+--------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -688,7 +688,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jun 03 08:40:55 2022
+    Info: Processing started: Fri Jun 03 22:23:17 2022
 Info: Command: quartus_sta contador_sincrono -c contador_sincrono
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -758,7 +758,7 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 4519 megabytes
-    Info: Processing ended: Fri Jun 03 08:40:56 2022
+    Info: Processing ended: Fri Jun 03 22:23:18 2022
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

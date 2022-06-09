@@ -1,0 +1,113 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\xampp\htdocs\projects\VHDL\contador_sincrono\simulation\modelsim
+Econtador_sincrono
+Z1 w1654300679
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\xampp\htdocs\projects\VHDL\contador_sincrono\simulation\modelsim
+Z5 8C:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono.vhd
+Z6 FC:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono.vhd
+l0
+L4
+VT?K:Y3M4>IY6O]_T0bB533
+Z7 OV;C;10.1d;51
+31
+Z8 !s108 1654304618.463000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono.vhd|
+Z10 !s107 C:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono.vhd|
+Z11 o-93 -work work -O0
+Z12 tExplicit 1
+!s100 8hfY94i6OizegL9OX5c>:2
+!i10b 1
+Acomportamento
+R2
+R3
+Z13 DEx4 work 17 contador_sincrono 0 22 T?K:Y3M4>IY6O]_T0bB533
+l18
+L10
+V1>UFDd@h1XKi?Iz70YLh^2
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 _Q2908hnb?H6bClPQQ3GL2
+!i10b 1
+Econtador_sincrono_simple_tb
+Z14 w1654279014
+Z15 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R2
+R3
+R4
+Z16 8C:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono_simple_tb.vhd
+Z17 FC:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono_simple_tb.vhd
+l0
+L5
+V^]]3abohS[?>GT_=n2oaD0
+!s100 Ll29PFf9U;]C6_D=9dk340
+R7
+31
+!i10b 1
+Z18 !s108 1654304618.543000
+Z19 !s90 -reportprogress|300|-93|-work|work|C:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono_simple_tb.vhd|
+Z20 !s107 C:/xampp/htdocs/projects/VHDL/contador_sincrono/contador_sincrono_simple_tb.vhd|
+R11
+R12
+Aarch
+R13
+R15
+R2
+R3
+DEx4 work 27 contador_sincrono_simple_tb 0 22 ^]]3abohS[?>GT_=n2oaD0
+l17
+L9
+VNb7m6DEHBN<g>Oh@Ug6F^0
+!s100 8IV98IUeQ7PeocQNd[iJ03
+R7
+31
+!i10b 1
+R18
+R19
+R20
+R11
+R12
+Ejk_ff
+Z21 w1654299064
+R2
+R3
+R4
+Z22 8C:/xampp/htdocs/projects/VHDL/contador_sincrono/JK_FF.vhd
+Z23 FC:/xampp/htdocs/projects/VHDL/contador_sincrono/JK_FF.vhd
+l0
+L4
+VfH6l_O_^3<QoGWflGg3c;0
+R7
+31
+Z24 !s108 1654304618.336000
+Z25 !s90 -reportprogress|300|-93|-work|work|C:/xampp/htdocs/projects/VHDL/contador_sincrono/JK_FF.vhd|
+Z26 !s107 C:/xampp/htdocs/projects/VHDL/contador_sincrono/JK_FF.vhd|
+R11
+R12
+!s100 D<X]h3OIG=b_iYDgNPfzY0
+!i10b 1
+Abehavioral
+R2
+R3
+DEx4 work 5 jk_ff 0 22 fH6l_O_^3<QoGWflGg3c;0
+l11
+L9
+VgzdK@McGFDT3^945zl>1F3
+R7
+31
+R24
+R25
+R26
+R11
+R12
+!s100 LC<>nL<?nE04h?<BG?IKl0
+!i10b 1
