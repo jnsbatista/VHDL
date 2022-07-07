@@ -1,0 +1,32 @@
+|semaforo
+rst => prox_estado.vermelho.OUTPUTSELECT
+rst => prox_estado.amarelo.OUTPUTSELECT
+rst => prox_estado.verde.OUTPUTSELECT
+rst => estado~3.DATAIN
+rst => VD~reg0.ENA
+rst => AM~reg0.ENA
+rst => VM~reg0.ENA
+rst => contagem[6].ENA
+rst => contagem[5].ENA
+rst => contagem[4].ENA
+rst => contagem[3].ENA
+rst => contagem[2].ENA
+rst => contagem[1].ENA
+rst => contagem[0].ENA
+clk => contagem[0].CLK
+clk => contagem[1].CLK
+clk => contagem[2].CLK
+clk => contagem[3].CLK
+clk => contagem[4].CLK
+clk => contagem[5].CLK
+clk => contagem[6].CLK
+clk => VM~reg0.CLK
+clk => AM~reg0.CLK
+clk => VD~reg0.CLK
+clk => prox_estado~4.DATAIN
+clk => estado~1.DATAIN
+VD <= VD~reg0.DB_MAX_OUTPUT_PORT_TYPE
+AM <= AM~reg0.DB_MAX_OUTPUT_PORT_TYPE
+VM <= VM~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

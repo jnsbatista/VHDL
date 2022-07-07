@@ -1,0 +1,15 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+
+ENTITY comparador1 IS
+PORT (a : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      s : OUT STD_LOGIC);
+END comparador1;
+
+ARCHITECTURE estrutura OF comparador1 IS
+BEGIN
+	WITH a SELECT
+          s <= '1' WHEN "0000",
+					'0' WHEN OTHERS;
+END estrutura;

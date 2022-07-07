@@ -1,0 +1,461 @@
+Analysis & Synthesis report for multiplicador_grupo7
+Sun Jun 19 20:09:58 2022
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |multiplicador_grupo7|state
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Port Connectivity Checks: "bo:blocop|comparador2:comparaQ"
+ 12. Port Connectivity Checks: "bo:blocop|mux211:muxQM"
+ 13. Port Connectivity Checks: "bo:blocop|somadorsubtrator:somasubC"
+ 14. Port Connectivity Checks: "bo:blocop|mux214:muxCONT"
+ 15. Port Connectivity Checks: "bo:blocop|mux214:muxA"
+ 16. Port Connectivity Checks: "bo:blocop"
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Jun 19 20:09:58 2022           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; multiplicador_grupo7                            ;
+; Top-level Entity Name              ; multiplicador_grupo7                            ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 0                                               ;
+;     Total combinational functions  ; 0                                               ;
+;     Dedicated logic registers      ; 0                                               ;
+; Total registers                    ; 0                                               ;
+; Total pins                         ; 11                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                            ;
++----------------------------------------------------------------------------+----------------------+----------------------+
+; Option                                                                     ; Setting              ; Default Value        ;
++----------------------------------------------------------------------------+----------------------+----------------------+
+; Device                                                                     ; EP2C35F672C6         ;                      ;
+; Top-level entity name                                                      ; multiplicador_grupo7 ; multiplicador_grupo7 ;
+; Family name                                                                ; Cyclone II           ; Cyclone IV GX        ;
+; Use smart compilation                                                      ; Off                  ; Off                  ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                   ; On                   ;
+; Enable compact report table                                                ; Off                  ; Off                  ;
+; Restructure Multiplexers                                                   ; Auto                 ; Auto                 ;
+; Create Debugging Nodes for IP Cores                                        ; Off                  ; Off                  ;
+; Preserve fewer node names                                                  ; On                   ; On                   ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                  ; Off                  ;
+; Verilog Version                                                            ; Verilog_2001         ; Verilog_2001         ;
+; VHDL Version                                                               ; VHDL_1993            ; VHDL_1993            ;
+; State Machine Processing                                                   ; Auto                 ; Auto                 ;
+; Safe State Machine                                                         ; Off                  ; Off                  ;
+; Extract Verilog State Machines                                             ; On                   ; On                   ;
+; Extract VHDL State Machines                                                ; On                   ; On                   ;
+; Ignore Verilog initial constructs                                          ; Off                  ; Off                  ;
+; Iteration limit for constant Verilog loops                                 ; 5000                 ; 5000                 ;
+; Iteration limit for non-constant Verilog loops                             ; 250                  ; 250                  ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                   ; On                   ;
+; Infer RAMs from Raw Logic                                                  ; On                   ; On                   ;
+; Parallel Synthesis                                                         ; On                   ; On                   ;
+; DSP Block Balancing                                                        ; Auto                 ; Auto                 ;
+; NOT Gate Push-Back                                                         ; On                   ; On                   ;
+; Power-Up Don't Care                                                        ; On                   ; On                   ;
+; Remove Redundant Logic Cells                                               ; Off                  ; Off                  ;
+; Remove Duplicate Registers                                                 ; On                   ; On                   ;
+; Ignore CARRY Buffers                                                       ; Off                  ; Off                  ;
+; Ignore CASCADE Buffers                                                     ; Off                  ; Off                  ;
+; Ignore GLOBAL Buffers                                                      ; Off                  ; Off                  ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                  ; Off                  ;
+; Ignore LCELL Buffers                                                       ; Off                  ; Off                  ;
+; Ignore SOFT Buffers                                                        ; On                   ; On                   ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                  ; Off                  ;
+; Optimization Technique                                                     ; Balanced             ; Balanced             ;
+; Carry Chain Length                                                         ; 70                   ; 70                   ;
+; Auto Carry Chains                                                          ; On                   ; On                   ;
+; Auto Open-Drain Pins                                                       ; On                   ; On                   ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                  ; Off                  ;
+; Auto ROM Replacement                                                       ; On                   ; On                   ;
+; Auto RAM Replacement                                                       ; On                   ; On                   ;
+; Auto Shift Register Replacement                                            ; Auto                 ; Auto                 ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                 ; Auto                 ;
+; Auto Clock Enable Replacement                                              ; On                   ; On                   ;
+; Strict RAM Replacement                                                     ; Off                  ; Off                  ;
+; Allow Synchronous Control Signals                                          ; On                   ; On                   ;
+; Force Use of Synchronous Clear Signals                                     ; Off                  ; Off                  ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                  ; Off                  ;
+; Auto Resource Sharing                                                      ; Off                  ; Off                  ;
+; Allow Any RAM Size For Recognition                                         ; Off                  ; Off                  ;
+; Allow Any ROM Size For Recognition                                         ; Off                  ; Off                  ;
+; Allow Any Shift Register Size For Recognition                              ; Off                  ; Off                  ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                   ; On                   ;
+; Ignore translate_off and synthesis_off directives                          ; Off                  ; Off                  ;
+; Timing-Driven Synthesis                                                    ; Off                  ; Off                  ;
+; Report Parameter Settings                                                  ; On                   ; On                   ;
+; Report Source Assignments                                                  ; On                   ; On                   ;
+; Report Connectivity Checks                                                 ; On                   ; On                   ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                  ; Off                  ;
+; Synchronization Register Chain Length                                      ; 2                    ; 2                    ;
+; PowerPlay Power Optimization                                               ; Normal compilation   ; Normal compilation   ;
+; HDL message level                                                          ; Level2               ; Level2               ;
+; Suppress Register Optimization Related Messages                            ; Off                  ; Off                  ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                 ; 5000                 ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                 ; 5000                 ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                  ; 100                  ;
+; Clock MUX Protection                                                       ; On                   ; On                   ;
+; Auto Gated Clock Conversion                                                ; Off                  ; Off                  ;
+; Block Design Naming                                                        ; Auto                 ; Auto                 ;
+; SDC constraint protection                                                  ; Off                  ; Off                  ;
+; Synthesis Effort                                                           ; Auto                 ; Auto                 ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                   ; On                   ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                  ; Off                  ;
+; Analysis & Synthesis Message Level                                         ; Medium               ; Medium               ;
+; Disable Register Merging Across Hierarchies                                ; Auto                 ; Auto                 ;
+; Resource Aware Inference For Block RAM                                     ; On                   ; On                   ;
+; Synthesis Seed                                                             ; 1                    ; 1                    ;
++----------------------------------------------------------------------------+----------------------+----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+-----------------------+-----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                                                ; Library ;
++----------------------------------+-----------------+-----------------------+-----------------------------------------------------------------------------+---------+
+; multiplicador_grupo7.vhd         ; yes             ; User VHDL File        ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/multiplicador_grupo7.vhd ;         ;
+; bo.vhd                           ; yes             ; User VHDL File        ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/bo.vhd                   ;         ;
+; mux214.vhd                       ; yes             ; User VHDL File        ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/mux214.vhd               ;         ;
+; mux211.vhd                       ; yes             ; User VHDL File        ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/mux211.vhd               ;         ;
+; mux218.vhd                       ; yes             ; User VHDL File        ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/mux218.vhd               ;         ;
+; registrador4.vhd                 ; yes             ; User VHDL File        ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/registrador4.vhd         ;         ;
+; registrador1.vhd                 ; yes             ; User VHDL File        ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/registrador1.vhd         ;         ;
+; somadorsubtrator.vhd             ; yes             ; User VHDL File        ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/somadorsubtrator.vhd     ;         ;
+; deslocador.vhd                   ; yes             ; User VHDL File        ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/deslocador.vhd           ;         ;
+; comparador1.vhd                  ; yes             ; User VHDL File        ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/comparador1.vhd          ;         ;
+; comparador2.vhd                  ; yes             ; Auto-Found VHDL File  ; C:/xampp/htdocs/projects/VHDL/multiplicador_grupo7/comparador2.vhd          ;         ;
++----------------------------------+-----------------+-----------------------+-----------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 11    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                           ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name   ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------+--------------+
+; |multiplicador_grupo7      ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 11   ; 0            ; |multiplicador_grupo7 ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------+
+; State Machine - |multiplicador_grupo7|state                                             ;
++-----------+----------+----------+-----------+----------+----------+----------+----------+
+; Name      ; state.S5 ; state.S4 ; state.S31 ; state.S3 ; state.S2 ; state.S1 ; state.S0 ;
++-----------+----------+----------+-----------+----------+----------+----------+----------+
+; state.S0  ; 0        ; 0        ; 0         ; 0        ; 0        ; 0        ; 0        ;
+; state.S1  ; 0        ; 0        ; 0         ; 0        ; 0        ; 1        ; 1        ;
+; state.S2  ; 0        ; 0        ; 0         ; 0        ; 1        ; 0        ; 1        ;
+; state.S3  ; 0        ; 0        ; 0         ; 1        ; 0        ; 0        ; 1        ;
+; state.S31 ; 0        ; 0        ; 1         ; 0        ; 0        ; 0        ; 1        ;
+; state.S4  ; 0        ; 1        ; 0         ; 0        ; 0        ; 0        ; 1        ;
+; state.S5  ; 1        ; 0        ; 0         ; 0        ; 0        ; 0        ; 1        ;
++-----------+----------+----------+-----------+----------+----------+----------+----------+
+
+
++---------------------------------------------------------------------+
+; Registers Removed During Synthesis                                  ;
++------------------------------------------------+--------------------+
+; Register name                                  ; Reason for Removal ;
++------------------------------------------------+--------------------+
+; bo:blocop|registrador4:registradorCONT|q[0..3] ; Lost fanout        ;
+; state.S0                                       ; Lost fanout        ;
+; state.S1                                       ; Lost fanout        ;
+; state.S2                                       ; Lost fanout        ;
+; state.S3                                       ; Lost fanout        ;
+; state.S31                                      ; Lost fanout        ;
+; state.S4                                       ; Lost fanout        ;
+; state.S5                                       ; Lost fanout        ;
+; Total Number of Removed Registers = 11         ;                    ;
++------------------------------------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                    ;
++---------------------------------------------+--------------------+-------------------------------------------------------------+
+; Register name                               ; Reason for Removal ; Registers Removed due to This Register                      ;
++---------------------------------------------+--------------------+-------------------------------------------------------------+
+; bo:blocop|registrador4:registradorCONT|q[0] ; Lost Fanouts       ; state.S0, state.S1, state.S2, state.S3, state.S31, state.S4 ;
+; bo:blocop|registrador4:registradorCONT|q[1] ; Lost Fanouts       ; bo:blocop|registrador4:registradorCONT|q[2],                ;
+;                                             ;                    ; bo:blocop|registrador4:registradorCONT|q[3]                 ;
++---------------------------------------------+--------------------+-------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bo:blocop|comparador2:comparaQ"                                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; s[1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "bo:blocop|mux211:muxQM" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; b    ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "bo:blocop|somadorsubtrator:somasubC" ;
++---------+-------+----------+------------------------------------+
+; Port    ; Type  ; Severity ; Details                            ;
++---------+-------+----------+------------------------------------+
+; b[3..1] ; Input ; Info     ; Stuck at GND                       ;
+; b[0]    ; Input ; Info     ; Stuck at VCC                       ;
++---------+-------+----------+------------------------------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "bo:blocop|mux214:muxCONT" ;
++---------+-------+----------+-------------------------+
+; Port    ; Type  ; Severity ; Details                 ;
++---------+-------+----------+-------------------------+
+; a[1..0] ; Input ; Info     ; Stuck at GND            ;
+; a[3]    ; Input ; Info     ; Stuck at GND            ;
+; a[2]    ; Input ; Info     ; Stuck at VCC            ;
++---------+-------+----------+-------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "bo:blocop|mux214:muxA" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; b    ; Input ; Info     ; Stuck at GND            ;
++------+-------+----------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bo:blocop"                                                                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; opcont ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; zqm    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; zq     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; za     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cm     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ca     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cq     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ccomp  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cdesl  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; saida  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun Jun 19 20:09:57 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off multiplicador_grupo7 -c multiplicador_grupo7
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file multiplicador_grupo7.vhd
+    Info (12022): Found design unit 1: multiplicador_grupo7-estrutura
+    Info (12023): Found entity 1: multiplicador_grupo7
+Info (12021): Found 2 design units, including 1 entities, in source file bo.vhd
+    Info (12022): Found design unit 1: bo-estrutura
+    Info (12023): Found entity 1: bo
+Info (12021): Found 2 design units, including 1 entities, in source file mux214.vhd
+    Info (12022): Found design unit 1: mux214-comportamento
+    Info (12023): Found entity 1: mux214
+Info (12021): Found 2 design units, including 1 entities, in source file mux211.vhd
+    Info (12022): Found design unit 1: mux211-comportamento
+    Info (12023): Found entity 1: mux211
+Info (12021): Found 2 design units, including 1 entities, in source file mux218.vhd
+    Info (12022): Found design unit 1: mux218-comportamento
+    Info (12023): Found entity 1: mux218
+Info (12021): Found 2 design units, including 1 entities, in source file registrador4.vhd
+    Info (12022): Found design unit 1: registrador4-estrutura
+    Info (12023): Found entity 1: registrador4
+Info (12021): Found 2 design units, including 1 entities, in source file registrador1.vhd
+    Info (12022): Found design unit 1: registrador1-estrutura
+    Info (12023): Found entity 1: registrador1
+Info (12021): Found 2 design units, including 1 entities, in source file somadorsubtrator.vhd
+    Info (12022): Found design unit 1: somadorsubtrator-estrutura
+    Info (12023): Found entity 1: somadorsubtrator
+Info (12021): Found 2 design units, including 1 entities, in source file deslocador.vhd
+    Info (12022): Found design unit 1: deslocador-estrutura
+    Info (12023): Found entity 1: deslocador
+Warning (12019): Can't analyze file -- file comparador.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file comparador1.vhd
+    Info (12022): Found design unit 1: comparador1-estrutura
+    Info (12023): Found entity 1: comparador1
+Info (12127): Elaborating entity "multiplicador_grupo7" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at multiplicador_grupo7.vhd(28): object "saida" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at multiplicador_grupo7.vhd(29): used implicit default value for signal "zdesl" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at multiplicador_grupo7.vhd(29): used implicit default value for signal "cqm" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "zq", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "zqm", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "za", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "zcont", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "ccont", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "opcont", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "cm", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "ca", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "cq", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "ccomp", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplicador_grupo7.vhd(79): inferring latch(es) for signal or variable "cdesl", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "cdesl" at multiplicador_grupo7.vhd(79)
+Info (10041): Inferred latch for "ccomp" at multiplicador_grupo7.vhd(79)
+Info (10041): Inferred latch for "cq" at multiplicador_grupo7.vhd(79)
+Info (10041): Inferred latch for "ca" at multiplicador_grupo7.vhd(79)
+Info (10041): Inferred latch for "cm" at multiplicador_grupo7.vhd(79)
+Info (10041): Inferred latch for "opcont" at multiplicador_grupo7.vhd(79)
+Info (10041): Inferred latch for "ccont" at multiplicador_grupo7.vhd(79)
+Info (10041): Inferred latch for "zcont" at multiplicador_grupo7.vhd(79)
+Info (10041): Inferred latch for "za" at multiplicador_grupo7.vhd(79)
+Info (10041): Inferred latch for "zqm" at multiplicador_grupo7.vhd(79)
+Info (10041): Inferred latch for "zq" at multiplicador_grupo7.vhd(79)
+Info (12128): Elaborating entity "bo" for hierarchy "bo:blocop"
+Info (12128): Elaborating entity "mux214" for hierarchy "bo:blocop|mux214:muxQ"
+Info (12128): Elaborating entity "registrador4" for hierarchy "bo:blocop|registrador4:registradorM"
+Warning (10492): VHDL Process Statement warning at registrador4.vhd(15): signal "carga" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "somadorsubtrator" for hierarchy "bo:blocop|somadorsubtrator:somasubM"
+Info (12128): Elaborating entity "mux211" for hierarchy "bo:blocop|mux211:muxQM"
+Info (12128): Elaborating entity "registrador1" for hierarchy "bo:blocop|registrador1:regQM"
+Warning (10492): VHDL Process Statement warning at registrador1.vhd(15): signal "carga" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "comparador1" for hierarchy "bo:blocop|comparador1:comparadorZERO"
+Info (12128): Elaborating entity "mux218" for hierarchy "bo:blocop|mux218:muxDESL"
+Info (12128): Elaborating entity "deslocador" for hierarchy "bo:blocop|deslocador:desloca"
+Warning (10492): VHDL Process Statement warning at deslocador.vhd(15): signal "cdesl" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at deslocador.vhd(16): signal "a" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at deslocador.vhd(17): signal "a" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at deslocador.vhd(19): signal "a" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at deslocador.vhd(13): inferring latch(es) for signal or variable "s", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "s[0]" at deslocador.vhd(13)
+Info (10041): Inferred latch for "s[1]" at deslocador.vhd(13)
+Info (10041): Inferred latch for "s[2]" at deslocador.vhd(13)
+Info (10041): Inferred latch for "s[3]" at deslocador.vhd(13)
+Info (10041): Inferred latch for "s[4]" at deslocador.vhd(13)
+Info (10041): Inferred latch for "s[5]" at deslocador.vhd(13)
+Info (10041): Inferred latch for "s[6]" at deslocador.vhd(13)
+Info (10041): Inferred latch for "s[7]" at deslocador.vhd(13)
+Info (10041): Inferred latch for "s[8]" at deslocador.vhd(13)
+Warning (12125): Using design file comparador2.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: comparador2-estrutura
+    Info (12023): Found entity 1: comparador2
+Info (12128): Elaborating entity "comparador2" for hierarchy "bo:blocop|comparador2:comparaQ"
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 11 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "mr[0]"
+    Warning (15610): No output dependent on input pin "mr[1]"
+    Warning (15610): No output dependent on input pin "mr[2]"
+    Warning (15610): No output dependent on input pin "mr[3]"
+    Warning (15610): No output dependent on input pin "mo[0]"
+    Warning (15610): No output dependent on input pin "mo[1]"
+    Warning (15610): No output dependent on input pin "mo[2]"
+    Warning (15610): No output dependent on input pin "mo[3]"
+    Warning (15610): No output dependent on input pin "inicio"
+    Warning (15610): No output dependent on input pin "clk"
+    Warning (15610): No output dependent on input pin "rst"
+Info (21057): Implemented 11 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 4625 megabytes
+    Info: Processing ended: Sun Jun 19 20:09:58 2022
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
+
+

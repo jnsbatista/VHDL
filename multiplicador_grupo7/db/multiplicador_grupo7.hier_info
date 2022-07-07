@@ -1,0 +1,342 @@
+|multiplicador_grupo7
+rst => state~10.DATAIN
+clk => bo:blocop.clk
+clk => state~8.DATAIN
+inicio => state.OUTPUTSELECT
+inicio => state.OUTPUTSELECT
+inicio => state.OUTPUTSELECT
+inicio => state.OUTPUTSELECT
+inicio => state.OUTPUTSELECT
+inicio => state.OUTPUTSELECT
+inicio => state.OUTPUTSELECT
+mr[0] => bo:blocop.mr[0]
+mr[1] => bo:blocop.mr[1]
+mr[2] => bo:blocop.mr[2]
+mr[3] => bo:blocop.mr[3]
+mo[0] => bo:blocop.mo[0]
+mo[1] => bo:blocop.mo[1]
+mo[2] => bo:blocop.mo[2]
+mo[3] => bo:blocop.mo[3]
+
+
+|multiplicador_grupo7|bo:blocop
+clk => registrador4:registradorM.clk
+clk => registrador4:registradorQ.clk
+clk => registrador4:registradorA.clk
+clk => registrador4:registradorCONT.clk
+clk => registrador1:regQM.clk
+clk => deslocador:desloca.clk
+opcont => somadorsubtrator:somasubC.op
+zqm => mux211:muxQM.sel
+zq => mux214:muxQ.sel
+za => mux214:muxA.sel
+zcont => mux214:muxCONT.sel
+cm => registrador4:registradorM.carga
+ca => registrador4:registradorA.carga
+cq => registrador4:registradorQ.carga
+cqm => registrador1:regQM.carga
+ccont => registrador4:registradorCONT.carga
+ccomp => ~NO_FANOUT~
+cdesl => deslocador:desloca.cdesl
+mr[0] => mux214:muxQ.b[0]
+mr[1] => mux214:muxQ.b[1]
+mr[2] => mux214:muxQ.b[2]
+mr[3] => mux214:muxQ.b[3]
+mo[0] => registrador4:registradorM.d[0]
+mo[1] => registrador4:registradorM.d[1]
+mo[2] => registrador4:registradorM.d[2]
+mo[3] => registrador4:registradorM.d[3]
+zero <= comparador1:comparadorZERO.s
+saida[0] <= deslocador:desloca.s[1]
+saida[1] <= deslocador:desloca.s[2]
+saida[2] <= deslocador:desloca.s[3]
+saida[3] <= deslocador:desloca.s[4]
+saida[4] <= deslocador:desloca.s[5]
+saida[5] <= deslocador:desloca.s[6]
+saida[6] <= deslocador:desloca.s[7]
+saida[7] <= deslocador:desloca.s[8]
+
+
+|multiplicador_grupo7|bo:blocop|mux214:muxQ
+a[0] => y.DATAB
+a[1] => y.DATAB
+a[2] => y.DATAB
+a[3] => y.DATAB
+b[0] => y.DATAA
+b[1] => y.DATAA
+b[2] => y.DATAA
+b[3] => y.DATAA
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|mux214:muxA
+a[0] => y.DATAB
+a[1] => y.DATAB
+a[2] => y.DATAB
+a[3] => y.DATAB
+b[0] => y.DATAA
+b[1] => y.DATAA
+b[2] => y.DATAA
+b[3] => y.DATAA
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|registrador4:registradorM
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+carga => q[0]~reg0.ENA
+carga => q[1]~reg0.ENA
+carga => q[2]~reg0.ENA
+carga => q[3]~reg0.ENA
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|registrador4:registradorQ
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+carga => q[0]~reg0.ENA
+carga => q[1]~reg0.ENA
+carga => q[2]~reg0.ENA
+carga => q[3]~reg0.ENA
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|registrador4:registradorA
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+carga => q[0]~reg0.ENA
+carga => q[1]~reg0.ENA
+carga => q[2]~reg0.ENA
+carga => q[3]~reg0.ENA
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|somadorsubtrator:somasubM
+a[0] => Add0.IN4
+a[0] => Add1.IN8
+a[1] => Add0.IN3
+a[1] => Add1.IN7
+a[2] => Add0.IN2
+a[2] => Add1.IN6
+a[3] => Add0.IN1
+a[3] => Add1.IN5
+b[0] => Add0.IN8
+b[0] => Add1.IN4
+b[1] => Add0.IN7
+b[1] => Add1.IN3
+b[2] => Add0.IN6
+b[2] => Add1.IN2
+b[3] => Add0.IN5
+b[3] => Add1.IN1
+op => s.OUTPUTSELECT
+op => s.OUTPUTSELECT
+op => s.OUTPUTSELECT
+op => s.OUTPUTSELECT
+s[0] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|mux214:muxCONT
+a[0] => y.DATAB
+a[1] => y.DATAB
+a[2] => y.DATAB
+a[3] => y.DATAB
+b[0] => y.DATAA
+b[1] => y.DATAA
+b[2] => y.DATAA
+b[3] => y.DATAA
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|registrador4:registradorCONT
+clk => q[0]~reg0.CLK
+clk => q[1]~reg0.CLK
+clk => q[2]~reg0.CLK
+clk => q[3]~reg0.CLK
+carga => q[0]~reg0.ENA
+carga => q[1]~reg0.ENA
+carga => q[2]~reg0.ENA
+carga => q[3]~reg0.ENA
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|somadorsubtrator:somasubC
+a[0] => Add0.IN4
+a[0] => Add1.IN8
+a[1] => Add0.IN3
+a[1] => Add1.IN7
+a[2] => Add0.IN2
+a[2] => Add1.IN6
+a[3] => Add0.IN1
+a[3] => Add1.IN5
+b[0] => Add0.IN8
+b[0] => Add1.IN4
+b[1] => Add0.IN7
+b[1] => Add1.IN3
+b[2] => Add0.IN6
+b[2] => Add1.IN2
+b[3] => Add0.IN5
+b[3] => Add1.IN1
+op => s.OUTPUTSELECT
+op => s.OUTPUTSELECT
+op => s.OUTPUTSELECT
+op => s.OUTPUTSELECT
+s[0] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= s.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|mux211:muxQM
+a => y.DATAB
+b => y.DATAA
+sel => y.OUTPUTSELECT
+y <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|registrador1:regQM
+clk => q~reg0.CLK
+carga => q~reg0.ENA
+d => q~reg0.DATAIN
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|comparador1:comparadorZERO
+a[0] => Mux0.IN19
+a[1] => Mux0.IN18
+a[2] => Mux0.IN17
+a[3] => Mux0.IN16
+s <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|mux218:muxDESL
+a[0] => y.DATAB
+a[1] => y.DATAB
+a[2] => y.DATAB
+a[3] => y.DATAB
+a[4] => y.DATAB
+a[5] => y.DATAB
+a[6] => y.DATAB
+a[7] => y.DATAB
+b[0] => y.DATAA
+b[1] => y.DATAA
+b[2] => y.DATAA
+b[3] => y.DATAA
+b[4] => y.DATAA
+b[5] => y.DATAA
+b[6] => y.DATAA
+b[7] => y.DATAA
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+sel => y.OUTPUTSELECT
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|deslocador:desloca
+a[0] => s[0]$latch.DATAIN
+a[1] => s[1]$latch.DATAIN
+a[2] => s[2]$latch.DATAIN
+a[3] => s[3]$latch.DATAIN
+a[4] => s[4]$latch.DATAIN
+a[5] => s[5]$latch.DATAIN
+a[6] => s[6]$latch.DATAIN
+a[7] => s[7]$latch.DATAIN
+a[7] => s[8]$latch.DATAIN
+clk => ~NO_FANOUT~
+cdesl => s[0]$latch.LATCH_ENABLE
+cdesl => s[1]$latch.LATCH_ENABLE
+cdesl => s[2]$latch.LATCH_ENABLE
+cdesl => s[3]$latch.LATCH_ENABLE
+cdesl => s[4]$latch.LATCH_ENABLE
+cdesl => s[5]$latch.LATCH_ENABLE
+cdesl => s[6]$latch.LATCH_ENABLE
+cdesl => s[7]$latch.LATCH_ENABLE
+cdesl => s[8]$latch.LATCH_ENABLE
+s[0] <= s[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= s[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= s[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= s[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[4] <= s[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[5] <= s[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[6] <= s[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[7] <= s[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[8] <= s[8]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador_grupo7|bo:blocop|comparador2:comparaQ
+a[0] => Mux0.IN5
+a[1] => Mux0.IN4
+a[1] => s[0].DATAIN
+s[0] <= a[1].DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

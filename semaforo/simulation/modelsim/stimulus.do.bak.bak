@@ -1,0 +1,2 @@
+force /clk -freeze 0 0ns, 1 1ns -r 2ns
+run 200 ns

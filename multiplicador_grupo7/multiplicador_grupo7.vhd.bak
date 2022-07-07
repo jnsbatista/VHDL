@@ -1,0 +1,16 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+
+entity multiplicador_grupo7 is
+port (--rst, clk, init: in std_logic;
+		M, Q: in std_logic_vector(3 downto 0);
+		result: out std_logic_vector(7 downto 0);
+		--pronto: out std_logic);
+end multiplicador_grupo7;
+
+architecture estrutura of multiplicador_grupo7 is
+
+begin
+	result <= (M & Q);
+end estrutura;

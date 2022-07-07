@@ -1,0 +1,20 @@
+
+State Machine - |coffeemachine|prox_estado
+Name prox_estado.E prox_estado.F prox_estado.C prox_estado.S prox_estado.G prox_estado.P prox_estado.I 
+prox_estado.I 0 0 0 0 0 0 0 
+prox_estado.P 0 0 0 0 0 1 1 
+prox_estado.G 0 0 0 0 1 0 1 
+prox_estado.S 0 0 0 1 0 0 1 
+prox_estado.C 0 0 1 0 0 0 1 
+prox_estado.F 0 1 0 0 0 0 1 
+prox_estado.E 1 0 0 0 0 0 1 
+
+State Machine - |coffeemachine|estado
+Name estado.E estado.F estado.C estado.S estado.G estado.P estado.I 
+estado.I 0 0 0 0 0 0 0 
+estado.P 0 0 0 0 0 1 1 
+estado.G 0 0 0 0 1 0 1 
+estado.S 0 0 0 1 0 0 1 
+estado.C 0 0 1 0 0 0 1 
+estado.F 0 1 0 0 0 0 1 
+estado.E 1 0 0 0 0 0 1 

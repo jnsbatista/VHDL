@@ -1,0 +1,12 @@
+
+State Machine - |semaforo|prox_estado
+Name prox_estado.vermelho prox_estado.amarelo prox_estado.verde 
+prox_estado.verde 0 0 0 
+prox_estado.amarelo 0 1 1 
+prox_estado.vermelho 1 0 1 
+
+State Machine - |semaforo|estado
+Name estado.vermelho estado.amarelo estado.verde 
+estado.verde 0 0 0 
+estado.amarelo 0 1 1 
+estado.vermelho 1 0 1 

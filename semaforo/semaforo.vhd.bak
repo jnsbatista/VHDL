@@ -1,0 +1,58 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity semaforo is
+	port(clk: in std_logic;
+		VD, AM, VM: out std_logic);
+end semaforo;
+
+architecture comportamento of contador_sincrono is
+signal state: std_logic_vector(1 downto 0);
+signal contador: std_logic_vector(6 downto 0);
+
+state <= '00';
+contador <= '0000000';
+
+begin
+	process(CLOCK)
+		begin
+			if (CLOCK'EVENT and CLOCK = '1') then
+				-- ESTADO VERDE
+				if (state = '00' and contador < '1000000') then
+					VD <= '1';
+					AM <= '0';
+					VM <= '0';
+					contador = contador + '0000001';
+				else
+					state <= '01';
+					contador <= '0000000';					
+				end if;
+				
+				-- ESTADO AMARELO
+				if (state = '01' and contador < '0001000') then
+					VD <= '0';
+					AM <= '1';
+					VM <= '0';
+					contador = contador + '0000001';
+				else
+					state <= '10';
+					contador <= '0000000';
+				end if;
+				
+				-- ESTADO VERMELHO
+				if (state = '10' and contador < '1000000') then
+					VD <= '0';
+					AM <= '0';
+					VM <= '1';
+					contador = contador + '0000001';
+				else
+					state <= '00';
+					contador <= '0000000';
+				end if;
+				
+				
+				
+			end if;
+	end process;
+
+end comportamento;
