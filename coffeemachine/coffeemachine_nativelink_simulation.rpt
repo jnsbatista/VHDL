@@ -11,7 +11,7 @@ Simulation Language   :  vhdl
 Version               :  93
 Simulation Mode       :  GUI
 Sim Output File       :  coffeemachine.vho
-Sim SDF File       :  coffeemachine_vhd.sdo
+Sim SDF file          :  coffeemachine__vhdl.sdo
 Sim dir               :  simulation\modelsim
 
 =======================================================
@@ -19,4 +19,29 @@ Sim dir               :  simulation\modelsim
 Info: Starting NativeLink simulation with ModelSim-Altera software
 Sourced NativeLink script c:/altera/13.0sp1/quartus/common/tcl/internal/nativelink/modelsim.tcl
 Warning: File coffeemachine_run_msim_gate_vhdl.do already exists - backing up current file as coffeemachine_run_msim_gate_vhdl.do.bak11
-Info: Spawning ModelSim-Altera Simulation software 
+Probing transcript
+ModelSim-Altera Info: # Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+ModelSim-Altera Info: # do coffeemachine_run_msim_gate_vhdl.do 
+ModelSim-Altera Info: # if {[file exists gate_work]} {
+ModelSim-Altera Info: # 	vdel -lib gate_work -all
+ModelSim-Altera Info: # }
+ModelSim-Altera Info: # vlib gate_work
+ModelSim-Altera Info: # vmap work gate_work
+ModelSim-Altera Info: # Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+ModelSim-Altera Info: # Modifying modelsim.ini
+ModelSim-Altera Warning: # ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+ModelSim-Altera Info: #          Updated modelsim.ini.
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vcom -93 -work work {coffeemachine.vho}
+ModelSim-Altera Info: # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+ModelSim-Altera Info: # -- Loading package STANDARD
+ModelSim-Altera Info: # -- Loading package TEXTIO
+ModelSim-Altera Info: # -- Loading package std_logic_1164
+ModelSim-Altera Info: # -- Loading package VITAL_Timing
+ModelSim-Altera Info: # -- Loading package VITAL_Primitives
+ModelSim-Altera Info: # -- Loading package cycloneii_atom_pack
+ModelSim-Altera Info: # -- Loading package cycloneii_components
+ModelSim-Altera Info: # -- Compiling entity coffeemachine
+ModelSim-Altera Info: # -- Compiling architecture structure of coffeemachine
+ModelSim-Altera Info: # 
+Info: NativeLink simulation flow was successful

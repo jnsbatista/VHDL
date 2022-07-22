@@ -1,5 +1,5 @@
 EDA Netlist Writer report for coffeemachine
-Thu Jun 30 23:48:26 2022
+Thu Jul 07 09:32:09 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Thu Jun 30 23:48:26 2022 ;
+; EDA Netlist Writer Status ; Successful - Thu Jul 07 09:32:09 2022 ;
 ; Revision Name             ; coffeemachine                         ;
 ; Top-level Entity Name     ; coffeemachine                         ;
 ; Family                    ; Cyclone II                            ;
@@ -84,12 +84,12 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jun 30 23:48:25 2022
+    Info: Processing started: Thu Jul 07 09:32:08 2022
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off coffeemachine -c coffeemachine
 Info (204026): Generated files "coffeemachine.vho", "coffeemachine_fast.vho", "coffeemachine_vhd.sdo" and "coffeemachine_vhd_fast.sdo" in directory "C:/xampp/htdocs/projects/VHDL/coffeemachine/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4510 megabytes
-    Info: Processing ended: Thu Jun 30 23:48:26 2022
+    Info: Processing ended: Thu Jul 07 09:32:09 2022
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

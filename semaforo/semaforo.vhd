@@ -3,6 +3,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
+
 entity semaforo is
 	port(rst,clk: in std_logic;
 		VD, AM, VM: out std_logic);

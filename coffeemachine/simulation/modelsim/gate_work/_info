@@ -4,7 +4,7 @@ K3
 cModel Technology
 Z0 dC:\xampp\htdocs\projects\VHDL\coffeemachine\simulation\modelsim
 Ecoffeemachine
-Z1 w1656643142
+Z1 w1657197129
 Z2 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
 Z3 DPx9 cycloneii 19 cycloneii_atom_pack 0 22 zUjlM<IUJVWSWg:L2<>ic3
 Z4 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
@@ -16,12 +16,12 @@ Z9 8coffeemachine.vho
 Z10 Fcoffeemachine.vho
 l0
 L34
-V:?Ho5bcT>`C]cI4fVT=Go3
-!s100 1c?KojFlndFcI<T1Gkke31
+V[i_PJmUWc_^bn<dh[3LFI2
+!s100 SkDMTh8>FR<Z4LdS?VCKa3
 Z11 OV;C;10.1d;51
 31
 !i10b 1
-Z12 !s108 1656643205.680000
+Z12 !s108 1657197140.867000
 Z13 !s90 -reportprogress|300|-93|-work|work|coffeemachine.vho|
 Z14 !s107 coffeemachine.vho|
 Z15 o-93 -work work -O0
@@ -33,11 +33,11 @@ R4
 R5
 R6
 R7
-DEx4 work 13 coffeemachine 0 22 :?Ho5bcT>`C]cI4fVT=Go3
-l193
-L67
-V6f=fk_]<=_SHm@R5;Y>lD2
-!s100 I?_[2_TWEVjGdkQ?AGoE12
+DEx4 work 13 coffeemachine 0 22 [i_PJmUWc_^bn<dh[3LFI2
+l163
+L62
+VgP@UJR7W<QJ0Th?3=]@=]3
+!s100 JM9@zQ9kN3[a8B3<P5glN0
 R11
 31
 !i10b 1
