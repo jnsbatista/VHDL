@@ -4,7 +4,7 @@ K3
 cModel Technology
 Z0 dC:\xampp\htdocs\projects\VHDL\multiplicador_binario\simulation\modelsim
 Emultiplicador_binario
-Z1 w1658407333
+Z1 w1658539038
 Z2 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
 Z3 DPx9 cycloneii 19 cycloneii_atom_pack 0 22 zUjlM<IUJVWSWg:L2<>ic3
 Z4 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
@@ -16,12 +16,12 @@ Z9 8multiplicador_binario.vho
 Z10 Fmultiplicador_binario.vho
 l0
 L34
-VT=<LIZ]TMehn`jY9PN0G_1
-!s100 cXZ^UY;l4k_LM3?EKkPkd3
+V;FnSh;A9>Q>oYG=N^4nf:1
+!s100 34B=C`4Ml@5f245WmX?^;1
 Z11 OV;C;10.1d;51
 31
 !i10b 1
-Z12 !s108 1658407378.271000
+Z12 !s108 1658539620.126000
 Z13 !s90 -reportprogress|300|-93|-work|work|multiplicador_binario.vho|
 Z14 !s107 multiplicador_binario.vho|
 Z15 o-93 -work work -O0
@@ -33,11 +33,11 @@ R4
 R5
 R6
 R7
-DEx4 work 21 multiplicador_binario 0 22 T=<LIZ]TMehn`jY9PN0G_1
+DEx4 work 21 multiplicador_binario 0 22 ;FnSh;A9>Q>oYG=N^4nf:1
 l141
 L68
-V5L^=`2U_:6;23QLgTKY2S1
-!s100 `kIIG3?baYnQLQ?<=`HEQ1
+V8Lab[jO]e[9G2N4MX_LEg3
+!s100 B8kPL3h8Tj`HRKjzPeRfC1
 R11
 31
 !i10b 1

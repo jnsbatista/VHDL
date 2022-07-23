@@ -26,21 +26,26 @@ architecture comportamento of multiplicador_binario is
 	-- sinais de flag
 	signal C, zero: std_logic;
 begin
-	zero <= P(1) nor P(0);
-	mult_out <= A & Q;
-	registra_estado: process (clk, rst)
+	zero <= P(1) NOR P(0);
 	-- Process de ckock/reset com alteração de estados
+	registra_estado: process (clk, rst)
 	begin
 		if (rst = '1') then
 			estado <= stop;
 		elsif (clk'event and clk = '1') then
 			estado <= prox_estado;
 		end if;
-	end process;
+	end process registra_estado;
 	-- Logica de estados
 	prox_estado_f: process (init, zero, estado)
 	begin
 		case estado is
+			when stop =>
+				if init = '1' then
+					prox_estado <= m0;
+				else
+					prox_estado <= stop;
+				end if;
 			when m0 =>
 				prox_estado <= m1;
 			when m1 =>
@@ -49,12 +54,6 @@ begin
 				else
 					prox_estado <= m0;
 				end if;
-			when stop =>
-				if init = '1' then
-					prox_estado <= m0;
-				else
-					prox_estado <= stop;
-				end if;
 			when end_op =>
 				if init = '1' then
 					prox_estado <= end_op;
@@ -62,7 +61,7 @@ begin
 					prox_estado <= stop;
 				end if;
 		end case;
-	end process;
+	end process prox_estado_f;
 	-- Logica de fluxo de dados
 	fluxo_dados_f: process (clk)
 	variable reg_ca: std_logic_vector(4 downto 0);
@@ -75,19 +74,6 @@ begin
 				M <= mult_in;
 			end if;			
 			case estado is
-				when m0 =>
-					if Q(0) = '1' then
-						reg_ca := ('0'& A) + ('0' & B);
-					else
-						reg_ca := C & A;
-					end if;
-					C <= reg_ca(4);
-					A <= reg_ca(3 downto 0);
-				when m1 =>
-					c <= '0';
-					A <= C & A(3 downto 1);
-					Q <= A(0) & Q(3 downto 1);
-					P <= P - "01";
 				when stop =>
 					finished <= '0';
 					if init = '1' then
@@ -95,15 +81,24 @@ begin
 						A <= "0000";
 						Q <= M;
 						P <= "11";
-					else 
-						C <= C;
-						A <= A;
-						Q <= Q;
-						P <= P;
 					end if;
+				when m0 =>
+					if Q(0) = '1' then
+						reg_ca := ('0' & A) + ('0' & B);
+					else
+						reg_ca := C & A;
+					end if;
+					C <= reg_ca(4);
+					A <= reg_ca(3 downto 0);
+				when m1 =>
+					C <= '0';
+					A <= C & A(3 downto 1);
+					Q <= A(0) & Q(3 downto 1);
+					P <= P - "01";
 				when end_op =>
 					finished <= '1';
 			end case;
 		end if;
-	end process;
+	end process fluxo_dados_f;	
+	mult_out <= A & Q;
 end comportamento;

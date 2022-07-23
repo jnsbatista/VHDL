@@ -22,8 +22,8 @@
 # -- Compiling entity multiplicador_binario
 # -- Compiling architecture structure of multiplicador_binario
 # 
-vsim +altera -do multiplicador_binario_run_msim_gate_vhdl.do -l msim_transcript -gui work.multiplicador_binario
-# vsim +altera -do multiplicador_binario_run_msim_gate_vhdl.do -l msim_transcript -gui work.multiplicador_binario 
+vsim +altera -do multiplicador_binario_run_msim_gate_vhdl.do -l msim_transcript -gui -sdftyp /=C:/xampp/htdocs/projects/VHDL/multiplicador_binario/simulation/modelsim/multiplicador_binario_vhd.sdo work.multiplicador_binario
+# vsim +altera -do multiplicador_binario_run_msim_gate_vhdl.do -l msim_transcript -gui -sdftyp /=C:/xampp/htdocs/projects/VHDL/multiplicador_binario/simulation/modelsim/multiplicador_binario_vhd.sdo work.multiplicador_binario 
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -42,6 +42,10 @@ vsim +altera -do multiplicador_binario_run_msim_gate_vhdl.do -l msim_transcript 
 # Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
 # Loading cycloneii.cycloneii_ena_reg(behave)
 # Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
+# Loading instances from C:/xampp/htdocs/projects/VHDL/multiplicador_binario/simulation/modelsim/multiplicador_binario_vhd.sdo
+# Loading timing data from C:/xampp/htdocs/projects/VHDL/multiplicador_binario/simulation/modelsim/multiplicador_binario_vhd.sdo
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Instance: /multiplicador_binario File: multiplicador_binario.vho
 # do multiplicador_binario_run_msim_gate_vhdl.do 
 # if {[file exists gate_work]} {
 # 	vdel -lib gate_work -all
@@ -62,12 +66,124 @@ vsim +altera -do multiplicador_binario_run_msim_gate_vhdl.do -l msim_transcript 
 # -- Compiling entity multiplicador_binario
 # -- Compiling architecture structure of multiplicador_binario
 # 
-add wave -position end  sim:/multiplicador_binario/RESET
-add wave -position end  sim:/multiplicador_binario/PRONTO
-add wave -position end  sim:/multiplicador_binario/MULT_OUT
-add wave -position end  sim:/multiplicador_binario/MULT_IN
-add wave -position end  sim:/multiplicador_binario/INICIAR
-add wave -position end  sim:/multiplicador_binario/ENTRA_MULTIPLICANDO
-add wave -position end  sim:/multiplicador_binario/ENTRA_MULTIPLICADOR
-add wave -position end  sim:/multiplicador_binario/CLK
+add wave -position end  sim:/multiplicador_binario/rst
+add wave -position end  sim:/multiplicador_binario/mult_out
+add wave -position end  sim:/multiplicador_binario/mult_in
+add wave -position end  sim:/multiplicador_binario/init
+add wave -position end  sim:/multiplicador_binario/in_multiplicando
+add wave -position end  sim:/multiplicador_binario/in_multiplicador
+add wave -position end  sim:/multiplicador_binario/finished
+add wave -position end  sim:/multiplicador_binario/clk
 do C:/xampp/htdocs/projects/VHDL/multiplicador_binario/simulation/modelsim/stimulus.do
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON DATAIN WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.198 ns; At : 5.882 ns
+#    Time: 5882 ps  Iteration: 2  Instance: /multiplicador_binario/\M[2]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON DATAIN WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.198 ns; At : 15.882 ns
+#    Time: 15882 ps  Iteration: 2  Instance: /multiplicador_binario/\M[2]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 47.753 ns
+#    Time: 47753 ps  Iteration: 0  Instance: /multiplicador_binario/\Q[0]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 47.753 ns
+#    Time: 47753 ps  Iteration: 0  Instance: /multiplicador_binario/\Q[1]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 47.753 ns
+#    Time: 47753 ps  Iteration: 0  Instance: /multiplicador_binario/\Q[2]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 47.753 ns
+#    Time: 47753 ps  Iteration: 0  Instance: /multiplicador_binario/\Q[3]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 47.753 ns
+#    Time: 47753 ps  Iteration: 0  Instance: /multiplicador_binario/\P[1]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 47.753 ns
+#    Time: 47753 ps  Iteration: 0  Instance: /multiplicador_binario/\P[0]\
+vsim +altera -do multiplicador_binario_run_msim_gate_vhdl.do -l msim_transcript -gui -sdftyp /=C:/xampp/htdocs/projects/VHDL/multiplicador_binario/simulation/modelsim/multiplicador_binario_vhd.sdo work.multiplicador_binario
+# vsim +altera -do multiplicador_binario_run_msim_gate_vhdl.do -l msim_transcript -gui -sdftyp /=C:/xampp/htdocs/projects/VHDL/multiplicador_binario/simulation/modelsim/multiplicador_binario_vhd.sdo work.multiplicador_binario 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading cycloneii.cycloneii_atom_pack(body)
+# Loading cycloneii.cycloneii_components
+# Loading work.multiplicador_binario(structure)
+# Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
+# Loading cycloneii.cycloneii_and1(altvital)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneii.cycloneii_io(structure)
+# Loading cycloneii.cycloneii_mux21(altvital)
+# Loading cycloneii.cycloneii_dffe(behave)
+# Loading cycloneii.cycloneii_asynch_io(behave)
+# Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
+# Loading cycloneii.cycloneii_ena_reg(behave)
+# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
+# Loading instances from C:/xampp/htdocs/projects/VHDL/multiplicador_binario/simulation/modelsim/multiplicador_binario_vhd.sdo
+# Loading timing data from C:/xampp/htdocs/projects/VHDL/multiplicador_binario/simulation/modelsim/multiplicador_binario_vhd.sdo
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Instance: /multiplicador_binario File: multiplicador_binario.vho
+# do multiplicador_binario_run_msim_gate_vhdl.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {multiplicador_binario.vho}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneii_atom_pack
+# -- Loading package cycloneii_components
+# -- Compiling entity multiplicador_binario
+# -- Compiling architecture structure of multiplicador_binario
+# 
+add wave -position end  sim:/multiplicador_binario/rst
+add wave -position end  sim:/multiplicador_binario/mult_out
+add wave -position end  sim:/multiplicador_binario/mult_in
+add wave -position end  sim:/multiplicador_binario/init
+add wave -position end  sim:/multiplicador_binario/in_multiplicando
+add wave -position end  sim:/multiplicador_binario/in_multiplicador
+add wave -position end  sim:/multiplicador_binario/clk
+do C:/xampp/htdocs/projects/VHDL/multiplicador_binario/simulation/modelsim/stimulus.do
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON DATAIN WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.198 ns; At : 5.882 ns
+#    Time: 5882 ps  Iteration: 2  Instance: /multiplicador_binario/\M[2]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 29.753 ns
+#    Time: 29753 ps  Iteration: 0  Instance: /multiplicador_binario/\Q[0]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 29.753 ns
+#    Time: 29753 ps  Iteration: 0  Instance: /multiplicador_binario/\Q[1]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 29.753 ns
+#    Time: 29753 ps  Iteration: 0  Instance: /multiplicador_binario/\Q[2]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 29.753 ns
+#    Time: 29753 ps  Iteration: 0  Instance: /multiplicador_binario/\Q[3]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 29.753 ns
+#    Time: 29753 ps  Iteration: 0  Instance: /multiplicador_binario/\P[1]\
+# ** Warning: */LCELL_FF HOLD High VIOLATION ON ENA WITH RESPECT TO CLK;
+# 
+#   Expected := 0.266 ns; Observed := 0.069 ns; At : 29.753 ns
+#    Time: 29753 ps  Iteration: 0  Instance: /multiplicador_binario/\P[0]\

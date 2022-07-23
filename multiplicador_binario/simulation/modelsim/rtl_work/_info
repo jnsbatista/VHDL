@@ -1,0 +1,44 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\xampp\htdocs\projects\VHDL\multiplicador_binario\simulation\modelsim
+Emultiplicador_binario
+Z1 w1658533952
+Z2 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 dC:\xampp\htdocs\projects\VHDL\multiplicador_binario\simulation\modelsim
+Z7 8C:/xampp/htdocs/projects/VHDL/multiplicador_binario/multiplicador_binario.vhd
+Z8 FC:/xampp/htdocs/projects/VHDL/multiplicador_binario/multiplicador_binario.vhd
+l0
+L5
+V`2=8PL_f5?]bHcMTT;4RO3
+!s100 Jnd0@Zl7nWnNgAFD:PF@E0
+Z9 OV;C;10.1d;51
+31
+!i10b 1
+Z10 !s108 1658534345.827000
+Z11 !s90 -reportprogress|300|-93|-work|work|C:/xampp/htdocs/projects/VHDL/multiplicador_binario/multiplicador_binario.vhd|
+Z12 !s107 C:/xampp/htdocs/projects/VHDL/multiplicador_binario/multiplicador_binario.vhd|
+Z13 o-93 -work work -O0
+Z14 tExplicit 1
+Acomportamento
+R2
+R3
+R4
+R5
+DEx4 work 21 multiplicador_binario 0 22 `2=8PL_f5?]bHcMTT;4RO3
+l28
+L18
+V_:g<`YDlAzH<B]LloP__n3
+!s100 :<aaOiNE`E<kRA7l6kR@_1
+R9
+31
+!i10b 1
+R10
+R11
+R12
+R13
+R14

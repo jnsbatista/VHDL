@@ -1,7 +1,7 @@
-force /RESET -freeze 1 0ns, 0 1ns
-force /CLK -freeze 0 0ns, 1 1ns -r 2ns
-force /INICIAR -freeze 0 0ns, 1 25ns, 0 30ns
-force /ENTRA_MULTIPLICANDO -freeze 0 0ns, 1 1ns, 0 9ns
-force /ENTRA_MULTIPLICADOR -freeze 0 0ns, 1 9ns, 0 20ns
-force /MULT_IN -freeze 0 0ns, 1000 1ns, 0010 10ns
-run 100 ns
+force /rst -freeze 1 0ns, 0 1ns
+force /clk -freeze 0 0ns, 1 1ns -r 2ns
+force /init -freeze 0 0ns, 1 7ns, 0 10ns
+force /in_multiplicando -freeze 0 0ns, 1 1ns, 0 3ns
+force /in_multiplicador -freeze 0 0ns, 1 3ns, 0 5ns
+force /mult_in -freeze 0 0ns, 0100 1ns, 0010 3ns
+run 40 ns

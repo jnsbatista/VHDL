@@ -1,5 +1,4 @@
 |multiplicador_binario
-clk => finished~reg0.CLK
 clk => P[0].CLK
 clk => P[1].CLK
 clk => Q[0].CLK
@@ -11,6 +10,7 @@ clk => A[1].CLK
 clk => A[2].CLK
 clk => A[3].CLK
 clk => C.CLK
+clk => finished~reg0.CLK
 clk => M[0].CLK
 clk => M[1].CLK
 clk => M[2].CLK
