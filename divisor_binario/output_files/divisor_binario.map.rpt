@@ -1,5 +1,5 @@
 Analysis & Synthesis report for divisor_binario
-Thu Jul 21 22:49:39 2022
+Tue Jul 26 18:00:41 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -42,16 +42,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jul 21 22:49:39 2022           ;
+; Analysis & Synthesis Status        ; Successful - Tue Jul 26 18:00:41 2022           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; divisor_binario                                 ;
 ; Top-level Entity Name              ; divisor_binario                                 ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 34                                              ;
-;     Total combinational functions  ; 25                                              ;
-;     Dedicated logic registers      ; 24                                              ;
-; Total registers                    ; 24                                              ;
-; Total pins                         ; 18                                              ;
+; Total logic elements               ; 40                                              ;
+;     Total combinational functions  ; 27                                              ;
+;     Dedicated logic registers      ; 32                                              ;
+; Total registers                    ; 32                                              ;
+; Total pins                         ; 26                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -158,28 +158,28 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 34    ;
+; Estimated Total logic elements              ; 40    ;
 ;                                             ;       ;
-; Total combinational functions               ; 25    ;
+; Total combinational functions               ; 27    ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 10    ;
-;     -- 3 input functions                    ; 11    ;
+;     -- 4 input functions                    ; 9     ;
+;     -- 3 input functions                    ; 14    ;
 ;     -- <=2 input functions                  ; 4     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 21    ;
-;     -- arithmetic mode                      ; 4     ;
+;     -- normal mode                          ; 24    ;
+;     -- arithmetic mode                      ; 3     ;
 ;                                             ;       ;
-; Total registers                             ; 24    ;
-;     -- Dedicated logic registers            ; 24    ;
+; Total registers                             ; 32    ;
+;     -- Dedicated logic registers            ; 32    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 18    ;
+; I/O pins                                    ; 26    ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out node                        ; CLK   ;
-; Maximum fan-out                             ; 24    ;
-; Total fan-out                               ; 159   ;
-; Average fan-out                             ; 2.37  ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 32    ;
+; Total fan-out                               ; 189   ;
+; Average fan-out                             ; 2.22  ;
 +---------------------------------------------+-------+
 
 
@@ -188,22 +188,22 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |divisor_binario           ; 25 (25)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |divisor_binario    ; work         ;
+; |divisor_binario           ; 27 (27)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 26   ; 0            ; |divisor_binario    ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+------------------------------------------------------------------------+
-; State Machine - |divisor_binario|estado                                ;
-+---------------+------------+-------------+-------------+---------------+
-; Name          ; estado.FIM ; estado.MUL1 ; estado.MUL0 ; estado.PARADO ;
-+---------------+------------+-------------+-------------+---------------+
-; estado.PARADO ; 0          ; 0           ; 0           ; 0             ;
-; estado.MUL0   ; 0          ; 0           ; 1           ; 1             ;
-; estado.MUL1   ; 0          ; 1           ; 0           ; 1             ;
-; estado.FIM    ; 1          ; 0           ; 0           ; 1             ;
-+---------------+------------+-------------+-------------+---------------+
++---------------------------------------------------------------------+
+; State Machine - |divisor_binario|estado                             ;
++---------------+---------------+-----------+-----------+-------------+
+; Name          ; estado.end_op ; estado.d0 ; estado.d1 ; estado.stop ;
++---------------+---------------+-----------+-----------+-------------+
+; estado.stop   ; 0             ; 0         ; 0         ; 0           ;
+; estado.d1     ; 0             ; 0         ; 1         ; 1           ;
+; estado.d0     ; 0             ; 1         ; 0         ; 1           ;
+; estado.end_op ; 1             ; 0         ; 0         ; 1           ;
++---------------+---------------+-----------+-----------+-------------+
 
 
 +------------------------------------------------------+
@@ -211,12 +211,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 24    ;
+; Total registers                              ; 32    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 18    ;
+; Number of registers using Clock Enable       ; 26    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -227,8 +227,7 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |divisor_binario|P[1]      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |divisor_binario|Q[0]      ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |divisor_binario|A[0]      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |divisor_binario|D_2[0]    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
@@ -247,23 +246,23 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jul 21 22:49:37 2022
+    Info: Processing started: Tue Jul 26 18:00:39 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off divisor_binario -c divisor_binario
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file divisor_binario.vhd
-    Info (12022): Found design unit 1: divisor_binario-comportamento_div4
+    Info (12022): Found design unit 1: divisor_binario-comportamento
     Info (12023): Found entity 1: divisor_binario
 Info (12127): Elaborating entity "divisor_binario" for the top level hierarchy
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 52 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 9 input pins
+Info (21057): Implemented 66 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 17 input pins
     Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 34 logic cells
+    Info (21061): Implemented 40 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4616 megabytes
-    Info: Processing ended: Thu Jul 21 22:49:39 2022
+    Info: Peak virtual memory: 4619 megabytes
+    Info: Processing ended: Tue Jul 26 18:00:41 2022
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 

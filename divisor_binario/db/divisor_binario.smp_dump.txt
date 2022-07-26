@@ -1,7 +1,7 @@
 
 State Machine - |divisor_binario|estado
-Name estado.FIM estado.MUL1 estado.MUL0 estado.PARADO 
-estado.PARADO 0 0 0 0 
-estado.MUL0 0 0 1 1 
-estado.MUL1 0 1 0 1 
-estado.FIM 1 0 0 1 
+Name estado.end_op estado.d0 estado.d1 estado.stop 
+estado.stop 0 0 0 0 
+estado.d1 0 0 1 1 
+estado.d0 0 1 0 1 
+estado.end_op 1 0 0 1 
