@@ -76,17 +76,17 @@ GND*                         : A6        :        :                   :         
 GND*                         : A7        :        :                   :         : 3         :                
 GND*                         : A8        :        :                   :         : 3         :                
 GND*                         : A9        :        :                   :         : 3         :                
-dividendo_in[7]              : A10       : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : A10       :        :                   :         : 3         :                
 VCCIO3                       : A11       : power  :                   : 3.3V    : 3         :                
 GND                          : A12       : gnd    :                   :         :           :                
 GND+                         : A13       :        :                   :         : 4         :                
-dividendo_in[1]              : A14       : input  : 3.3-V LVTTL       :         : 4         : N              
+resto[2]                     : A14       : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : A15       : gnd    :                   :         :           :                
 VCCIO4                       : A16       : power  :                   : 3.3V    : 4         :                
-GND*                         : A17       :        :                   :         : 4         :                
-GND*                         : A18       :        :                   :         : 4         :                
-GND*                         : A19       :        :                   :         : 4         :                
-GND*                         : A20       :        :                   :         : 4         :                
+dividendo[10]                : A17       : input  : 3.3-V LVTTL       :         : 4         : N              
+quociente[2]                 : A18       : output : 3.3-V LVTTL       :         : 4         : N              
+quociente[1]                 : A19       : output : 3.3-V LVTTL       :         : 4         : N              
+quociente[0]                 : A20       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : A21       :        :                   :         : 4         :                
 GND*                         : A22       :        :                   :         : 4         :                
 GND*                         : A23       :        :                   :         : 4         :                
@@ -255,17 +255,17 @@ GND*                         : B6        :        :                   :         
 GND*                         : B7        :        :                   :         : 3         :                
 GND*                         : B8        :        :                   :         : 3         :                
 GND*                         : B9        :        :                   :         : 3         :                
-dividendo_in[4]              : B10       : input  : 3.3-V LVTTL       :         : 3         : N              
-result[3]                    : B11       : output : 3.3-V LVTTL       :         : 3         : N              
-result[0]                    : B12       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : B10       :        :                   :         : 3         :                
+GND*                         : B11       :        :                   :         : 3         :                
+GND*                         : B12       :        :                   :         : 3         :                
 GND+                         : B13       :        :                   :         : 4         :                
-result[1]                    : B14       : output : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : B15       :        :                   :         : 4         :                
-GND*                         : B16       :        :                   :         : 4         :                
-GND*                         : B17       :        :                   :         : 4         :                
-GND*                         : B18       :        :                   :         : 4         :                
-GND*                         : B19       :        :                   :         : 4         :                
-GND*                         : B20       :        :                   :         : 4         :                
+dividendo[11]                : B14       : input  : 3.3-V LVTTL       :         : 4         : N              
+divisor[0]                   : B15       : input  : 3.3-V LVTTL       :         : 4         : N              
+resto[5]                     : B16       : output : 3.3-V LVTTL       :         : 4         : N              
+dividendo[9]                 : B17       : input  : 3.3-V LVTTL       :         : 4         : N              
+quociente[4]                 : B18       : output : 3.3-V LVTTL       :         : 4         : N              
+quociente[6]                 : B19       : output : 3.3-V LVTTL       :         : 4         : N              
+dividendo[4]                 : B20       : input  : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : B21       :        :                   :         : 4         :                
 GND*                         : B22       :        :                   :         : 4         :                
 GND*                         : B23       :        :                   :         : 4         :                
@@ -282,15 +282,15 @@ GND*                         : C7        :        :                   :         
 GND*                         : C8        :        :                   :         : 3         :                
 GND*                         : C9        :        :                   :         : 3         :                
 GND*                         : C10       :        :                   :         : 3         :                
-result[2]                    : C11       : output : 3.3-V LVTTL       :         : 3         : N              
-divisor_in[0]                : C12       : input  : 3.3-V LVTTL       :         : 3         : N              
-init                         : C13       : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : C11       :        :                   :         : 3         :                
+GND*                         : C12       :        :                   :         : 3         :                
+dividendo[15]                : C13       : input  : 3.3-V LVTTL       :         : 3         : N              
 GND                          : C14       : gnd    :                   :         :           :                
-GND*                         : C15       :        :                   :         : 4         :                
-GND*                         : C16       :        :                   :         : 4         :                
-GND*                         : C17       :        :                   :         : 4         :                
+divisor[6]                   : C15       : input  : 3.3-V LVTTL       :         : 4         : N              
+divisor[2]                   : C16       : input  : 3.3-V LVTTL       :         : 4         : N              
+dividendo[2]                 : C17       : input  : 3.3-V LVTTL       :         : 4         : N              
 GND                          : C18       : gnd    :                   :         :           :                
-GND*                         : C19       :        :                   :         : 4         :                
+dividendo[7]                 : C19       : input  : 3.3-V LVTTL       :         : 4         : N              
 VCCIO4                       : C20       : power  :                   : 3.3V    : 4         :                
 GND*                         : C21       :        :                   :         : 4         :                
 GND*                         : C22       :        :                   :         : 4         :                
@@ -308,15 +308,15 @@ GND*                         : D7        :        :                   :         
 GND*                         : D8        :        :                   :         : 3         :                
 GND*                         : D9        :        :                   :         : 3         :                
 GND*                         : D10       :        :                   :         : 3         :                
-result[6]                    : D11       : output : 3.3-V LVTTL       :         : 3         : N              
-divisor_in[3]                : D12       : input  : 3.3-V LVTTL       :         : 3         : N              
-dividendo_in[0]              : D13       : input  : 3.3-V LVTTL       :         : 3         : N              
-dividendo_in[2]              : D14       : input  : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : D15       :        :                   :         : 4         :                
-GND*                         : D16       :        :                   :         : 4         :                
-GND*                         : D17       :        :                   :         : 4         :                
-GND*                         : D18       :        :                   :         : 4         :                
-GND*                         : D19       :        :                   :         : 4         :                
+GND*                         : D11       :        :                   :         : 3         :                
+GND*                         : D12       :        :                   :         : 3         :                
+divisor[7]                   : D13       : input  : 3.3-V LVTTL       :         : 3         : N              
+resto[1]                     : D14       : output : 3.3-V LVTTL       :         : 4         : N              
+divisor[3]                   : D15       : input  : 3.3-V LVTTL       :         : 4         : N              
+resto[6]                     : D16       : output : 3.3-V LVTTL       :         : 4         : N              
+dividendo[1]                 : D17       : input  : 3.3-V LVTTL       :         : 4         : N              
+divisor[5]                   : D18       : input  : 3.3-V LVTTL       :         : 4         : N              
+dividendo[5]                 : D19       : input  : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : D20       :        :                   :         : 4         :                
 GND*                         : D21       :        :                   :         : 4         :                
 VCCIO4                       : D22       : power  :                   : 3.3V    : 4         :                
@@ -335,15 +335,15 @@ GND*                         : E8        :        :                   :         
 VCCIO3                       : E9        : power  :                   : 3.3V    : 3         :                
 GND*                         : E10       :        :                   :         : 3         :                
 GND                          : E11       : gnd    :                   :         :           :                
-divisor_in[1]                : E12       : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : E12       :        :                   :         : 3         :                
 VCCIO3                       : E13       : power  :                   : 3.3V    : 3         :                
 VCCIO4                       : E14       : power  :                   : 3.3V    : 4         :                
-GND*                         : E15       :        :                   :         : 4         :                
+resto[4]                     : E15       : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : E16       : gnd    :                   :         :           :                
 VCCIO4                       : E17       : power  :                   : 3.3V    : 4         :                
-GND*                         : E18       :        :                   :         : 4         :                
+divisor[1]                   : E18       : input  : 3.3-V LVTTL       :         : 4         : N              
 GND                          : E19       : gnd    :                   :         :           :                
-GND*                         : E20       :        :                   :         : 4         :                
+dividendo[6]                 : E20       : input  : 3.3-V LVTTL       :         : 4         : N              
 GND_PLL2                     : E21       : gnd    :                   :         :           :                
 GND*                         : E22       :        :                   :         : 5         :                
 GND*                         : E23       :        :                   :         : 5         :                
@@ -361,13 +361,13 @@ GNDA_PLL3                    : F8        : gnd    :                   :         
 GND*                         : F9        :        :                   :         : 3         :                
 GND*                         : F10       :        :                   :         : 3         :                
 GND*                         : F11       :        :                   :         : 3         :                
-dividendo_in[5]              : F12       : input  : 3.3-V LVTTL       :         : 3         : N              
-GND*                         : F13       :        :                   :         : 4         :                
-dividendo_in[3]              : F14       : input  : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : F15       :        :                   :         : 4         :                
-GND*                         : F16       :        :                   :         : 4         :                
-GND*                         : F17       :        :                   :         : 4         :                
-GND*                         : F18       :        :                   :         : 4         :                
+GND*                         : F12       :        :                   :         : 3         :                
+resto[7]                     : F13       : output : 3.3-V LVTTL       :         : 4         : N              
+dividendo[13]                : F14       : input  : 3.3-V LVTTL       :         : 4         : N              
+resto[0]                     : F15       : output : 3.3-V LVTTL       :         : 4         : N              
+dividendo[0]                 : F16       : input  : 3.3-V LVTTL       :         : 4         : N              
+quociente[5]                 : F17       : output : 3.3-V LVTTL       :         : 4         : N              
+pronto                       : F18       : output : 3.3-V LVTTL       :         : 4         : N              
 GNDA_PLL2                    : F19       : gnd    :                   :         :           :                
 GND*                         : F20       :        :                   :         : 5         :                
 GND*                         : F21       :        :                   :         : 5         :                
@@ -386,14 +386,14 @@ GND_PLL3                     : G7        : gnd    :                   :         
 VCCA_PLL3                    : G8        : power  :                   : 1.2V    :           :                
 GND*                         : G9        :        :                   :         : 3         :                
 GND*                         : G10       :        :                   :         : 3         :                
-result[7]                    : G11       : output : 3.3-V LVTTL       :         : 3         : N              
-dividendo_in[6]              : G12       : input  : 3.3-V LVTTL       :         : 3         : N              
-pronto                       : G13       : output : 3.3-V LVTTL       :         : 4         : N              
-in_dividendo                 : G14       : input  : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : G15       :        :                   :         : 4         :                
-GND*                         : G16       :        :                   :         : 4         :                
-GND*                         : G17       :        :                   :         : 4         :                
-GND*                         : G18       :        :                   :         : 4         :                
+GND*                         : G11       :        :                   :         : 3         :                
+GND*                         : G12       :        :                   :         : 3         :                
+resto[3]                     : G13       : output : 3.3-V LVTTL       :         : 4         : N              
+dividendo[14]                : G14       : input  : 3.3-V LVTTL       :         : 4         : N              
+divisor[4]                   : G15       : input  : 3.3-V LVTTL       :         : 4         : N              
+overflow                     : G16       : output : 3.3-V LVTTL       :         : 4         : N              
+quociente[3]                 : G17       : output : 3.3-V LVTTL       :         : 4         : N              
+quociente[7]                 : G18       : output : 3.3-V LVTTL       :         : 4         : N              
 VCCA_PLL2                    : G19       : power  :                   : 1.2V    :           :                
 GND_PLL2                     : G20       : gnd    :                   :         :           :                
 GND*                         : G21       :        :                   :         : 5         :                
@@ -416,9 +416,9 @@ GND*                         : H11       :        :                   :         
 GND*                         : H12       :        :                   :         : 3         :                
 GND                          : H13       : gnd    :                   :         :           :                
 GND                          : H14       : gnd    :                   :         :           :                
-GND*                         : H15       :        :                   :         : 4         :                
-GND*                         : H16       :        :                   :         : 4         :                
-GND*                         : H17       :        :                   :         : 4         :                
+dividendo[12]                : H15       : input  : 3.3-V LVTTL       :         : 4         : N              
+dividendo[8]                 : H16       : input  : 3.3-V LVTTL       :         : 4         : N              
+start                        : H17       : input  : 3.3-V LVTTL       :         : 4         : N              
 VCCIO4                       : H18       : power  :                   : 3.3V    : 4         :                
 GND*                         : H19       :        :                   :         : 5         :                
 VCCD_PLL2                    : H20       : power  :                   : 1.2V    :           :                
@@ -437,14 +437,14 @@ GND*                         : J6        :        :                   :         
 GND*                         : J7        :        :                   :         : 2         :                
 GND*                         : J8        :        :                   :         : 2         :                
 GND*                         : J9        :        :                   :         : 3         :                
-result[4]                    : J10       : output : 3.3-V LVTTL       :         : 3         : N              
-result[5]                    : J11       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : J10       :        :                   :         : 3         :                
+GND*                         : J11       :        :                   :         : 3         :                
 VCCIO3                       : J12       : power  :                   : 3.3V    : 3         :                
-divisor_in[2]                : J13       : input  : 3.3-V LVTTL       :         : 3         : N              
-in_divisor                   : J14       : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : J13       :        :                   :         : 3         :                
+GND*                         : J14       :        :                   :         : 3         :                
 VCCIO4                       : J15       : power  :                   : 3.3V    : 4         :                
 GND*                         : J16       :        :                   :         : 4         :                
-GND*                         : J17       :        :                   :         : 4         :                
+dividendo[3]                 : J17       : input  : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : J18       :        :                   :         : 4         :                
 VCCIO5                       : J19       : power  :                   : 3.3V    : 5         :                
 GND*                         : J20       :        :                   :         : 5         :                
@@ -558,7 +558,7 @@ GND*                         : N23       :        :                   :         
 GND*                         : N24       :        :                   :         : 5         :                
 GND+                         : N25       :        :                   :         : 5         :                
 GND+                         : N26       :        :                   :         : 5         :                
-rst                          : P1        : input  : 3.3-V LVTTL       :         : 1         : N              
+reset                        : P1        : input  : 3.3-V LVTTL       :         : 1         : N              
 clk                          : P2        : input  : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : P3        :        :                   :         : 1         :                
 GND*                         : P4        :        :                   :         : 1         :                

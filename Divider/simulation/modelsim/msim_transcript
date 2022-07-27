@@ -65,36 +65,67 @@ vsim +altera -do Divider_run_msim_gate_vhdl.do -l msim_transcript -gui work.divi
 # -- Compiling entity Divider
 # -- Compiling architecture structure of Divider
 # 
-add wave  \
-sim:/divider/start \
-sim:/divider/reset \
-sim:/divider/remainder \
-sim:/divider/ready \
-sim:/divider/quotient \
-sim:/divider/ovfl \
-sim:/divider/n \
-sim:/divider/m
+# Load canceled
+add wave -position end  sim:/divider/start
+add wave -position end  sim:/divider/reset
+add wave -position end  sim:/divider/remainder
+add wave -position end  sim:/divider/ready
+add wave -position end  sim:/divider/quotient
+add wave -position end  sim:/divider/ovfl
+add wave -position end  sim:/divider/n
+add wave -position end  sim:/divider/m
+add wave -position end  sim:/divider/clk
 do C:/xampp/htdocs/projects/VHDL/Divider/simulation/modelsim/stimulus.do
-# ** Error: Value length (1) does not equal array index length (16).
+vsim +altera -do Divider_run_msim_gate_vhdl.do -l msim_transcript -gui work.divider
+# vsim +altera -do Divider_run_msim_gate_vhdl.do -l msim_transcript -gui work.divider 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading cycloneii.cycloneii_atom_pack(body)
+# Loading cycloneii.cycloneii_components
+# Loading work.divider(structure)
+# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
+# Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
+# Loading cycloneii.cycloneii_and1(altvital)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneii.cycloneii_io(structure)
+# Loading cycloneii.cycloneii_mux21(altvital)
+# Loading cycloneii.cycloneii_dffe(behave)
+# Loading cycloneii.cycloneii_asynch_io(behave)
+# Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
+# Loading cycloneii.cycloneii_ena_reg(behave)
+# ** Warning: Design size of 2 instances exceeds ModelSim ALTERA recommended capacity.
+# This may because you are loading cell libraries which are not recommended with
+# the ModelSim Altera version. Expect performance to be adversely affected.
+# do Divider_run_msim_gate_vhdl.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Modifying modelsim.ini
 # 
-# ** Error: (vsim-4011) Invalid force value: 0 0ns, 101001110101 10ns.
-# Error in macro C:\xampp\htdocs\projects\VHDL\Divider\simulation\modelsim\stimulus.do line 4
-# Value length (1) does not equal array index length (16).
+# vcom -93 -work work {Divider.vho}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneii_atom_pack
+# -- Loading package cycloneii_components
+# -- Compiling entity Divider
+# -- Compiling architecture structure of Divider
 # 
-# ** Error: (vsim-4011) Invalid force value: 0 0ns, 101001110101 10ns.
-# 
-#     while executing
-# "force /m -freeze 0 0ns, 101001110101 10ns"
-do C:/xampp/htdocs/projects/VHDL/Divider/simulation/modelsim/stimulus.do
-# ** Error: Value length (1) does not equal array index length (16).
-# 
-# ** Error: (vsim-4011) Invalid force value: 0 0ns, 0000101001110101 10ns.
-# Error in macro C:\xampp\htdocs\projects\VHDL\Divider\simulation\modelsim\stimulus.do line 4
-# Value length (1) does not equal array index length (16).
-# 
-# ** Error: (vsim-4011) Invalid force value: 0 0ns, 0000101001110101 10ns.
-# 
-#     while executing
-# "force /m -freeze 0 0ns, 0000101001110101 10ns"
-do C:/xampp/htdocs/projects/VHDL/Divider/simulation/modelsim/stimulus.do
+add wave -position end  sim:/divider/start
+add wave -position end  sim:/divider/reset
+add wave -position end  sim:/divider/remainder
+add wave -position end  sim:/divider/ready
+add wave -position end  sim:/divider/quotient
+add wave -position end  sim:/divider/ovfl
+add wave -position end  sim:/divider/n
+add wave -position end  sim:/divider/m
+add wave -position end  sim:/divider/clk
 do C:/xampp/htdocs/projects/VHDL/Divider/simulation/modelsim/stimulus.do

@@ -34,12 +34,12 @@ vsim +altera -do divisor_binario_run_msim_gate_vhdl.do -l msim_transcript -gui w
 # Loading work.divisor_binario(structure)
 # Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
 # Loading cycloneii.cycloneii_and1(altvital)
+# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
 # Loading ieee.std_logic_arith(body)
 # Loading cycloneii.cycloneii_io(structure)
 # Loading cycloneii.cycloneii_mux21(altvital)
 # Loading cycloneii.cycloneii_dffe(behave)
 # Loading cycloneii.cycloneii_asynch_io(behave)
-# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
 # Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
 # Loading cycloneii.cycloneii_ena_reg(behave)
 # ** Warning: Design size of 2 instances exceeds ModelSim ALTERA recommended capacity.
@@ -69,18 +69,20 @@ add wave -position end  sim:/divisor_binario/rst
 add wave -position end  sim:/divisor_binario/result
 add wave -position end  sim:/divisor_binario/pronto
 add wave -position end  sim:/divisor_binario/init
-add wave -position end  sim:/divisor_binario/in_divisor
-add wave -position end  sim:/divisor_binario/in_dividendo
+add wave -position end  sim:/divisor_binario/divisor_s
 add wave -position end  sim:/divisor_binario/divisor_in
+add wave -position end  sim:/divisor_binario/dividendo_s
 add wave -position end  sim:/divisor_binario/dividendo_in
 add wave -position end  sim:/divisor_binario/clk
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: Jonas  Hostname: DESKTOP-TTRKJOK  ProcessID: 10440
 # 
-#           Attempting to use alternate WLF file "./wlft7qjnmz".
+#           Attempting to use alternate WLF file "./wlftew4k77".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft7qjnmz
+#           Using alternate file: ./wlftew4k77
 # 
+do C:/xampp/htdocs/projects/VHDL/divisor_binario/simulation/modelsim/stimulus.do
+add wave -position end  sim:/divisor_binario/D
 do C:/xampp/htdocs/projects/VHDL/divisor_binario/simulation/modelsim/stimulus.do

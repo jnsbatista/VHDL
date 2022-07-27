@@ -1,104 +1,137 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
 
 entity divisor_binario is
-	port(
-	clk, rst, in_dividendo, in_divisor, init: in std_logic;
-	divisor_in: in std_logic_vector(3 downto 0);
-	dividendo_in: in std_logic_vector(7 downto 0);
-	result: out std_logic_vector(7 downto 0);
-	pronto: out std_logic);		
-end divisor_binario;
+    Port (clk, rst, start : in std_logic;
+	 		dividendo : in  std_logic_vector (15 downto 0);     -- Entrada pada o dividendo
+      divisor : in  std_logic_vector (7 downto 0);    -- Entrada pada o divisor
+      quociente, resto: out  std_logic_vector (7 downto 0);
+			pronto, overflow : out std_logic);    -- Indica o fim do algoritmo e a condição de estouro
+ end divisor_binario;
+ architecture funcionamento of divisor_binario is
+ 
+            -- tipo para os estados FSM
+	  tipo estado_tipo is (parado, mudanca, operacao);     
 
-architecture comportamento of divisor_binario is
-	-- Declaração dos estados
-	type tipo_estado is (d0, d1, stop, end_op);
-	signal estado, prox_estado : tipo_estado;
-	-- Declaração dos registradores
-	signal A: std_logic_vector(3 downto 0);
-	signal Q: std_logic_vector(7 downto 0);
-	signal D_1, D_3: std_logic_vector(4 downto 0);
-	signal D_2: std_logic_vector(2 downto 0);
-	--sinal para o contador
-	signal P: std_logic_vector(1 downto 0);
-	-- sinais de flag
-	signal B, zero: std_logic;
-begin
-	zero <= P(1) NOR P(0);
-	-- Process de ckock/reset com alteração de estados
-	registra_estado: process (clk, rst)
-	begin
-		if (rst = '1') then
-			estado <= stop;
-		elsif (clk'event and clk = '1') then
-			estado <= prox_estado;
+-- Entradas/saídas do estado registradorister e os z, d, e i registradoristers
+	signal estado_registrador, estado_proximo : estado_tipo;   
+	  signal z_registrador, z_proximo : unsigned(16 downto 0);   
+	  signal d_registrador, d_proximo : unsigned(7 downto 0);
+	  signal i_registrador, i_proximo : unsigned(3 downto 0);
+	-- A saída de subtração 
+	signal subtracao : unsigned(8 downto 0);
+	  
+ begin
+	  --caminho de controle: registradores do FSM
+	  process(clk, rst)
+	  begin
+		if (rst='1') then
+			estado_registrador <= parado;
+		elsif (clk'event and clk='1') then
+			estado_registrador <= estado_proximo;
 		end if;
-	end process registra_estado;
-	-- Logica de estados
-	prox_estado_f: process (init, zero, estado)
+	end process;
+
+--control path: a lógica que determina o estado próximo do FSM 
+	process(estado_registrador, start, dividendo, divisor, i_proximo)
 	begin
-		case estado is
-			when stop =>
-				if init = '1' then
-					prox_estado <= d0;
+		case estado_registrador is
+			when parado =>
+				if ( start='1' ) then
+					if ( dividendo(15 downto 8) < divisor ) then
+					estado_proximo <= mudanca;
+					else
+					estado_proximo <= parado;
+					end if;
 				else
-					prox_estado <= stop;
+					estado_proximo <= parado;
 				end if;
-			when d0 =>
-				prox_estado <= d1;
-			when d1 =>
-				if zero = '1' then
-					prox_estado <= end_op;
+					
+			when mudanca =>
+				estado_proximo <= operacao;
+			
+			when operacao =>
+				if ( i_proximo = "1000" ) then
+					estado_proximo <= parado;
 				else
-					prox_estado <= d0;
+					estado_proximo <= mudanca;
 				end if;
-			when end_op =>
-				if init = '1' then
-					prox_estado <= end_op;
+					
+			end case;
+		end process;
+			
+	--control path: logica de saida
+	pronto <= '1' when estado_registrador=parado else
+		    '0';
+	overflow <= '1' when ( estado_registrador=parado and ( dividendo(15 downto 8) >= divisor ) ) else
+		'0';
+						
+-- caminho de controle: registradores do contador usado para contar as iterações
+	process(clk, rst)
+	begin
+		if (rst='1') then
+			i_registrador <= ( others=>'0' );
+		elsif (clk'event and clk='1') then
+			i_registrador <= i_proximo;
+		end if;
+	end process;
+	
+--control path: a lógica para o contador de iteração
+	process(estado_registrador, i_registrador)
+	begin
+		case estado_registrador is
+			when parado =>
+				i_proximo <= (others => '0');
+								
+			when mudanca =>
+				i_proximo <= i_registrador;
+				
+			when operacao =>
+				i_proximo <= i_registrador + 1;
+		end case;
+	end process;
+			
+	
+	
+	--caminho de dados: os registradores usados no caminho de dados
+	process(clk, rst)
+	begin
+		if ( rst='1' ) then
+			z_registrador <= (others => '0');
+			d_registrador <= (others => '0');
+		elsif ( clk'event and clk='1' ) then
+			z_registrador <= z_proximo;
+			d_registrador <= d_proximo;
+		end if;
+	end process;
+	
+	--data path: os multiplexadores do data path (escrito com base no registrador
+--atribuições que ocorrem em diferentes estados do ASMD)
+	process( estado_registrador, dividendo, divisor, z_registrador, d_registrador, subtracao)
+	begin
+		d_proximo <= unsigned(divisor);
+		case estado_registrador is
+			when parado =>
+				z_proximo <= unsigned( '0' & dividendo );
+				
+			when mudanca =>
+				z_proximo <= z_registrador(15 downto 0) & '0';
+	
+			when operacao =>
+				if ( z_registrador(16 downto 8) < ('0' & d_registrador ) ) then
+					z_proximo <= z_registrador;
 				else
-					prox_estado <= stop;
+					z_proximo <=  subtracao(8 downto 0) & z_registrador(7 downto 1) & '1';
 				end if;
 		end case;
-	end process prox_estado_f;
+	end process;
 
-	-- Logica de fluxo de dados
-	fluxo_dados_f: process (clk)
-	variable reg_ca: std_logic_vector(7 downto 0);
-	begin
-		if (clk'event and clk = '1') then
-			if in_dividendo = '1' then
-				Q <= (dividendo_in);
-			end if;
-			if in_divisor = '1' then
-				A <= (divisor_in);
-			end if;
-			case estado is
-				when stop =>
-					pronto <= '0';
-					if init = '1' then
-						B <= '0';
-						D_1 <= Q(7 downto 3);
-						D_2 <= Q(2 downto 0);
-						P <= "11";
-					end if;
-				when d0 =>
-					if (A(3 downto 0) >= D_1(4 downto 0)) then
-						B <= '0';
-					else
-						D_3 <= ( D_1(4 downto 0) - ('0' & A(3 downto 0)) );
-						B <= '1';
-					end if;
-					reg_ca := D_3(3 downto 0) & D_2(2 downto 0) & B;	
-					D_1 <= reg_ca(7 downto 3);
-					D_2 <= reg_ca(2 downto 0);				
-				when d1 =>
-					
-					P <= P - "01";
-				when end_op =>
-					pronto <= '1';
-			end case;
-		end if;
-	end process fluxo_dados_f;
-	result <= std_logic_vector(D_1 & D_2);
-end comportamento;
+	--caminho de dados: unidades funcionais
+	subtracao <= ( z_registrador(16 downto 8) - unsigned('0' & divisor) );
+
+--caminho de dados: saída
+	quociente <= std_logic_vector( z_registrador(7 downto 0) );
+	resto <= std_logic_vector( z_registrador(15 downto 8) );
+	
+ end funcionamento;

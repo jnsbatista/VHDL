@@ -1,14 +1,13 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE. NUMERIC_STD.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 entity Divider is
-    Port (clk, reset : in STD_LOGIC;
-	 start : in STD_LOGIC;
-	 m : in  STD_LOGIC_VECTOR (15 downto 0);     -- Input for dividend
-           n : in  STD_LOGIC_VECTOR (7 downto 0);    -- Input for divisor 
-           quotient : out  STD_LOGIC_VECTOR (7 downto 0);    -- Output for quotient
-          remainder : out  STD_LOGIC_VECTOR (7 downto 0);    -- Output for remainder
-	ready, ovfl : out STD_LOGIC);    -- Indicates end of algorithm and overflow condition
+    Port (clk, reset, start : in std_logic;
+	 				m : in  std_logic_vector (15 downto 0);     -- Input for dividend
+          n : in  std_logic_vector (7 downto 0);    -- Input for divisor 
+          quotient, remainder: out  std_logic_vector (7 downto 0);
+					ready, ovfl : out std_logic);    -- Indicates end of algorithm and overflow condition
  end Divider;
  architecture Behavioral of Divider is
  

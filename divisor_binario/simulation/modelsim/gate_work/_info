@@ -4,7 +4,7 @@ K3
 cModel Technology
 Z0 dC:\xampp\htdocs\projects\VHDL\divisor_binario\simulation\modelsim
 Edivisor_binario
-Z1 w1658869254
+Z1 w1658885346
 Z2 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
 Z3 DPx9 cycloneii 19 cycloneii_atom_pack 0 22 zUjlM<IUJVWSWg:L2<>ic3
 Z4 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
@@ -16,12 +16,12 @@ Z9 8divisor_binario.vho
 Z10 Fdivisor_binario.vho
 l0
 L34
-V1G43e_K6`8Fj3mc4i6WVk2
-!s100 6FgX9I;L[;:gU]B5b2mDD1
+VMOmi6KmJoL;4?2W@c]RcE1
+!s100 mjDUh_Pi^VULN7@oLYSTS2
 Z11 OV;C;10.1d;51
 31
 !i10b 1
-Z12 !s108 1658869309.542000
+Z12 !s108 1658885388.750000
 Z13 !s90 -reportprogress|300|-93|-work|work|divisor_binario.vho|
 Z14 !s107 divisor_binario.vho|
 Z15 o-93 -work work -O0
@@ -33,11 +33,11 @@ R4
 R5
 R6
 R7
-DEx4 work 15 divisor_binario 0 22 1G43e_K6`8Fj3mc4i6WVk2
-l162
+DEx4 work 15 divisor_binario 0 22 MOmi6KmJoL;4?2W@c]RcE1
+l160
 L77
-VVo;5e<@9Je]P^nnWZ_DO<1
-!s100 gKl7V1PB>MKah`@gXFU=;0
+VP4V_5RYm1;8`@zL>aMMS=0
+!s100 nFZ:ULdlo<AXFX99[m^zG2
 R11
 31
 !i10b 1
