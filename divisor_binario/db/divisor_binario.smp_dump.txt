@@ -1,6 +1,6 @@
 
-State Machine - |divisor_binario|state_reg
-Name state_reg.operacao state_reg.mudanca state_reg.parado 
-state_reg.parado 0 0 0 
-state_reg.mudanca 0 1 1 
-state_reg.operacao 1 0 1 
+State Machine - |divisor_binario|estado_registrador
+Name estado_registrador.operacao estado_registrador.mudanca estado_registrador.parado 
+estado_registrador.parado 0 0 0 
+estado_registrador.mudanca 0 1 1 
+estado_registrador.operacao 1 0 1 

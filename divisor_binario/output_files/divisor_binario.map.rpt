@@ -1,5 +1,5 @@
 Analysis & Synthesis report for divisor_binario
-Tue Jul 26 23:53:43 2022
+Wed Jul 27 00:10:17 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -12,7 +12,7 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   4. Analysis & Synthesis Source Files Read
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
-  7. State Machine - |divisor_binario|state_reg
+  7. State Machine - |divisor_binario|estado_registrador
   8. General Register Statistics
   9. Multiplexer Restructuring Statistics (Restructuring Performed)
  10. Elapsed Time Per Partition
@@ -42,7 +42,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jul 26 23:53:43 2022           ;
+; Analysis & Synthesis Status        ; Successful - Wed Jul 27 00:10:17 2022           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; divisor_binario                                 ;
 ; Top-level Entity Name              ; divisor_binario                                 ;
@@ -194,15 +194,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------+
-; State Machine - |divisor_binario|state_reg                                     ;
-+--------------------+--------------------+-------------------+------------------+
-; Name               ; state_reg.operacao ; state_reg.mudanca ; state_reg.parado ;
-+--------------------+--------------------+-------------------+------------------+
-; state_reg.parado   ; 0                  ; 0                 ; 0                ;
-; state_reg.mudanca  ; 0                  ; 1                 ; 1                ;
-; state_reg.operacao ; 1                  ; 0                 ; 1                ;
-+--------------------+--------------------+-------------------+------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; State Machine - |divisor_binario|estado_registrador                                                                ;
++-----------------------------+-----------------------------+----------------------------+---------------------------+
+; Name                        ; estado_registrador.operacao ; estado_registrador.mudanca ; estado_registrador.parado ;
++-----------------------------+-----------------------------+----------------------------+---------------------------+
+; estado_registrador.parado   ; 0                           ; 0                          ; 0                         ;
+; estado_registrador.mudanca  ; 0                           ; 1                          ; 1                         ;
+; estado_registrador.operacao ; 1                           ; 0                          ; 1                         ;
++-----------------------------+-----------------------------+----------------------------+---------------------------+
 
 
 +------------------------------------------------------+
@@ -220,14 +220,14 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |divisor_binario|z_reg[1]  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |divisor_binario|z_reg[8]  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |divisor_binario|z_registrador[1] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |divisor_binario|z_registrador[8] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 
 
 +-------------------------------+
@@ -245,7 +245,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Jul 26 23:53:41 2022
+    Info: Processing started: Wed Jul 27 00:10:15 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off divisor_binario -c divisor_binario
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file divisor_binario.vhd
@@ -260,8 +260,8 @@ Info (21057): Implemented 111 device resources after synthesis - the final resou
     Info (21059): Implemented 18 output pins
     Info (21061): Implemented 66 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4620 megabytes
-    Info: Processing ended: Tue Jul 26 23:53:43 2022
+    Info: Peak virtual memory: 4628 megabytes
+    Info: Processing ended: Wed Jul 27 00:10:17 2022
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

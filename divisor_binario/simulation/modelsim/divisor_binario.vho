@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
--- DATE "07/26/2022 23:53:56"
+-- DATE "07/27/2022 00:10:33"
 
 -- 
 -- Device: Altera EP2C35F672C6 Package FBGA672
@@ -34,7 +34,7 @@ USE IEEE.STD_LOGIC_1164.ALL;
 ENTITY 	divisor_binario IS
     PORT (
 	clk : IN std_logic;
-	reset : IN std_logic;
+	rst : IN std_logic;
 	start : IN std_logic;
 	dividendo : IN std_logic_vector(15 DOWNTO 0);
 	divisor : IN std_logic_vector(7 DOWNTO 0);
@@ -82,7 +82,7 @@ END divisor_binario;
 -- divisor[0]	=>  Location: PIN_B15,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 -- dividendo[0]	=>  Location: PIN_F16,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 -- clk	=>  Location: PIN_P2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
--- reset	=>  Location: PIN_P1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+-- rst	=>  Location: PIN_P1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 -- dividendo[1]	=>  Location: PIN_D17,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 -- dividendo[2]	=>  Location: PIN_C17,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 -- dividendo[3]	=>  Location: PIN_J17,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
@@ -104,7 +104,7 @@ SIGNAL ww_devoe : std_logic;
 SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
 SIGNAL ww_clk : std_logic;
-SIGNAL ww_reset : std_logic;
+SIGNAL ww_rst : std_logic;
 SIGNAL ww_start : std_logic;
 SIGNAL ww_dividendo : std_logic_vector(15 DOWNTO 0);
 SIGNAL ww_divisor : std_logic_vector(7 DOWNTO 0);
@@ -113,16 +113,16 @@ SIGNAL ww_resto : std_logic_vector(7 DOWNTO 0);
 SIGNAL ww_pronto : std_logic;
 SIGNAL ww_overflow : std_logic;
 SIGNAL \clk~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \reset~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \sub[7]~15\ : std_logic;
-SIGNAL \sub[8]~16_combout\ : std_logic;
+SIGNAL \rst~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \subtracao[7]~15\ : std_logic;
+SIGNAL \subtracao[8]~16_combout\ : std_logic;
 SIGNAL \Selector6~0_combout\ : std_logic;
 SIGNAL \Selector6~1_combout\ : std_logic;
 SIGNAL \clk~combout\ : std_logic;
 SIGNAL \clk~clkctrl_outclk\ : std_logic;
 SIGNAL \Selector5~0_combout\ : std_logic;
-SIGNAL \reset~combout\ : std_logic;
-SIGNAL \reset~clkctrl_outclk\ : std_logic;
+SIGNAL \rst~combout\ : std_logic;
+SIGNAL \rst~clkctrl_outclk\ : std_logic;
 SIGNAL \Selector4~0_combout\ : std_logic;
 SIGNAL \Selector3~0_combout\ : std_logic;
 SIGNAL \Selector3~1_combout\ : std_logic;
@@ -138,18 +138,18 @@ SIGNAL \LessThan1~13_cout\ : std_logic;
 SIGNAL \LessThan1~14_combout\ : std_logic;
 SIGNAL \start~combout\ : std_logic;
 SIGNAL \Selector1~2_combout\ : std_logic;
-SIGNAL \state_reg.mudanca~regout\ : std_logic;
-SIGNAL \state_reg.operacao~feeder_combout\ : std_logic;
-SIGNAL \state_reg.operacao~regout\ : std_logic;
+SIGNAL \estado_registrador.mudanca~regout\ : std_logic;
+SIGNAL \estado_registrador.operacao~feeder_combout\ : std_logic;
+SIGNAL \estado_registrador.operacao~regout\ : std_logic;
 SIGNAL \Selector0~0_combout\ : std_logic;
 SIGNAL \Selector2~0_combout\ : std_logic;
 SIGNAL \Selector0~1_combout\ : std_logic;
 SIGNAL \Selector0~2_combout\ : std_logic;
-SIGNAL \state_reg.parado~regout\ : std_logic;
+SIGNAL \estado_registrador.parado~regout\ : std_logic;
 SIGNAL \Selector22~0_combout\ : std_logic;
-SIGNAL \z_reg[15]~7_combout\ : std_logic;
-SIGNAL \z_reg[13]~5_combout\ : std_logic;
-SIGNAL \z_reg[11]~3_combout\ : std_logic;
+SIGNAL \z_registrador[15]~7_combout\ : std_logic;
+SIGNAL \z_registrador[13]~5_combout\ : std_logic;
+SIGNAL \z_registrador[11]~3_combout\ : std_logic;
 SIGNAL \Selector21~0_combout\ : std_logic;
 SIGNAL \Selector20~0_combout\ : std_logic;
 SIGNAL \Selector19~0_combout\ : std_logic;
@@ -157,27 +157,27 @@ SIGNAL \Selector18~0_combout\ : std_logic;
 SIGNAL \Selector17~0_combout\ : std_logic;
 SIGNAL \Selector16~0_combout\ : std_logic;
 SIGNAL \Selector15~0_combout\ : std_logic;
-SIGNAL \z_reg[8]~0_combout\ : std_logic;
-SIGNAL \sub[0]~0_combout\ : std_logic;
-SIGNAL \z_reg[8]~8_combout\ : std_logic;
-SIGNAL \sub[0]~1\ : std_logic;
-SIGNAL \sub[1]~3\ : std_logic;
-SIGNAL \sub[2]~5\ : std_logic;
-SIGNAL \sub[3]~6_combout\ : std_logic;
-SIGNAL \sub[3]~7\ : std_logic;
-SIGNAL \sub[4]~9\ : std_logic;
-SIGNAL \sub[5]~10_combout\ : std_logic;
-SIGNAL \z_reg[14]~6_combout\ : std_logic;
-SIGNAL \sub[5]~11\ : std_logic;
-SIGNAL \sub[6]~12_combout\ : std_logic;
-SIGNAL \sub[6]~13\ : std_logic;
-SIGNAL \sub[7]~14_combout\ : std_logic;
-SIGNAL \z_reg[12]~4_combout\ : std_logic;
-SIGNAL \sub[4]~8_combout\ : std_logic;
-SIGNAL \z_reg[9]~1_combout\ : std_logic;
-SIGNAL \sub[1]~2_combout\ : std_logic;
-SIGNAL \z_reg[10]~2_combout\ : std_logic;
-SIGNAL \sub[2]~4_combout\ : std_logic;
+SIGNAL \z_registrador[8]~0_combout\ : std_logic;
+SIGNAL \subtracao[0]~0_combout\ : std_logic;
+SIGNAL \z_registrador[8]~8_combout\ : std_logic;
+SIGNAL \subtracao[0]~1\ : std_logic;
+SIGNAL \subtracao[1]~3\ : std_logic;
+SIGNAL \subtracao[2]~5\ : std_logic;
+SIGNAL \subtracao[3]~6_combout\ : std_logic;
+SIGNAL \subtracao[3]~7\ : std_logic;
+SIGNAL \subtracao[4]~9\ : std_logic;
+SIGNAL \subtracao[5]~10_combout\ : std_logic;
+SIGNAL \z_registrador[14]~6_combout\ : std_logic;
+SIGNAL \subtracao[5]~11\ : std_logic;
+SIGNAL \subtracao[6]~12_combout\ : std_logic;
+SIGNAL \subtracao[6]~13\ : std_logic;
+SIGNAL \subtracao[7]~14_combout\ : std_logic;
+SIGNAL \z_registrador[12]~4_combout\ : std_logic;
+SIGNAL \subtracao[4]~8_combout\ : std_logic;
+SIGNAL \z_registrador[9]~1_combout\ : std_logic;
+SIGNAL \subtracao[1]~2_combout\ : std_logic;
+SIGNAL \z_registrador[10]~2_combout\ : std_logic;
+SIGNAL \subtracao[2]~4_combout\ : std_logic;
 SIGNAL \LessThan2~1_cout\ : std_logic;
 SIGNAL \LessThan2~3_cout\ : std_logic;
 SIGNAL \LessThan2~5_cout\ : std_logic;
@@ -188,19 +188,19 @@ SIGNAL \LessThan2~13_cout\ : std_logic;
 SIGNAL \LessThan2~14_combout\ : std_logic;
 SIGNAL \Selector22~1_combout\ : std_logic;
 SIGNAL \overflow~0_combout\ : std_logic;
-SIGNAL z_reg : std_logic_vector(16 DOWNTO 0);
-SIGNAL i_reg : std_logic_vector(3 DOWNTO 0);
-SIGNAL d_reg : std_logic_vector(7 DOWNTO 0);
+SIGNAL z_registrador : std_logic_vector(16 DOWNTO 0);
+SIGNAL i_registrador : std_logic_vector(3 DOWNTO 0);
+SIGNAL d_registrador : std_logic_vector(7 DOWNTO 0);
 SIGNAL \divisor~combout\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \dividendo~combout\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \ALT_INV_state_reg.operacao~regout\ : std_logic;
+SIGNAL \ALT_INV_estado_registrador.operacao~regout\ : std_logic;
 SIGNAL \ALT_INV_overflow~0_combout\ : std_logic;
-SIGNAL \ALT_INV_state_reg.parado~regout\ : std_logic;
+SIGNAL \ALT_INV_estado_registrador.parado~regout\ : std_logic;
 
 BEGIN
 
 ww_clk <= clk;
-ww_reset <= reset;
+ww_rst <= rst;
 ww_start <= start;
 ww_dividendo <= dividendo;
 ww_divisor <= divisor;
@@ -214,16 +214,17 @@ ww_devpor <= devpor;
 
 \clk~clkctrl_INCLK_bus\ <= (gnd & gnd & gnd & \clk~combout\);
 
-\reset~clkctrl_INCLK_bus\ <= (gnd & gnd & gnd & \reset~combout\);
-\ALT_INV_state_reg.operacao~regout\ <= NOT \state_reg.operacao~regout\;
+\rst~clkctrl_INCLK_bus\ <= (gnd & gnd & gnd & \rst~combout\);
+\ALT_INV_estado_registrador.operacao~regout\ <= NOT \estado_registrador.operacao~regout\;
 \ALT_INV_overflow~0_combout\ <= NOT \overflow~0_combout\;
-\ALT_INV_state_reg.parado~regout\ <= NOT \state_reg.parado~regout\;
+\ALT_INV_estado_registrador.parado~regout\ <= NOT \estado_registrador.parado~regout\;
 
 -- Location: LCCOMB_X44_Y32_N16
-\sub[7]~14\ : cycloneii_lcell_comb
+\subtracao[7]~14\ : cycloneii_lcell_comb
 -- Equation(s):
--- \sub[7]~14_combout\ = (z_reg(15) & ((\divisor~combout\(7) & (!\sub[6]~13\)) # (!\divisor~combout\(7) & (\sub[6]~13\ & VCC)))) # (!z_reg(15) & ((\divisor~combout\(7) & ((\sub[6]~13\) # (GND))) # (!\divisor~combout\(7) & (!\sub[6]~13\))))
--- \sub[7]~15\ = CARRY((z_reg(15) & (\divisor~combout\(7) & !\sub[6]~13\)) # (!z_reg(15) & ((\divisor~combout\(7)) # (!\sub[6]~13\))))
+-- \subtracao[7]~14_combout\ = (z_registrador(15) & ((\divisor~combout\(7) & (!\subtracao[6]~13\)) # (!\divisor~combout\(7) & (\subtracao[6]~13\ & VCC)))) # (!z_registrador(15) & ((\divisor~combout\(7) & ((\subtracao[6]~13\) # (GND))) # 
+-- (!\divisor~combout\(7) & (!\subtracao[6]~13\))))
+-- \subtracao[7]~15\ = CARRY((z_registrador(15) & (\divisor~combout\(7) & !\subtracao[6]~13\)) # (!z_registrador(15) & ((\divisor~combout\(7)) # (!\subtracao[6]~13\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -231,17 +232,17 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(15),
+	dataa => z_registrador(15),
 	datab => \divisor~combout\(7),
 	datad => VCC,
-	cin => \sub[6]~13\,
-	combout => \sub[7]~14_combout\,
-	cout => \sub[7]~15\);
+	cin => \subtracao[6]~13\,
+	combout => \subtracao[7]~14_combout\,
+	cout => \subtracao[7]~15\);
 
 -- Location: LCCOMB_X44_Y32_N18
-\sub[8]~16\ : cycloneii_lcell_comb
+\subtracao[8]~16\ : cycloneii_lcell_comb
 -- Equation(s):
--- \sub[8]~16_combout\ = \sub[7]~15\ $ (z_reg(16))
+-- \subtracao[8]~16_combout\ = \subtracao[7]~15\ $ (z_registrador(16))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -249,57 +250,57 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datad => z_reg(16),
-	cin => \sub[7]~15\,
-	combout => \sub[8]~16_combout\);
+	datad => z_registrador(16),
+	cin => \subtracao[7]~15\,
+	combout => \subtracao[8]~16_combout\);
 
 -- Location: LCFF_X43_Y32_N29
-\z_reg[16]\ : cycloneii_lcell_ff
+\z_registrador[16]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector6~1_combout\,
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(16));
+	regout => z_registrador(16));
 
 -- Location: LCFF_X42_Y32_N25
-\d_reg[4]\ : cycloneii_lcell_ff
+\d_registrador[4]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	sdata => \divisor~combout\(4),
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => d_reg(4));
+	regout => d_registrador(4));
 
 -- Location: LCFF_X42_Y32_N21
-\d_reg[2]\ : cycloneii_lcell_ff
+\d_registrador[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	sdata => \divisor~combout\(2),
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => d_reg(2));
+	regout => d_registrador(2));
 
 -- Location: LCFF_X42_Y32_N17
-\d_reg[0]\ : cycloneii_lcell_ff
+\d_registrador[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	sdata => \divisor~combout\(0),
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => d_reg(0));
+	regout => d_registrador(0));
 
 -- Location: LCCOMB_X43_Y32_N12
 \Selector6~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector6~0_combout\ = (\state_reg.operacao~regout\ & (\sub[8]~16_combout\ & ((z_reg(16)) # (!\LessThan2~14_combout\))))
+-- \Selector6~0_combout\ = (\estado_registrador.operacao~regout\ & (\subtracao[8]~16_combout\ & ((z_registrador(16)) # (!\LessThan2~14_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -307,16 +308,16 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(16),
-	datab => \state_reg.operacao~regout\,
+	dataa => z_registrador(16),
+	datab => \estado_registrador.operacao~regout\,
 	datac => \LessThan2~14_combout\,
-	datad => \sub[8]~16_combout\,
+	datad => \subtracao[8]~16_combout\,
 	combout => \Selector6~0_combout\);
 
 -- Location: LCCOMB_X43_Y32_N28
 \Selector6~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector6~1_combout\ = (\Selector6~0_combout\) # ((\state_reg.mudanca~regout\ & z_reg(15)))
+-- \Selector6~1_combout\ = (\Selector6~0_combout\) # ((\estado_registrador.mudanca~regout\ & z_registrador(15)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -324,8 +325,8 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
-	datab => z_reg(15),
+	dataa => \estado_registrador.mudanca~regout\,
+	datab => z_registrador(15),
 	datad => \Selector6~0_combout\,
 	combout => \Selector6~1_combout\);
 
@@ -397,7 +398,7 @@ PORT MAP (
 -- Location: LCCOMB_X45_Y32_N28
 \Selector5~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector5~0_combout\ = (i_reg(0) & ((\state_reg.mudanca~regout\))) # (!i_reg(0) & (\state_reg.operacao~regout\))
+-- \Selector5~0_combout\ = (i_registrador(0) & ((\estado_registrador.mudanca~regout\))) # (!i_registrador(0) & (\estado_registrador.operacao~regout\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -405,13 +406,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \state_reg.operacao~regout\,
-	datac => i_reg(0),
-	datad => \state_reg.mudanca~regout\,
+	datab => \estado_registrador.operacao~regout\,
+	datac => i_registrador(0),
+	datad => \estado_registrador.mudanca~regout\,
 	combout => \Selector5~0_combout\);
 
 -- Location: PIN_P1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-\reset~I\ : cycloneii_io
+\rst~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
 	input_async_reset => "none",
@@ -433,36 +434,36 @@ PORT MAP (
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => GND,
-	padio => ww_reset,
-	combout => \reset~combout\);
+	padio => ww_rst,
+	combout => \rst~combout\);
 
 -- Location: CLKCTRL_G1
-\reset~clkctrl\ : cycloneii_clkctrl
+\rst~clkctrl\ : cycloneii_clkctrl
 -- pragma translate_off
 GENERIC MAP (
 	clock_type => "global clock",
 	ena_register_mode => "none")
 -- pragma translate_on
 PORT MAP (
-	inclk => \reset~clkctrl_INCLK_bus\,
+	inclk => \rst~clkctrl_INCLK_bus\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	outclk => \reset~clkctrl_outclk\);
+	outclk => \rst~clkctrl_outclk\);
 
 -- Location: LCFF_X45_Y32_N29
-\i_reg[0]\ : cycloneii_lcell_ff
+\i_registrador[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector5~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => i_reg(0));
+	regout => i_registrador(0));
 
 -- Location: LCCOMB_X44_Y32_N26
 \Selector4~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector4~0_combout\ = (i_reg(1) & ((\state_reg.mudanca~regout\) # ((\state_reg.operacao~regout\ & !i_reg(0))))) # (!i_reg(1) & (\state_reg.operacao~regout\ & (i_reg(0))))
+-- \Selector4~0_combout\ = (i_registrador(1) & ((\estado_registrador.mudanca~regout\) # ((\estado_registrador.operacao~regout\ & !i_registrador(0))))) # (!i_registrador(1) & (\estado_registrador.operacao~regout\ & (i_registrador(0))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -470,26 +471,26 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.operacao~regout\,
-	datab => i_reg(0),
-	datac => i_reg(1),
-	datad => \state_reg.mudanca~regout\,
+	dataa => \estado_registrador.operacao~regout\,
+	datab => i_registrador(0),
+	datac => i_registrador(1),
+	datad => \estado_registrador.mudanca~regout\,
 	combout => \Selector4~0_combout\);
 
 -- Location: LCFF_X44_Y32_N27
-\i_reg[1]\ : cycloneii_lcell_ff
+\i_registrador[1]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector4~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => i_reg(1));
+	regout => i_registrador(1));
 
 -- Location: LCCOMB_X44_Y32_N28
 \Selector3~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector3~0_combout\ = (\state_reg.operacao~regout\ & (i_reg(2) $ (((i_reg(1) & i_reg(0))))))
+-- \Selector3~0_combout\ = (\estado_registrador.operacao~regout\ & (i_registrador(2) $ (((i_registrador(1) & i_registrador(0))))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -497,16 +498,16 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.operacao~regout\,
-	datab => i_reg(1),
-	datac => i_reg(0),
-	datad => i_reg(2),
+	dataa => \estado_registrador.operacao~regout\,
+	datab => i_registrador(1),
+	datac => i_registrador(0),
+	datad => i_registrador(2),
 	combout => \Selector3~0_combout\);
 
 -- Location: LCCOMB_X44_Y32_N0
 \Selector3~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector3~1_combout\ = (\Selector3~0_combout\) # ((\state_reg.mudanca~regout\ & i_reg(2)))
+-- \Selector3~1_combout\ = (\Selector3~0_combout\) # ((\estado_registrador.mudanca~regout\ & i_registrador(2)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -514,25 +515,25 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
-	datac => i_reg(2),
+	dataa => \estado_registrador.mudanca~regout\,
+	datac => i_registrador(2),
 	datad => \Selector3~0_combout\,
 	combout => \Selector3~1_combout\);
 
 -- Location: LCFF_X44_Y32_N1
-\i_reg[2]\ : cycloneii_lcell_ff
+\i_registrador[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector3~1_combout\,
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => i_reg(2));
+	regout => i_registrador(2));
 
 -- Location: LCCOMB_X45_Y32_N8
 \Selector1~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector1~0_combout\ = (i_reg(3) & ((i_reg(1)) # ((i_reg(2)) # (i_reg(0))))) # (!i_reg(3) & (((!i_reg(0)) # (!i_reg(2))) # (!i_reg(1))))
+-- \Selector1~0_combout\ = (i_registrador(3) & ((i_registrador(1)) # ((i_registrador(2)) # (i_registrador(0))))) # (!i_registrador(3) & (((!i_registrador(0)) # (!i_registrador(2))) # (!i_registrador(1))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -540,16 +541,16 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => i_reg(3),
-	datab => i_reg(1),
-	datac => i_reg(2),
-	datad => i_reg(0),
+	dataa => i_registrador(3),
+	datab => i_registrador(1),
+	datac => i_registrador(2),
+	datad => i_registrador(0),
 	combout => \Selector1~0_combout\);
 
 -- Location: LCCOMB_X45_Y32_N22
 \Selector1~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector1~1_combout\ = (\state_reg.operacao~regout\ & ((\Selector1~0_combout\) # (!i_reg(0))))
+-- \Selector1~1_combout\ = (\estado_registrador.operacao~regout\ & ((\Selector1~0_combout\) # (!i_registrador(0))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -557,9 +558,9 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \state_reg.operacao~regout\,
+	datab => \estado_registrador.operacao~regout\,
 	datac => \Selector1~0_combout\,
-	datad => i_reg(0),
+	datad => i_registrador(0),
 	combout => \Selector1~1_combout\);
 
 -- Location: PIN_C13,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
@@ -933,7 +934,7 @@ PORT MAP (
 -- Location: LCCOMB_X45_Y32_N10
 \Selector1~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector1~2_combout\ = (\Selector1~1_combout\) # ((!\state_reg.parado~regout\ & (\LessThan1~14_combout\ & \start~combout\)))
+-- \Selector1~2_combout\ = (\Selector1~1_combout\) # ((!\estado_registrador.parado~regout\ & (\LessThan1~14_combout\ & \start~combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -941,26 +942,26 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.parado~regout\,
+	dataa => \estado_registrador.parado~regout\,
 	datab => \Selector1~1_combout\,
 	datac => \LessThan1~14_combout\,
 	datad => \start~combout\,
 	combout => \Selector1~2_combout\);
 
 -- Location: LCFF_X45_Y32_N11
-\state_reg.mudanca\ : cycloneii_lcell_ff
+\estado_registrador.mudanca\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector1~2_combout\,
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \state_reg.mudanca~regout\);
+	regout => \estado_registrador.mudanca~regout\);
 
 -- Location: LCCOMB_X44_Y32_N24
-\state_reg.operacao~feeder\ : cycloneii_lcell_comb
+\estado_registrador.operacao~feeder\ : cycloneii_lcell_comb
 -- Equation(s):
--- \state_reg.operacao~feeder_combout\ = \state_reg.mudanca~regout\
+-- \estado_registrador.operacao~feeder_combout\ = \estado_registrador.mudanca~regout\
 
 -- pragma translate_off
 GENERIC MAP (
@@ -968,23 +969,23 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datad => \state_reg.mudanca~regout\,
-	combout => \state_reg.operacao~feeder_combout\);
+	datad => \estado_registrador.mudanca~regout\,
+	combout => \estado_registrador.operacao~feeder_combout\);
 
 -- Location: LCFF_X44_Y32_N25
-\state_reg.operacao\ : cycloneii_lcell_ff
+\estado_registrador.operacao\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
-	datain => \state_reg.operacao~feeder_combout\,
-	aclr => \reset~clkctrl_outclk\,
+	datain => \estado_registrador.operacao~feeder_combout\,
+	aclr => \rst~clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \state_reg.operacao~regout\);
+	regout => \estado_registrador.operacao~regout\);
 
 -- Location: LCCOMB_X45_Y32_N26
 \Selector0~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector0~0_combout\ = (i_reg(1) & (i_reg(2) & i_reg(0)))
+-- \Selector0~0_combout\ = (i_registrador(1) & (i_registrador(2) & i_registrador(0)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -992,15 +993,15 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => i_reg(1),
-	datac => i_reg(2),
-	datad => i_reg(0),
+	datab => i_registrador(1),
+	datac => i_registrador(2),
+	datad => i_registrador(0),
 	combout => \Selector0~0_combout\);
 
 -- Location: LCCOMB_X45_Y32_N20
 \Selector2~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector2~0_combout\ = (i_reg(3) & ((\state_reg.mudanca~regout\) # ((\state_reg.operacao~regout\ & !\Selector0~0_combout\)))) # (!i_reg(3) & (((\state_reg.operacao~regout\ & \Selector0~0_combout\))))
+-- \Selector2~0_combout\ = (i_registrador(3) & ((\estado_registrador.mudanca~regout\) # ((\estado_registrador.operacao~regout\ & !\Selector0~0_combout\)))) # (!i_registrador(3) & (((\estado_registrador.operacao~regout\ & \Selector0~0_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1008,26 +1009,26 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
-	datab => \state_reg.operacao~regout\,
-	datac => i_reg(3),
+	dataa => \estado_registrador.mudanca~regout\,
+	datab => \estado_registrador.operacao~regout\,
+	datac => i_registrador(3),
 	datad => \Selector0~0_combout\,
 	combout => \Selector2~0_combout\);
 
 -- Location: LCFF_X45_Y32_N21
-\i_reg[3]\ : cycloneii_lcell_ff
+\i_registrador[3]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector2~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => i_reg(3));
+	regout => i_registrador(3));
 
 -- Location: LCCOMB_X45_Y32_N2
 \Selector0~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector0~1_combout\ = (\state_reg.operacao~regout\ & (!i_reg(3) & \Selector0~0_combout\))
+-- \Selector0~1_combout\ = (\estado_registrador.operacao~regout\ & (!i_registrador(3) & \Selector0~0_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1035,15 +1036,15 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \state_reg.operacao~regout\,
-	datac => i_reg(3),
+	datab => \estado_registrador.operacao~regout\,
+	datac => i_registrador(3),
 	datad => \Selector0~0_combout\,
 	combout => \Selector0~1_combout\);
 
 -- Location: LCCOMB_X45_Y32_N18
 \Selector0~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector0~2_combout\ = (!\Selector0~1_combout\ & ((\state_reg.parado~regout\) # ((\LessThan1~14_combout\ & \start~combout\))))
+-- \Selector0~2_combout\ = (!\Selector0~1_combout\ & ((\estado_registrador.parado~regout\) # ((\LessThan1~14_combout\ & \start~combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1053,24 +1054,24 @@ GENERIC MAP (
 PORT MAP (
 	dataa => \LessThan1~14_combout\,
 	datab => \start~combout\,
-	datac => \state_reg.parado~regout\,
+	datac => \estado_registrador.parado~regout\,
 	datad => \Selector0~1_combout\,
 	combout => \Selector0~2_combout\);
 
 -- Location: LCFF_X45_Y32_N19
-\state_reg.parado\ : cycloneii_lcell_ff
+\estado_registrador.parado\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector0~2_combout\,
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \state_reg.parado~regout\);
+	regout => \estado_registrador.parado~regout\);
 
 -- Location: LCCOMB_X43_Y32_N22
 \Selector22~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector22~0_combout\ = (\dividendo~combout\(0) & (((\state_reg.operacao~regout\ & z_reg(0))) # (!\state_reg.parado~regout\))) # (!\dividendo~combout\(0) & (\state_reg.operacao~regout\ & (z_reg(0))))
+-- \Selector22~0_combout\ = (\dividendo~combout\(0) & (((\estado_registrador.operacao~regout\ & z_registrador(0))) # (!\estado_registrador.parado~regout\))) # (!\dividendo~combout\(0) & (\estado_registrador.operacao~regout\ & (z_registrador(0))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1079,9 +1080,9 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \dividendo~combout\(0),
-	datab => \state_reg.operacao~regout\,
-	datac => z_reg(0),
-	datad => \state_reg.parado~regout\,
+	datab => \estado_registrador.operacao~regout\,
+	datac => z_registrador(0),
+	datad => \estado_registrador.parado~regout\,
 	combout => \Selector22~0_combout\);
 
 -- Location: PIN_D13,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
@@ -1111,20 +1112,20 @@ PORT MAP (
 	combout => \divisor~combout\(7));
 
 -- Location: LCFF_X42_Y32_N31
-\d_reg[7]\ : cycloneii_lcell_ff
+\d_registrador[7]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	sdata => \divisor~combout\(7),
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => d_reg(7));
+	regout => d_registrador(7));
 
 -- Location: LCCOMB_X43_Y32_N30
-\z_reg[15]~7\ : cycloneii_lcell_comb
+\z_registrador[15]~7\ : cycloneii_lcell_comb
 -- Equation(s):
--- \z_reg[15]~7_combout\ = (\state_reg.mudanca~regout\ & (z_reg(14))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(15))))
+-- \z_registrador[15]~7_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(14))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(15))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1132,10 +1133,10 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(14),
+	dataa => z_registrador(14),
 	datab => \dividendo~combout\(15),
-	datad => \state_reg.mudanca~regout\,
-	combout => \z_reg[15]~7_combout\);
+	datad => \estado_registrador.mudanca~regout\,
+	combout => \z_registrador[15]~7_combout\);
 
 -- Location: PIN_G14,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \dividendo[14]~I\ : cycloneii_io
@@ -1190,9 +1191,9 @@ PORT MAP (
 	combout => \dividendo~combout\(13));
 
 -- Location: LCCOMB_X43_Y32_N26
-\z_reg[13]~5\ : cycloneii_lcell_comb
+\z_registrador[13]~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \z_reg[13]~5_combout\ = (\state_reg.mudanca~regout\ & (z_reg(12))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(13))))
+-- \z_registrador[13]~5_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(12))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(13))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1200,15 +1201,15 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(12),
+	dataa => z_registrador(12),
 	datab => \dividendo~combout\(13),
-	datad => \state_reg.mudanca~regout\,
-	combout => \z_reg[13]~5_combout\);
+	datad => \estado_registrador.mudanca~regout\,
+	combout => \z_registrador[13]~5_combout\);
 
 -- Location: LCCOMB_X43_Y32_N6
-\z_reg[11]~3\ : cycloneii_lcell_comb
+\z_registrador[11]~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \z_reg[11]~3_combout\ = (\state_reg.mudanca~regout\ & (z_reg(10))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(11))))
+-- \z_registrador[11]~3_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(10))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(11))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1216,10 +1217,10 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(10),
+	dataa => z_registrador(10),
 	datab => \dividendo~combout\(11),
-	datad => \state_reg.mudanca~regout\,
-	combout => \z_reg[11]~3_combout\);
+	datad => \estado_registrador.mudanca~regout\,
+	combout => \z_registrador[11]~3_combout\);
 
 -- Location: PIN_C16,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \divisor[2]~I\ : cycloneii_io
@@ -1354,7 +1355,7 @@ PORT MAP (
 -- Location: LCCOMB_X45_Y32_N16
 \Selector21~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector21~0_combout\ = (\state_reg.mudanca~regout\ & (z_reg(0))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(1))))
+-- \Selector21~0_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(0))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(1))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1362,21 +1363,21 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
-	datac => z_reg(0),
+	dataa => \estado_registrador.mudanca~regout\,
+	datac => z_registrador(0),
 	datad => \dividendo~combout\(1),
 	combout => \Selector21~0_combout\);
 
 -- Location: LCFF_X45_Y32_N17
-\z_reg[1]\ : cycloneii_lcell_ff
+\z_registrador[1]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector21~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	ena => \ALT_INV_state_reg.operacao~regout\,
+	aclr => \rst~clkctrl_outclk\,
+	ena => \ALT_INV_estado_registrador.operacao~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(1));
+	regout => z_registrador(1));
 
 -- Location: PIN_C17,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \dividendo[2]~I\ : cycloneii_io
@@ -1407,7 +1408,7 @@ PORT MAP (
 -- Location: LCCOMB_X45_Y32_N30
 \Selector20~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector20~0_combout\ = (\state_reg.mudanca~regout\ & (z_reg(1))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(2))))
+-- \Selector20~0_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(1))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1415,21 +1416,21 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
-	datac => z_reg(1),
+	dataa => \estado_registrador.mudanca~regout\,
+	datac => z_registrador(1),
 	datad => \dividendo~combout\(2),
 	combout => \Selector20~0_combout\);
 
 -- Location: LCFF_X45_Y32_N31
-\z_reg[2]\ : cycloneii_lcell_ff
+\z_registrador[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector20~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	ena => \ALT_INV_state_reg.operacao~regout\,
+	aclr => \rst~clkctrl_outclk\,
+	ena => \ALT_INV_estado_registrador.operacao~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(2));
+	regout => z_registrador(2));
 
 -- Location: PIN_J17,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \dividendo[3]~I\ : cycloneii_io
@@ -1460,7 +1461,7 @@ PORT MAP (
 -- Location: LCCOMB_X45_Y32_N0
 \Selector19~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector19~0_combout\ = (\state_reg.mudanca~regout\ & (z_reg(2))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(3))))
+-- \Selector19~0_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(2))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(3))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1468,21 +1469,21 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
-	datab => z_reg(2),
+	dataa => \estado_registrador.mudanca~regout\,
+	datab => z_registrador(2),
 	datad => \dividendo~combout\(3),
 	combout => \Selector19~0_combout\);
 
 -- Location: LCFF_X45_Y32_N1
-\z_reg[3]\ : cycloneii_lcell_ff
+\z_registrador[3]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector19~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	ena => \ALT_INV_state_reg.operacao~regout\,
+	aclr => \rst~clkctrl_outclk\,
+	ena => \ALT_INV_estado_registrador.operacao~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(3));
+	regout => z_registrador(3));
 
 -- Location: PIN_B20,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \dividendo[4]~I\ : cycloneii_io
@@ -1513,7 +1514,7 @@ PORT MAP (
 -- Location: LCCOMB_X45_Y32_N6
 \Selector18~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector18~0_combout\ = (\state_reg.mudanca~regout\ & (z_reg(3))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(4))))
+-- \Selector18~0_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(3))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(4))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1521,26 +1522,26 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
-	datab => z_reg(3),
+	dataa => \estado_registrador.mudanca~regout\,
+	datab => z_registrador(3),
 	datad => \dividendo~combout\(4),
 	combout => \Selector18~0_combout\);
 
 -- Location: LCFF_X45_Y32_N7
-\z_reg[4]\ : cycloneii_lcell_ff
+\z_registrador[4]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector18~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	ena => \ALT_INV_state_reg.operacao~regout\,
+	aclr => \rst~clkctrl_outclk\,
+	ena => \ALT_INV_estado_registrador.operacao~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(4));
+	regout => z_registrador(4));
 
 -- Location: LCCOMB_X45_Y32_N4
 \Selector17~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector17~0_combout\ = (\state_reg.mudanca~regout\ & ((z_reg(4)))) # (!\state_reg.mudanca~regout\ & (\dividendo~combout\(5)))
+-- \Selector17~0_combout\ = (\estado_registrador.mudanca~regout\ & ((z_registrador(4)))) # (!\estado_registrador.mudanca~regout\ & (\dividendo~combout\(5)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1548,21 +1549,21 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
+	dataa => \estado_registrador.mudanca~regout\,
 	datac => \dividendo~combout\(5),
-	datad => z_reg(4),
+	datad => z_registrador(4),
 	combout => \Selector17~0_combout\);
 
 -- Location: LCFF_X45_Y32_N5
-\z_reg[5]\ : cycloneii_lcell_ff
+\z_registrador[5]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector17~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	ena => \ALT_INV_state_reg.operacao~regout\,
+	aclr => \rst~clkctrl_outclk\,
+	ena => \ALT_INV_estado_registrador.operacao~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(5));
+	regout => z_registrador(5));
 
 -- Location: PIN_E20,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \dividendo[6]~I\ : cycloneii_io
@@ -1593,7 +1594,7 @@ PORT MAP (
 -- Location: LCCOMB_X45_Y32_N14
 \Selector16~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector16~0_combout\ = (\state_reg.mudanca~regout\ & (z_reg(5))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(6))))
+-- \Selector16~0_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(5))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(6))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1601,21 +1602,21 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
-	datac => z_reg(5),
+	dataa => \estado_registrador.mudanca~regout\,
+	datac => z_registrador(5),
 	datad => \dividendo~combout\(6),
 	combout => \Selector16~0_combout\);
 
 -- Location: LCFF_X45_Y32_N15
-\z_reg[6]\ : cycloneii_lcell_ff
+\z_registrador[6]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector16~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	ena => \ALT_INV_state_reg.operacao~regout\,
+	aclr => \rst~clkctrl_outclk\,
+	ena => \ALT_INV_estado_registrador.operacao~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(6));
+	regout => z_registrador(6));
 
 -- Location: PIN_C19,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \dividendo[7]~I\ : cycloneii_io
@@ -1646,7 +1647,7 @@ PORT MAP (
 -- Location: LCCOMB_X45_Y32_N12
 \Selector15~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector15~0_combout\ = (\state_reg.mudanca~regout\ & (z_reg(6))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(7))))
+-- \Selector15~0_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(6))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(7))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1654,26 +1655,26 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
-	datac => z_reg(6),
+	dataa => \estado_registrador.mudanca~regout\,
+	datac => z_registrador(6),
 	datad => \dividendo~combout\(7),
 	combout => \Selector15~0_combout\);
 
 -- Location: LCFF_X45_Y32_N13
-\z_reg[7]\ : cycloneii_lcell_ff
+\z_registrador[7]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector15~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	ena => \ALT_INV_state_reg.operacao~regout\,
+	aclr => \rst~clkctrl_outclk\,
+	ena => \ALT_INV_estado_registrador.operacao~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(7));
+	regout => z_registrador(7));
 
 -- Location: LCCOMB_X43_Y32_N24
-\z_reg[8]~0\ : cycloneii_lcell_comb
+\z_registrador[8]~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \z_reg[8]~0_combout\ = (\state_reg.mudanca~regout\ & ((z_reg(7)))) # (!\state_reg.mudanca~regout\ & (\dividendo~combout\(8)))
+-- \z_registrador[8]~0_combout\ = (\estado_registrador.mudanca~regout\ & ((z_registrador(7)))) # (!\estado_registrador.mudanca~regout\ & (\dividendo~combout\(8)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1681,16 +1682,16 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
+	dataa => \estado_registrador.mudanca~regout\,
 	datab => \dividendo~combout\(8),
-	datad => z_reg(7),
-	combout => \z_reg[8]~0_combout\);
+	datad => z_registrador(7),
+	combout => \z_registrador[8]~0_combout\);
 
 -- Location: LCCOMB_X44_Y32_N2
-\sub[0]~0\ : cycloneii_lcell_comb
+\subtracao[0]~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \sub[0]~0_combout\ = (\divisor~combout\(0) & (z_reg(8) $ (VCC))) # (!\divisor~combout\(0) & ((z_reg(8)) # (GND)))
--- \sub[0]~1\ = CARRY((z_reg(8)) # (!\divisor~combout\(0)))
+-- \subtracao[0]~0_combout\ = (\divisor~combout\(0) & (z_registrador(8) $ (VCC))) # (!\divisor~combout\(0) & ((z_registrador(8)) # (GND)))
+-- \subtracao[0]~1\ = CARRY((z_registrador(8)) # (!\divisor~combout\(0)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1699,15 +1700,15 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \divisor~combout\(0),
-	datab => z_reg(8),
+	datab => z_registrador(8),
 	datad => VCC,
-	combout => \sub[0]~0_combout\,
-	cout => \sub[0]~1\);
+	combout => \subtracao[0]~0_combout\,
+	cout => \subtracao[0]~1\);
 
 -- Location: LCCOMB_X43_Y32_N18
-\z_reg[8]~8\ : cycloneii_lcell_comb
+\z_registrador[8]~8\ : cycloneii_lcell_comb
 -- Equation(s):
--- \z_reg[8]~8_combout\ = (z_reg(16)) # ((!\state_reg.operacao~regout\) # (!\LessThan2~14_combout\))
+-- \z_registrador[8]~8_combout\ = (z_registrador(16)) # ((!\estado_registrador.operacao~regout\) # (!\LessThan2~14_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1715,29 +1716,30 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(16),
+	dataa => z_registrador(16),
 	datac => \LessThan2~14_combout\,
-	datad => \state_reg.operacao~regout\,
-	combout => \z_reg[8]~8_combout\);
+	datad => \estado_registrador.operacao~regout\,
+	combout => \z_registrador[8]~8_combout\);
 
 -- Location: LCFF_X43_Y32_N25
-\z_reg[8]\ : cycloneii_lcell_ff
+\z_registrador[8]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
-	datain => \z_reg[8]~0_combout\,
-	sdata => \sub[0]~0_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	sload => \state_reg.operacao~regout\,
-	ena => \z_reg[8]~8_combout\,
+	datain => \z_registrador[8]~0_combout\,
+	sdata => \subtracao[0]~0_combout\,
+	aclr => \rst~clkctrl_outclk\,
+	sload => \estado_registrador.operacao~regout\,
+	ena => \z_registrador[8]~8_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(8));
+	regout => z_registrador(8));
 
 -- Location: LCCOMB_X44_Y32_N4
-\sub[1]~2\ : cycloneii_lcell_comb
+\subtracao[1]~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \sub[1]~2_combout\ = (z_reg(9) & ((\divisor~combout\(1) & (!\sub[0]~1\)) # (!\divisor~combout\(1) & (\sub[0]~1\ & VCC)))) # (!z_reg(9) & ((\divisor~combout\(1) & ((\sub[0]~1\) # (GND))) # (!\divisor~combout\(1) & (!\sub[0]~1\))))
--- \sub[1]~3\ = CARRY((z_reg(9) & (\divisor~combout\(1) & !\sub[0]~1\)) # (!z_reg(9) & ((\divisor~combout\(1)) # (!\sub[0]~1\))))
+-- \subtracao[1]~2_combout\ = (z_registrador(9) & ((\divisor~combout\(1) & (!\subtracao[0]~1\)) # (!\divisor~combout\(1) & (\subtracao[0]~1\ & VCC)))) # (!z_registrador(9) & ((\divisor~combout\(1) & ((\subtracao[0]~1\) # (GND))) # (!\divisor~combout\(1) & 
+-- (!\subtracao[0]~1\))))
+-- \subtracao[1]~3\ = CARRY((z_registrador(9) & (\divisor~combout\(1) & !\subtracao[0]~1\)) # (!z_registrador(9) & ((\divisor~combout\(1)) # (!\subtracao[0]~1\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1745,18 +1747,18 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(9),
+	dataa => z_registrador(9),
 	datab => \divisor~combout\(1),
 	datad => VCC,
-	cin => \sub[0]~1\,
-	combout => \sub[1]~2_combout\,
-	cout => \sub[1]~3\);
+	cin => \subtracao[0]~1\,
+	combout => \subtracao[1]~2_combout\,
+	cout => \subtracao[1]~3\);
 
 -- Location: LCCOMB_X44_Y32_N6
-\sub[2]~4\ : cycloneii_lcell_comb
+\subtracao[2]~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \sub[2]~4_combout\ = ((z_reg(10) $ (\divisor~combout\(2) $ (\sub[1]~3\)))) # (GND)
--- \sub[2]~5\ = CARRY((z_reg(10) & ((!\sub[1]~3\) # (!\divisor~combout\(2)))) # (!z_reg(10) & (!\divisor~combout\(2) & !\sub[1]~3\)))
+-- \subtracao[2]~4_combout\ = ((z_registrador(10) $ (\divisor~combout\(2) $ (\subtracao[1]~3\)))) # (GND)
+-- \subtracao[2]~5\ = CARRY((z_registrador(10) & ((!\subtracao[1]~3\) # (!\divisor~combout\(2)))) # (!z_registrador(10) & (!\divisor~combout\(2) & !\subtracao[1]~3\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1764,18 +1766,19 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(10),
+	dataa => z_registrador(10),
 	datab => \divisor~combout\(2),
 	datad => VCC,
-	cin => \sub[1]~3\,
-	combout => \sub[2]~4_combout\,
-	cout => \sub[2]~5\);
+	cin => \subtracao[1]~3\,
+	combout => \subtracao[2]~4_combout\,
+	cout => \subtracao[2]~5\);
 
 -- Location: LCCOMB_X44_Y32_N8
-\sub[3]~6\ : cycloneii_lcell_comb
+\subtracao[3]~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \sub[3]~6_combout\ = (\divisor~combout\(3) & ((z_reg(11) & (!\sub[2]~5\)) # (!z_reg(11) & ((\sub[2]~5\) # (GND))))) # (!\divisor~combout\(3) & ((z_reg(11) & (\sub[2]~5\ & VCC)) # (!z_reg(11) & (!\sub[2]~5\))))
--- \sub[3]~7\ = CARRY((\divisor~combout\(3) & ((!\sub[2]~5\) # (!z_reg(11)))) # (!\divisor~combout\(3) & (!z_reg(11) & !\sub[2]~5\)))
+-- \subtracao[3]~6_combout\ = (\divisor~combout\(3) & ((z_registrador(11) & (!\subtracao[2]~5\)) # (!z_registrador(11) & ((\subtracao[2]~5\) # (GND))))) # (!\divisor~combout\(3) & ((z_registrador(11) & (\subtracao[2]~5\ & VCC)) # (!z_registrador(11) & 
+-- (!\subtracao[2]~5\))))
+-- \subtracao[3]~7\ = CARRY((\divisor~combout\(3) & ((!\subtracao[2]~5\) # (!z_registrador(11)))) # (!\divisor~combout\(3) & (!z_registrador(11) & !\subtracao[2]~5\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1784,30 +1787,30 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \divisor~combout\(3),
-	datab => z_reg(11),
+	datab => z_registrador(11),
 	datad => VCC,
-	cin => \sub[2]~5\,
-	combout => \sub[3]~6_combout\,
-	cout => \sub[3]~7\);
+	cin => \subtracao[2]~5\,
+	combout => \subtracao[3]~6_combout\,
+	cout => \subtracao[3]~7\);
 
 -- Location: LCFF_X43_Y32_N7
-\z_reg[11]\ : cycloneii_lcell_ff
+\z_registrador[11]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
-	datain => \z_reg[11]~3_combout\,
-	sdata => \sub[3]~6_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	sload => \state_reg.operacao~regout\,
-	ena => \z_reg[8]~8_combout\,
+	datain => \z_registrador[11]~3_combout\,
+	sdata => \subtracao[3]~6_combout\,
+	aclr => \rst~clkctrl_outclk\,
+	sload => \estado_registrador.operacao~regout\,
+	ena => \z_registrador[8]~8_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(11));
+	regout => z_registrador(11));
 
 -- Location: LCCOMB_X44_Y32_N10
-\sub[4]~8\ : cycloneii_lcell_comb
+\subtracao[4]~8\ : cycloneii_lcell_comb
 -- Equation(s):
--- \sub[4]~8_combout\ = ((z_reg(12) $ (\divisor~combout\(4) $ (\sub[3]~7\)))) # (GND)
--- \sub[4]~9\ = CARRY((z_reg(12) & ((!\sub[3]~7\) # (!\divisor~combout\(4)))) # (!z_reg(12) & (!\divisor~combout\(4) & !\sub[3]~7\)))
+-- \subtracao[4]~8_combout\ = ((z_registrador(12) $ (\divisor~combout\(4) $ (\subtracao[3]~7\)))) # (GND)
+-- \subtracao[4]~9\ = CARRY((z_registrador(12) & ((!\subtracao[3]~7\) # (!\divisor~combout\(4)))) # (!z_registrador(12) & (!\divisor~combout\(4) & !\subtracao[3]~7\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1815,18 +1818,19 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(12),
+	dataa => z_registrador(12),
 	datab => \divisor~combout\(4),
 	datad => VCC,
-	cin => \sub[3]~7\,
-	combout => \sub[4]~8_combout\,
-	cout => \sub[4]~9\);
+	cin => \subtracao[3]~7\,
+	combout => \subtracao[4]~8_combout\,
+	cout => \subtracao[4]~9\);
 
 -- Location: LCCOMB_X44_Y32_N12
-\sub[5]~10\ : cycloneii_lcell_comb
+\subtracao[5]~10\ : cycloneii_lcell_comb
 -- Equation(s):
--- \sub[5]~10_combout\ = (\divisor~combout\(5) & ((z_reg(13) & (!\sub[4]~9\)) # (!z_reg(13) & ((\sub[4]~9\) # (GND))))) # (!\divisor~combout\(5) & ((z_reg(13) & (\sub[4]~9\ & VCC)) # (!z_reg(13) & (!\sub[4]~9\))))
--- \sub[5]~11\ = CARRY((\divisor~combout\(5) & ((!\sub[4]~9\) # (!z_reg(13)))) # (!\divisor~combout\(5) & (!z_reg(13) & !\sub[4]~9\)))
+-- \subtracao[5]~10_combout\ = (\divisor~combout\(5) & ((z_registrador(13) & (!\subtracao[4]~9\)) # (!z_registrador(13) & ((\subtracao[4]~9\) # (GND))))) # (!\divisor~combout\(5) & ((z_registrador(13) & (\subtracao[4]~9\ & VCC)) # (!z_registrador(13) & 
+-- (!\subtracao[4]~9\))))
+-- \subtracao[5]~11\ = CARRY((\divisor~combout\(5) & ((!\subtracao[4]~9\) # (!z_registrador(13)))) # (!\divisor~combout\(5) & (!z_registrador(13) & !\subtracao[4]~9\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1835,29 +1839,29 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \divisor~combout\(5),
-	datab => z_reg(13),
+	datab => z_registrador(13),
 	datad => VCC,
-	cin => \sub[4]~9\,
-	combout => \sub[5]~10_combout\,
-	cout => \sub[5]~11\);
+	cin => \subtracao[4]~9\,
+	combout => \subtracao[5]~10_combout\,
+	cout => \subtracao[5]~11\);
 
 -- Location: LCFF_X43_Y32_N27
-\z_reg[13]\ : cycloneii_lcell_ff
+\z_registrador[13]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
-	datain => \z_reg[13]~5_combout\,
-	sdata => \sub[5]~10_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	sload => \state_reg.operacao~regout\,
-	ena => \z_reg[8]~8_combout\,
+	datain => \z_registrador[13]~5_combout\,
+	sdata => \subtracao[5]~10_combout\,
+	aclr => \rst~clkctrl_outclk\,
+	sload => \estado_registrador.operacao~regout\,
+	ena => \z_registrador[8]~8_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(13));
+	regout => z_registrador(13));
 
 -- Location: LCCOMB_X43_Y32_N16
-\z_reg[14]~6\ : cycloneii_lcell_comb
+\z_registrador[14]~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \z_reg[14]~6_combout\ = (\state_reg.mudanca~regout\ & ((z_reg(13)))) # (!\state_reg.mudanca~regout\ & (\dividendo~combout\(14)))
+-- \z_registrador[14]~6_combout\ = (\estado_registrador.mudanca~regout\ & ((z_registrador(13)))) # (!\estado_registrador.mudanca~regout\ & (\dividendo~combout\(14)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1865,16 +1869,16 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.mudanca~regout\,
+	dataa => \estado_registrador.mudanca~regout\,
 	datab => \dividendo~combout\(14),
-	datad => z_reg(13),
-	combout => \z_reg[14]~6_combout\);
+	datad => z_registrador(13),
+	combout => \z_registrador[14]~6_combout\);
 
 -- Location: LCCOMB_X44_Y32_N14
-\sub[6]~12\ : cycloneii_lcell_comb
+\subtracao[6]~12\ : cycloneii_lcell_comb
 -- Equation(s):
--- \sub[6]~12_combout\ = ((\divisor~combout\(6) $ (z_reg(14) $ (\sub[5]~11\)))) # (GND)
--- \sub[6]~13\ = CARRY((\divisor~combout\(6) & (z_reg(14) & !\sub[5]~11\)) # (!\divisor~combout\(6) & ((z_reg(14)) # (!\sub[5]~11\))))
+-- \subtracao[6]~12_combout\ = ((\divisor~combout\(6) $ (z_registrador(14) $ (\subtracao[5]~11\)))) # (GND)
+-- \subtracao[6]~13\ = CARRY((\divisor~combout\(6) & (z_registrador(14) & !\subtracao[5]~11\)) # (!\divisor~combout\(6) & ((z_registrador(14)) # (!\subtracao[5]~11\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1883,59 +1887,59 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \divisor~combout\(6),
-	datab => z_reg(14),
+	datab => z_registrador(14),
 	datad => VCC,
-	cin => \sub[5]~11\,
-	combout => \sub[6]~12_combout\,
-	cout => \sub[6]~13\);
+	cin => \subtracao[5]~11\,
+	combout => \subtracao[6]~12_combout\,
+	cout => \subtracao[6]~13\);
 
 -- Location: LCFF_X43_Y32_N17
-\z_reg[14]\ : cycloneii_lcell_ff
+\z_registrador[14]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
-	datain => \z_reg[14]~6_combout\,
-	sdata => \sub[6]~12_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	sload => \state_reg.operacao~regout\,
-	ena => \z_reg[8]~8_combout\,
+	datain => \z_registrador[14]~6_combout\,
+	sdata => \subtracao[6]~12_combout\,
+	aclr => \rst~clkctrl_outclk\,
+	sload => \estado_registrador.operacao~regout\,
+	ena => \z_registrador[8]~8_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(14));
+	regout => z_registrador(14));
 
 -- Location: LCFF_X43_Y32_N31
-\z_reg[15]\ : cycloneii_lcell_ff
+\z_registrador[15]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
-	datain => \z_reg[15]~7_combout\,
-	sdata => \sub[7]~14_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	sload => \state_reg.operacao~regout\,
-	ena => \z_reg[8]~8_combout\,
+	datain => \z_registrador[15]~7_combout\,
+	sdata => \subtracao[7]~14_combout\,
+	aclr => \rst~clkctrl_outclk\,
+	sload => \estado_registrador.operacao~regout\,
+	ena => \z_registrador[8]~8_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(15));
+	regout => z_registrador(15));
 
 -- Location: LCFF_X42_Y32_N29
-\d_reg[6]\ : cycloneii_lcell_ff
+\d_registrador[6]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	sdata => \divisor~combout\(6),
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => d_reg(6));
+	regout => d_registrador(6));
 
 -- Location: LCFF_X42_Y32_N27
-\d_reg[5]\ : cycloneii_lcell_ff
+\d_registrador[5]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	sdata => \divisor~combout\(5),
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => d_reg(5));
+	regout => d_registrador(5));
 
 -- Location: PIN_H15,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \dividendo[12]~I\ : cycloneii_io
@@ -1964,9 +1968,9 @@ PORT MAP (
 	combout => \dividendo~combout\(12));
 
 -- Location: LCCOMB_X43_Y32_N8
-\z_reg[12]~4\ : cycloneii_lcell_comb
+\z_registrador[12]~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \z_reg[12]~4_combout\ = (\state_reg.mudanca~regout\ & (z_reg(11))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(12))))
+-- \z_registrador[12]~4_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(11))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(12))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1974,23 +1978,23 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(11),
+	dataa => z_registrador(11),
 	datab => \dividendo~combout\(12),
-	datad => \state_reg.mudanca~regout\,
-	combout => \z_reg[12]~4_combout\);
+	datad => \estado_registrador.mudanca~regout\,
+	combout => \z_registrador[12]~4_combout\);
 
 -- Location: LCFF_X43_Y32_N9
-\z_reg[12]\ : cycloneii_lcell_ff
+\z_registrador[12]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
-	datain => \z_reg[12]~4_combout\,
-	sdata => \sub[4]~8_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	sload => \state_reg.operacao~regout\,
-	ena => \z_reg[8]~8_combout\,
+	datain => \z_registrador[12]~4_combout\,
+	sdata => \subtracao[4]~8_combout\,
+	aclr => \rst~clkctrl_outclk\,
+	sload => \estado_registrador.operacao~regout\,
+	ena => \z_registrador[8]~8_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(12));
+	regout => z_registrador(12));
 
 -- Location: PIN_D15,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \divisor[3]~I\ : cycloneii_io
@@ -2019,20 +2023,20 @@ PORT MAP (
 	combout => \divisor~combout\(3));
 
 -- Location: LCFF_X42_Y32_N23
-\d_reg[3]\ : cycloneii_lcell_ff
+\d_registrador[3]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	sdata => \divisor~combout\(3),
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => d_reg(3));
+	regout => d_registrador(3));
 
 -- Location: LCCOMB_X43_Y32_N2
-\z_reg[9]~1\ : cycloneii_lcell_comb
+\z_registrador[9]~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \z_reg[9]~1_combout\ = (\state_reg.mudanca~regout\ & (z_reg(8))) # (!\state_reg.mudanca~regout\ & ((\dividendo~combout\(9))))
+-- \z_registrador[9]~1_combout\ = (\estado_registrador.mudanca~regout\ & (z_registrador(8))) # (!\estado_registrador.mudanca~regout\ & ((\dividendo~combout\(9))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2040,28 +2044,28 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(8),
+	dataa => z_registrador(8),
 	datab => \dividendo~combout\(9),
-	datad => \state_reg.mudanca~regout\,
-	combout => \z_reg[9]~1_combout\);
+	datad => \estado_registrador.mudanca~regout\,
+	combout => \z_registrador[9]~1_combout\);
 
 -- Location: LCFF_X43_Y32_N3
-\z_reg[9]\ : cycloneii_lcell_ff
+\z_registrador[9]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
-	datain => \z_reg[9]~1_combout\,
-	sdata => \sub[1]~2_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	sload => \state_reg.operacao~regout\,
-	ena => \z_reg[8]~8_combout\,
+	datain => \z_registrador[9]~1_combout\,
+	sdata => \subtracao[1]~2_combout\,
+	aclr => \rst~clkctrl_outclk\,
+	sload => \estado_registrador.operacao~regout\,
+	ena => \z_registrador[8]~8_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(9));
+	regout => z_registrador(9));
 
 -- Location: LCCOMB_X43_Y32_N20
-\z_reg[10]~2\ : cycloneii_lcell_comb
+\z_registrador[10]~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \z_reg[10]~2_combout\ = (\state_reg.mudanca~regout\ & ((z_reg(9)))) # (!\state_reg.mudanca~regout\ & (\dividendo~combout\(10)))
+-- \z_registrador[10]~2_combout\ = (\estado_registrador.mudanca~regout\ & ((z_registrador(9)))) # (!\estado_registrador.mudanca~regout\ & (\dividendo~combout\(10)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2070,38 +2074,38 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \dividendo~combout\(10),
-	datab => z_reg(9),
-	datad => \state_reg.mudanca~regout\,
-	combout => \z_reg[10]~2_combout\);
+	datab => z_registrador(9),
+	datad => \estado_registrador.mudanca~regout\,
+	combout => \z_registrador[10]~2_combout\);
 
 -- Location: LCFF_X43_Y32_N21
-\z_reg[10]\ : cycloneii_lcell_ff
+\z_registrador[10]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
-	datain => \z_reg[10]~2_combout\,
-	sdata => \sub[2]~4_combout\,
-	aclr => \reset~clkctrl_outclk\,
-	sload => \state_reg.operacao~regout\,
-	ena => \z_reg[8]~8_combout\,
+	datain => \z_registrador[10]~2_combout\,
+	sdata => \subtracao[2]~4_combout\,
+	aclr => \rst~clkctrl_outclk\,
+	sload => \estado_registrador.operacao~regout\,
+	ena => \z_registrador[8]~8_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(10));
+	regout => z_registrador(10));
 
 -- Location: LCFF_X42_Y32_N19
-\d_reg[1]\ : cycloneii_lcell_ff
+\d_registrador[1]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	sdata => \divisor~combout\(1),
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => d_reg(1));
+	regout => d_registrador(1));
 
 -- Location: LCCOMB_X42_Y32_N16
 \LessThan2~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \LessThan2~1_cout\ = CARRY((d_reg(0) & !z_reg(8)))
+-- \LessThan2~1_cout\ = CARRY((d_registrador(0) & !z_registrador(8)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2109,15 +2113,15 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => d_reg(0),
-	datab => z_reg(8),
+	dataa => d_registrador(0),
+	datab => z_registrador(8),
 	datad => VCC,
 	cout => \LessThan2~1_cout\);
 
 -- Location: LCCOMB_X42_Y32_N18
 \LessThan2~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \LessThan2~3_cout\ = CARRY((z_reg(9) & ((!\LessThan2~1_cout\) # (!d_reg(1)))) # (!z_reg(9) & (!d_reg(1) & !\LessThan2~1_cout\)))
+-- \LessThan2~3_cout\ = CARRY((z_registrador(9) & ((!\LessThan2~1_cout\) # (!d_registrador(1)))) # (!z_registrador(9) & (!d_registrador(1) & !\LessThan2~1_cout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2125,8 +2129,8 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(9),
-	datab => d_reg(1),
+	dataa => z_registrador(9),
+	datab => d_registrador(1),
 	datad => VCC,
 	cin => \LessThan2~1_cout\,
 	cout => \LessThan2~3_cout\);
@@ -2134,7 +2138,7 @@ PORT MAP (
 -- Location: LCCOMB_X42_Y32_N20
 \LessThan2~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \LessThan2~5_cout\ = CARRY((d_reg(2) & ((!\LessThan2~3_cout\) # (!z_reg(10)))) # (!d_reg(2) & (!z_reg(10) & !\LessThan2~3_cout\)))
+-- \LessThan2~5_cout\ = CARRY((d_registrador(2) & ((!\LessThan2~3_cout\) # (!z_registrador(10)))) # (!d_registrador(2) & (!z_registrador(10) & !\LessThan2~3_cout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2142,8 +2146,8 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => d_reg(2),
-	datab => z_reg(10),
+	dataa => d_registrador(2),
+	datab => z_registrador(10),
 	datad => VCC,
 	cin => \LessThan2~3_cout\,
 	cout => \LessThan2~5_cout\);
@@ -2151,7 +2155,7 @@ PORT MAP (
 -- Location: LCCOMB_X42_Y32_N22
 \LessThan2~7\ : cycloneii_lcell_comb
 -- Equation(s):
--- \LessThan2~7_cout\ = CARRY((z_reg(11) & ((!\LessThan2~5_cout\) # (!d_reg(3)))) # (!z_reg(11) & (!d_reg(3) & !\LessThan2~5_cout\)))
+-- \LessThan2~7_cout\ = CARRY((z_registrador(11) & ((!\LessThan2~5_cout\) # (!d_registrador(3)))) # (!z_registrador(11) & (!d_registrador(3) & !\LessThan2~5_cout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2159,8 +2163,8 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(11),
-	datab => d_reg(3),
+	dataa => z_registrador(11),
+	datab => d_registrador(3),
 	datad => VCC,
 	cin => \LessThan2~5_cout\,
 	cout => \LessThan2~7_cout\);
@@ -2168,7 +2172,7 @@ PORT MAP (
 -- Location: LCCOMB_X42_Y32_N24
 \LessThan2~9\ : cycloneii_lcell_comb
 -- Equation(s):
--- \LessThan2~9_cout\ = CARRY((d_reg(4) & ((!\LessThan2~7_cout\) # (!z_reg(12)))) # (!d_reg(4) & (!z_reg(12) & !\LessThan2~7_cout\)))
+-- \LessThan2~9_cout\ = CARRY((d_registrador(4) & ((!\LessThan2~7_cout\) # (!z_registrador(12)))) # (!d_registrador(4) & (!z_registrador(12) & !\LessThan2~7_cout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2176,8 +2180,8 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => d_reg(4),
-	datab => z_reg(12),
+	dataa => d_registrador(4),
+	datab => z_registrador(12),
 	datad => VCC,
 	cin => \LessThan2~7_cout\,
 	cout => \LessThan2~9_cout\);
@@ -2185,7 +2189,7 @@ PORT MAP (
 -- Location: LCCOMB_X42_Y32_N26
 \LessThan2~11\ : cycloneii_lcell_comb
 -- Equation(s):
--- \LessThan2~11_cout\ = CARRY((z_reg(13) & ((!\LessThan2~9_cout\) # (!d_reg(5)))) # (!z_reg(13) & (!d_reg(5) & !\LessThan2~9_cout\)))
+-- \LessThan2~11_cout\ = CARRY((z_registrador(13) & ((!\LessThan2~9_cout\) # (!d_registrador(5)))) # (!z_registrador(13) & (!d_registrador(5) & !\LessThan2~9_cout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2193,8 +2197,8 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(13),
-	datab => d_reg(5),
+	dataa => z_registrador(13),
+	datab => d_registrador(5),
 	datad => VCC,
 	cin => \LessThan2~9_cout\,
 	cout => \LessThan2~11_cout\);
@@ -2202,7 +2206,7 @@ PORT MAP (
 -- Location: LCCOMB_X42_Y32_N28
 \LessThan2~13\ : cycloneii_lcell_comb
 -- Equation(s):
--- \LessThan2~13_cout\ = CARRY((z_reg(14) & (d_reg(6) & !\LessThan2~11_cout\)) # (!z_reg(14) & ((d_reg(6)) # (!\LessThan2~11_cout\))))
+-- \LessThan2~13_cout\ = CARRY((z_registrador(14) & (d_registrador(6) & !\LessThan2~11_cout\)) # (!z_registrador(14) & ((d_registrador(6)) # (!\LessThan2~11_cout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2210,8 +2214,8 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(14),
-	datab => d_reg(6),
+	dataa => z_registrador(14),
+	datab => d_registrador(6),
 	datad => VCC,
 	cin => \LessThan2~11_cout\,
 	cout => \LessThan2~13_cout\);
@@ -2219,7 +2223,7 @@ PORT MAP (
 -- Location: LCCOMB_X42_Y32_N30
 \LessThan2~14\ : cycloneii_lcell_comb
 -- Equation(s):
--- \LessThan2~14_combout\ = (d_reg(7) & ((\LessThan2~13_cout\) # (!z_reg(15)))) # (!d_reg(7) & (\LessThan2~13_cout\ & !z_reg(15)))
+-- \LessThan2~14_combout\ = (d_registrador(7) & ((\LessThan2~13_cout\) # (!z_registrador(15)))) # (!d_registrador(7) & (\LessThan2~13_cout\ & !z_registrador(15)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2227,15 +2231,15 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => d_reg(7),
-	datad => z_reg(15),
+	datab => d_registrador(7),
+	datad => z_registrador(15),
 	cin => \LessThan2~13_cout\,
 	combout => \LessThan2~14_combout\);
 
 -- Location: LCCOMB_X43_Y32_N4
 \Selector22~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \Selector22~1_combout\ = (\Selector22~0_combout\) # ((\state_reg.operacao~regout\ & ((z_reg(16)) # (!\LessThan2~14_combout\))))
+-- \Selector22~1_combout\ = (\Selector22~0_combout\) # ((\estado_registrador.operacao~regout\ & ((z_registrador(16)) # (!\LessThan2~14_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2243,26 +2247,26 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => z_reg(16),
+	dataa => z_registrador(16),
 	datab => \Selector22~0_combout\,
 	datac => \LessThan2~14_combout\,
-	datad => \state_reg.operacao~regout\,
+	datad => \estado_registrador.operacao~regout\,
 	combout => \Selector22~1_combout\);
 
 -- Location: LCFF_X43_Y32_N5
-\z_reg[0]\ : cycloneii_lcell_ff
+\z_registrador[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clk~clkctrl_outclk\,
 	datain => \Selector22~1_combout\,
-	aclr => \reset~clkctrl_outclk\,
+	aclr => \rst~clkctrl_outclk\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => z_reg(0));
+	regout => z_registrador(0));
 
 -- Location: LCCOMB_X45_Y32_N24
 \overflow~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \overflow~0_combout\ = (\state_reg.parado~regout\) # (\LessThan1~14_combout\)
+-- \overflow~0_combout\ = (\estado_registrador.parado~regout\) # (\LessThan1~14_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2270,7 +2274,7 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \state_reg.parado~regout\,
+	dataa => \estado_registrador.parado~regout\,
 	datac => \LessThan1~14_combout\,
 	combout => \overflow~0_combout\);
 
@@ -2293,7 +2297,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(0),
+	datain => z_registrador(0),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2319,7 +2323,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(1),
+	datain => z_registrador(1),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2345,7 +2349,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(2),
+	datain => z_registrador(2),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2371,7 +2375,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(3),
+	datain => z_registrador(3),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2397,7 +2401,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(4),
+	datain => z_registrador(4),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2423,7 +2427,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(5),
+	datain => z_registrador(5),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2449,7 +2453,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(6),
+	datain => z_registrador(6),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2475,7 +2479,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(7),
+	datain => z_registrador(7),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2501,7 +2505,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(8),
+	datain => z_registrador(8),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2527,7 +2531,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(9),
+	datain => z_registrador(9),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2553,7 +2557,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(10),
+	datain => z_registrador(10),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2579,7 +2583,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(11),
+	datain => z_registrador(11),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2605,7 +2609,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(12),
+	datain => z_registrador(12),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2631,7 +2635,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(13),
+	datain => z_registrador(13),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2657,7 +2661,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(14),
+	datain => z_registrador(14),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2683,7 +2687,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => z_reg(15),
+	datain => z_registrador(15),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -2709,7 +2713,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \ALT_INV_state_reg.parado~regout\,
+	datain => \ALT_INV_estado_registrador.parado~regout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,

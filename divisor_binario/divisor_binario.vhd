@@ -12,7 +12,7 @@ entity divisor_binario is
  architecture funcionamento of divisor_binario is
  
             -- tipo para os estados FSM
-	  tipo estado_tipo is (parado, mudanca, operacao);     
+	  type estado_tipo is (parado, mudanca, operacao);     
 
 -- Entradas/saídas do estado registradorister e os z, d, e i registradoristers
 	signal estado_registrador, estado_proximo : estado_tipo;   

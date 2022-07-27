@@ -1,5 +1,5 @@
 Fitter report for divisor_binario
-Tue Jul 26 23:53:50 2022
+Wed Jul 27 00:10:27 2022
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -61,7 +61,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Tue Jul 26 23:53:50 2022           ;
+; Fitter Status                      ; Successful - Wed Jul 27 00:10:27 2022           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; divisor_binario                                 ;
 ; Top-level Entity Name              ; divisor_binario                                 ;
@@ -320,7 +320,7 @@ The pin-out file can be found in C:/xampp/htdocs/projects/VHDL/divisor_binario/o
 ; divisor[5]    ; D18   ; 4        ; 50           ; 36           ; 1           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 ; divisor[6]    ; C15   ; 4        ; 37           ; 36           ; 3           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 ; divisor[7]    ; D13   ; 3        ; 31           ; 36           ; 3           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; reset         ; P1    ; 1        ; 0            ; 18           ; 3           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; rst           ; P1    ; 1        ; 0            ; 18           ; 3           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 ; start         ; H17   ; 4        ; 48           ; 36           ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 +---------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
@@ -862,7 +862,7 @@ The pin-out file can be found in C:/xampp/htdocs/projects/VHDL/divisor_binario/o
 ; N24      ; 310        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N25      ; 309        ; 5        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; N26      ; 308        ; 5        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; P1       ; 68         ; 1        ; reset                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; P1       ; 68         ; 1        ; rst                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; P2       ; 67         ; 1        ; clk                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; P3       ; 69         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P4       ; 70         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1136,7 +1136,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; divisor[0]    ; Input    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
 ; dividendo[0]  ; Input    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
 ; clk           ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; reset         ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
+; rst           ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 ; dividendo[1]  ; Input    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
 ; dividendo[2]  ; Input    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
 ; dividendo[3]  ; Input    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
@@ -1148,236 +1148,236 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------+----------+---------------+---------------+-----------------------+-----+
 
 
-+---------------------------------------------------+
-; Pad To Core Delay Chain Fanout                    ;
-+---------------------+-------------------+---------+
-; Source Pin / Fanout ; Pad To Core Index ; Setting ;
-+---------------------+-------------------+---------+
-; dividendo[15]       ;                   ;         ;
-; divisor[7]          ;                   ;         ;
-; dividendo[14]       ;                   ;         ;
-;      - LessThan1~13 ; 1                 ; 6       ;
-;      - z_reg[14]~6  ; 1                 ; 6       ;
-; divisor[6]          ;                   ;         ;
-;      - sub[6]~12    ; 0                 ; 6       ;
-;      - LessThan1~13 ; 0                 ; 6       ;
-;      - d_reg[6]     ; 0                 ; 6       ;
-; dividendo[13]       ;                   ;         ;
-;      - LessThan1~11 ; 1                 ; 6       ;
-;      - z_reg[13]~5  ; 1                 ; 6       ;
-; divisor[5]          ;                   ;         ;
-;      - sub[5]~10    ; 1                 ; 6       ;
-;      - LessThan1~11 ; 1                 ; 6       ;
-;      - d_reg[5]     ; 1                 ; 6       ;
-; dividendo[12]       ;                   ;         ;
-;      - LessThan1~9  ; 0                 ; 6       ;
-;      - z_reg[12]~4  ; 0                 ; 6       ;
-; divisor[4]          ;                   ;         ;
-;      - sub[4]~8     ; 0                 ; 6       ;
-;      - LessThan1~9  ; 0                 ; 6       ;
-;      - d_reg[4]     ; 0                 ; 6       ;
-; dividendo[11]       ;                   ;         ;
-;      - LessThan1~7  ; 1                 ; 6       ;
-;      - z_reg[11]~3  ; 1                 ; 6       ;
-; divisor[3]          ;                   ;         ;
-;      - sub[3]~6     ; 0                 ; 6       ;
-;      - LessThan1~7  ; 0                 ; 6       ;
-;      - d_reg[3]     ; 0                 ; 6       ;
-; dividendo[10]       ;                   ;         ;
-;      - LessThan1~5  ; 0                 ; 6       ;
-;      - z_reg[10]~2  ; 0                 ; 6       ;
-; divisor[2]          ;                   ;         ;
-;      - sub[2]~4     ; 0                 ; 6       ;
-;      - LessThan1~5  ; 0                 ; 6       ;
-;      - d_reg[2]     ; 0                 ; 6       ;
-; dividendo[9]        ;                   ;         ;
-;      - LessThan1~3  ; 1                 ; 6       ;
-;      - z_reg[9]~1   ; 1                 ; 6       ;
-; divisor[1]          ;                   ;         ;
-;      - sub[1]~2     ; 1                 ; 6       ;
-;      - LessThan1~3  ; 1                 ; 6       ;
-;      - d_reg[1]     ; 1                 ; 6       ;
-; dividendo[8]        ;                   ;         ;
-;      - LessThan1~1  ; 0                 ; 6       ;
-;      - z_reg[8]~0   ; 0                 ; 6       ;
-; divisor[0]          ;                   ;         ;
-;      - sub[0]~0     ; 1                 ; 6       ;
-;      - LessThan1~1  ; 1                 ; 6       ;
-;      - d_reg[0]     ; 1                 ; 6       ;
-; dividendo[0]        ;                   ;         ;
-;      - Selector22~0 ; 1                 ; 6       ;
-; clk                 ;                   ;         ;
-; reset               ;                   ;         ;
-; dividendo[1]        ;                   ;         ;
-;      - Selector21~0 ; 0                 ; 6       ;
-; dividendo[2]        ;                   ;         ;
-;      - Selector20~0 ; 0                 ; 6       ;
-; dividendo[3]        ;                   ;         ;
-;      - Selector19~0 ; 0                 ; 6       ;
-; dividendo[4]        ;                   ;         ;
-;      - Selector18~0 ; 1                 ; 6       ;
-; dividendo[5]        ;                   ;         ;
-;      - Selector17~0 ; 0                 ; 6       ;
-; dividendo[6]        ;                   ;         ;
-;      - Selector16~0 ; 1                 ; 6       ;
-; dividendo[7]        ;                   ;         ;
-;      - Selector15~0 ; 0                 ; 6       ;
-; start               ;                   ;         ;
-;      - Selector0~2  ; 0                 ; 6       ;
-;      - Selector1~2  ; 0                 ; 6       ;
-+---------------------+-------------------+---------+
++----------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                           ;
++----------------------------+-------------------+---------+
+; Source Pin / Fanout        ; Pad To Core Index ; Setting ;
++----------------------------+-------------------+---------+
+; dividendo[15]              ;                   ;         ;
+; divisor[7]                 ;                   ;         ;
+; dividendo[14]              ;                   ;         ;
+;      - LessThan1~13        ; 1                 ; 6       ;
+;      - z_registrador[14]~6 ; 1                 ; 6       ;
+; divisor[6]                 ;                   ;         ;
+;      - subtracao[6]~12     ; 0                 ; 6       ;
+;      - LessThan1~13        ; 0                 ; 6       ;
+;      - d_registrador[6]    ; 0                 ; 6       ;
+; dividendo[13]              ;                   ;         ;
+;      - LessThan1~11        ; 1                 ; 6       ;
+;      - z_registrador[13]~5 ; 1                 ; 6       ;
+; divisor[5]                 ;                   ;         ;
+;      - subtracao[5]~10     ; 1                 ; 6       ;
+;      - LessThan1~11        ; 1                 ; 6       ;
+;      - d_registrador[5]    ; 1                 ; 6       ;
+; dividendo[12]              ;                   ;         ;
+;      - LessThan1~9         ; 0                 ; 6       ;
+;      - z_registrador[12]~4 ; 0                 ; 6       ;
+; divisor[4]                 ;                   ;         ;
+;      - subtracao[4]~8      ; 0                 ; 6       ;
+;      - LessThan1~9         ; 0                 ; 6       ;
+;      - d_registrador[4]    ; 0                 ; 6       ;
+; dividendo[11]              ;                   ;         ;
+;      - LessThan1~7         ; 1                 ; 6       ;
+;      - z_registrador[11]~3 ; 1                 ; 6       ;
+; divisor[3]                 ;                   ;         ;
+;      - subtracao[3]~6      ; 0                 ; 6       ;
+;      - LessThan1~7         ; 0                 ; 6       ;
+;      - d_registrador[3]    ; 0                 ; 6       ;
+; dividendo[10]              ;                   ;         ;
+;      - LessThan1~5         ; 0                 ; 6       ;
+;      - z_registrador[10]~2 ; 0                 ; 6       ;
+; divisor[2]                 ;                   ;         ;
+;      - subtracao[2]~4      ; 0                 ; 6       ;
+;      - LessThan1~5         ; 0                 ; 6       ;
+;      - d_registrador[2]    ; 0                 ; 6       ;
+; dividendo[9]               ;                   ;         ;
+;      - LessThan1~3         ; 1                 ; 6       ;
+;      - z_registrador[9]~1  ; 1                 ; 6       ;
+; divisor[1]                 ;                   ;         ;
+;      - subtracao[1]~2      ; 1                 ; 6       ;
+;      - LessThan1~3         ; 1                 ; 6       ;
+;      - d_registrador[1]    ; 1                 ; 6       ;
+; dividendo[8]               ;                   ;         ;
+;      - LessThan1~1         ; 0                 ; 6       ;
+;      - z_registrador[8]~0  ; 0                 ; 6       ;
+; divisor[0]                 ;                   ;         ;
+;      - subtracao[0]~0      ; 1                 ; 6       ;
+;      - LessThan1~1         ; 1                 ; 6       ;
+;      - d_registrador[0]    ; 1                 ; 6       ;
+; dividendo[0]               ;                   ;         ;
+;      - Selector22~0        ; 1                 ; 6       ;
+; clk                        ;                   ;         ;
+; rst                        ;                   ;         ;
+; dividendo[1]               ;                   ;         ;
+;      - Selector21~0        ; 0                 ; 6       ;
+; dividendo[2]               ;                   ;         ;
+;      - Selector20~0        ; 0                 ; 6       ;
+; dividendo[3]               ;                   ;         ;
+;      - Selector19~0        ; 0                 ; 6       ;
+; dividendo[4]               ;                   ;         ;
+;      - Selector18~0        ; 1                 ; 6       ;
+; dividendo[5]               ;                   ;         ;
+;      - Selector17~0        ; 0                 ; 6       ;
+; dividendo[6]               ;                   ;         ;
+;      - Selector16~0        ; 1                 ; 6       ;
+; dividendo[7]               ;                   ;         ;
+;      - Selector15~0        ; 0                 ; 6       ;
+; start                      ;                   ;         ;
+;      - Selector0~2         ; 0                 ; 6       ;
+;      - Selector1~2         ; 0                 ; 6       ;
++----------------------------+-------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                             ;
-+--------------------+--------------------+---------+--------------------------+--------+----------------------+------------------+---------------------------+
-; Name               ; Location           ; Fan-Out ; Usage                    ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+--------------------+--------------------+---------+--------------------------+--------+----------------------+------------------+---------------------------+
-; clk                ; PIN_P2             ; 32      ; Clock                    ; yes    ; Global Clock         ; GCLK3            ; --                        ;
-; reset              ; PIN_P1             ; 32      ; Async. clear             ; yes    ; Global Clock         ; GCLK1            ; --                        ;
-; state_reg.operacao ; LCFF_X44_Y32_N25   ; 25      ; Clock enable, Sync. load ; no     ; --                   ; --               ; --                        ;
-; z_reg[8]~8         ; LCCOMB_X43_Y32_N18 ; 8       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-+--------------------+--------------------+---------+--------------------------+--------+----------------------+------------------+---------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                      ;
++-----------------------------+--------------------+---------+--------------------------+--------+----------------------+------------------+---------------------------+
+; Name                        ; Location           ; Fan-Out ; Usage                    ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------+--------------------+---------+--------------------------+--------+----------------------+------------------+---------------------------+
+; clk                         ; PIN_P2             ; 32      ; Clock                    ; yes    ; Global Clock         ; GCLK3            ; --                        ;
+; estado_registrador.operacao ; LCFF_X44_Y32_N25   ; 25      ; Clock enable, Sync. load ; no     ; --                   ; --               ; --                        ;
+; rst                         ; PIN_P1             ; 32      ; Async. clear             ; yes    ; Global Clock         ; GCLK1            ; --                        ;
+; z_registrador[8]~8          ; LCCOMB_X43_Y32_N18 ; 8       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
++-----------------------------+--------------------+---------+--------------------------+--------+----------------------+------------------+---------------------------+
 
 
-+--------------------------------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                                      ;
-+-------+----------+---------+----------------------+------------------+---------------------------+
-; Name  ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-------+----------+---------+----------------------+------------------+---------------------------+
-; clk   ; PIN_P2   ; 32      ; Global Clock         ; GCLK3            ; --                        ;
-; reset ; PIN_P1   ; 32      ; Global Clock         ; GCLK1            ; --                        ;
-+-------+----------+---------+----------------------+------------------+---------------------------+
++-------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                     ;
++------+----------+---------+----------------------+------------------+---------------------------+
+; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++------+----------+---------+----------------------+------------------+---------------------------+
+; clk  ; PIN_P2   ; 32      ; Global Clock         ; GCLK3            ; --                        ;
+; rst  ; PIN_P1   ; 32      ; Global Clock         ; GCLK1            ; --                        ;
++------+----------+---------+----------------------+------------------+---------------------------+
 
 
-+---------------------------------+
-; Non-Global High Fan-Out Signals ;
-+--------------------+------------+
-; Name               ; Fan-Out    ;
-+--------------------+------------+
-; state_reg.operacao ; 25         ;
-; state_reg.mudanca  ; 21         ;
-; z_reg[8]~8         ; 8          ;
-; i_reg[0]           ; 6          ;
-; state_reg.parado   ; 5          ;
-; i_reg[1]           ; 4          ;
-; i_reg[2]           ; 4          ;
-; z_reg[16]          ; 4          ;
-; z_reg[15]          ; 4          ;
-; z_reg[14]          ; 4          ;
-; z_reg[13]          ; 4          ;
-; z_reg[12]          ; 4          ;
-; z_reg[11]          ; 4          ;
-; z_reg[10]          ; 4          ;
-; z_reg[9]           ; 4          ;
-; z_reg[8]           ; 4          ;
-; divisor[0]         ; 3          ;
-; divisor[1]         ; 3          ;
-; divisor[2]         ; 3          ;
-; divisor[3]         ; 3          ;
-; divisor[4]         ; 3          ;
-; divisor[5]         ; 3          ;
-; divisor[6]         ; 3          ;
-; divisor[7]         ; 3          ;
-; i_reg[3]           ; 3          ;
-; z_reg[0]           ; 3          ;
-; LessThan2~14       ; 3          ;
-; LessThan1~14       ; 3          ;
-; start              ; 2          ;
-; dividendo[8]       ; 2          ;
-; dividendo[9]       ; 2          ;
-; dividendo[10]      ; 2          ;
-; dividendo[11]      ; 2          ;
-; dividendo[12]      ; 2          ;
-; dividendo[13]      ; 2          ;
-; dividendo[14]      ; 2          ;
-; dividendo[15]      ; 2          ;
-; Selector0~0        ; 2          ;
-; z_reg[7]           ; 2          ;
-; z_reg[6]           ; 2          ;
-; z_reg[5]           ; 2          ;
-; z_reg[4]           ; 2          ;
-; z_reg[3]           ; 2          ;
-; z_reg[2]           ; 2          ;
-; z_reg[1]           ; 2          ;
-; dividendo[7]       ; 1          ;
-; dividendo[6]       ; 1          ;
-; dividendo[5]       ; 1          ;
-; dividendo[4]       ; 1          ;
-; dividendo[3]       ; 1          ;
-; dividendo[2]       ; 1          ;
-; dividendo[1]       ; 1          ;
-; dividendo[0]       ; 1          ;
-; Selector2~0        ; 1          ;
-; Selector5~0        ; 1          ;
-; Selector4~0        ; 1          ;
-; Selector3~1        ; 1          ;
-; Selector3~0        ; 1          ;
-; Selector1~2        ; 1          ;
-; Selector1~1        ; 1          ;
-; Selector1~0        ; 1          ;
-; Selector6~1        ; 1          ;
-; Selector6~0        ; 1          ;
-; Selector0~2        ; 1          ;
-; Selector0~1        ; 1          ;
-; Selector15~0       ; 1          ;
-; Selector16~0       ; 1          ;
-; Selector17~0       ; 1          ;
-; Selector18~0       ; 1          ;
-; Selector19~0       ; 1          ;
-; Selector20~0       ; 1          ;
-; Selector21~0       ; 1          ;
-; Selector22~1       ; 1          ;
-; d_reg[0]           ; 1          ;
-; d_reg[1]           ; 1          ;
-; d_reg[2]           ; 1          ;
-; d_reg[3]           ; 1          ;
-; d_reg[4]           ; 1          ;
-; d_reg[5]           ; 1          ;
-; d_reg[6]           ; 1          ;
-; d_reg[7]           ; 1          ;
-; Selector22~0       ; 1          ;
-; overflow~0         ; 1          ;
-; sub[8]~16          ; 1          ;
-; sub[7]~15          ; 1          ;
-; sub[7]~14          ; 1          ;
-; z_reg[15]~7        ; 1          ;
-; sub[6]~13          ; 1          ;
-; sub[6]~12          ; 1          ;
-; z_reg[14]~6        ; 1          ;
-; sub[5]~11          ; 1          ;
-; sub[5]~10          ; 1          ;
-; z_reg[13]~5        ; 1          ;
-; sub[4]~9           ; 1          ;
-; sub[4]~8           ; 1          ;
-; z_reg[12]~4        ; 1          ;
-; sub[3]~7           ; 1          ;
-; sub[3]~6           ; 1          ;
-; z_reg[11]~3        ; 1          ;
-; sub[2]~5           ; 1          ;
-; sub[2]~4           ; 1          ;
-; z_reg[10]~2        ; 1          ;
-; sub[1]~3           ; 1          ;
-; sub[1]~2           ; 1          ;
-; z_reg[9]~1         ; 1          ;
-; sub[0]~1           ; 1          ;
-; sub[0]~0           ; 1          ;
-; z_reg[8]~0         ; 1          ;
-; LessThan2~13       ; 1          ;
-; LessThan2~11       ; 1          ;
-; LessThan2~9        ; 1          ;
-; LessThan2~7        ; 1          ;
-; LessThan2~5        ; 1          ;
-; LessThan2~3        ; 1          ;
-; LessThan2~1        ; 1          ;
-; LessThan1~13       ; 1          ;
-; LessThan1~11       ; 1          ;
-; LessThan1~9        ; 1          ;
-; LessThan1~7        ; 1          ;
-; LessThan1~5        ; 1          ;
-; LessThan1~3        ; 1          ;
-; LessThan1~1        ; 1          ;
-+--------------------+------------+
++---------------------------------------+
+; Non-Global High Fan-Out Signals       ;
++-----------------------------+---------+
+; Name                        ; Fan-Out ;
++-----------------------------+---------+
+; estado_registrador.operacao ; 25      ;
+; estado_registrador.mudanca  ; 21      ;
+; z_registrador[8]~8          ; 8       ;
+; i_registrador[0]            ; 6       ;
+; estado_registrador.parado   ; 5       ;
+; i_registrador[1]            ; 4       ;
+; i_registrador[2]            ; 4       ;
+; z_registrador[16]           ; 4       ;
+; z_registrador[15]           ; 4       ;
+; z_registrador[14]           ; 4       ;
+; z_registrador[13]           ; 4       ;
+; z_registrador[12]           ; 4       ;
+; z_registrador[11]           ; 4       ;
+; z_registrador[10]           ; 4       ;
+; z_registrador[9]            ; 4       ;
+; z_registrador[8]            ; 4       ;
+; divisor[0]                  ; 3       ;
+; divisor[1]                  ; 3       ;
+; divisor[2]                  ; 3       ;
+; divisor[3]                  ; 3       ;
+; divisor[4]                  ; 3       ;
+; divisor[5]                  ; 3       ;
+; divisor[6]                  ; 3       ;
+; divisor[7]                  ; 3       ;
+; i_registrador[3]            ; 3       ;
+; z_registrador[0]            ; 3       ;
+; LessThan2~14                ; 3       ;
+; LessThan1~14                ; 3       ;
+; start                       ; 2       ;
+; dividendo[8]                ; 2       ;
+; dividendo[9]                ; 2       ;
+; dividendo[10]               ; 2       ;
+; dividendo[11]               ; 2       ;
+; dividendo[12]               ; 2       ;
+; dividendo[13]               ; 2       ;
+; dividendo[14]               ; 2       ;
+; dividendo[15]               ; 2       ;
+; Selector0~0                 ; 2       ;
+; z_registrador[7]            ; 2       ;
+; z_registrador[6]            ; 2       ;
+; z_registrador[5]            ; 2       ;
+; z_registrador[4]            ; 2       ;
+; z_registrador[3]            ; 2       ;
+; z_registrador[2]            ; 2       ;
+; z_registrador[1]            ; 2       ;
+; dividendo[7]                ; 1       ;
+; dividendo[6]                ; 1       ;
+; dividendo[5]                ; 1       ;
+; dividendo[4]                ; 1       ;
+; dividendo[3]                ; 1       ;
+; dividendo[2]                ; 1       ;
+; dividendo[1]                ; 1       ;
+; dividendo[0]                ; 1       ;
+; Selector2~0                 ; 1       ;
+; Selector5~0                 ; 1       ;
+; Selector4~0                 ; 1       ;
+; Selector3~1                 ; 1       ;
+; Selector3~0                 ; 1       ;
+; Selector1~2                 ; 1       ;
+; Selector1~1                 ; 1       ;
+; Selector1~0                 ; 1       ;
+; Selector6~1                 ; 1       ;
+; Selector6~0                 ; 1       ;
+; Selector0~2                 ; 1       ;
+; Selector0~1                 ; 1       ;
+; Selector15~0                ; 1       ;
+; Selector16~0                ; 1       ;
+; Selector17~0                ; 1       ;
+; Selector18~0                ; 1       ;
+; Selector19~0                ; 1       ;
+; Selector20~0                ; 1       ;
+; Selector21~0                ; 1       ;
+; Selector22~1                ; 1       ;
+; d_registrador[0]            ; 1       ;
+; d_registrador[1]            ; 1       ;
+; d_registrador[2]            ; 1       ;
+; d_registrador[3]            ; 1       ;
+; d_registrador[4]            ; 1       ;
+; d_registrador[5]            ; 1       ;
+; d_registrador[6]            ; 1       ;
+; d_registrador[7]            ; 1       ;
+; Selector22~0                ; 1       ;
+; overflow~0                  ; 1       ;
+; subtracao[8]~16             ; 1       ;
+; subtracao[7]~15             ; 1       ;
+; subtracao[7]~14             ; 1       ;
+; z_registrador[15]~7         ; 1       ;
+; subtracao[6]~13             ; 1       ;
+; subtracao[6]~12             ; 1       ;
+; z_registrador[14]~6         ; 1       ;
+; subtracao[5]~11             ; 1       ;
+; subtracao[5]~10             ; 1       ;
+; z_registrador[13]~5         ; 1       ;
+; subtracao[4]~9              ; 1       ;
+; subtracao[4]~8              ; 1       ;
+; z_registrador[12]~4         ; 1       ;
+; subtracao[3]~7              ; 1       ;
+; subtracao[3]~6              ; 1       ;
+; z_registrador[11]~3         ; 1       ;
+; subtracao[2]~5              ; 1       ;
+; subtracao[2]~4              ; 1       ;
+; z_registrador[10]~2         ; 1       ;
+; subtracao[1]~3              ; 1       ;
+; subtracao[1]~2              ; 1       ;
+; z_registrador[9]~1          ; 1       ;
+; subtracao[0]~1              ; 1       ;
+; subtracao[0]~0              ; 1       ;
+; z_registrador[8]~0          ; 1       ;
+; LessThan2~13                ; 1       ;
+; LessThan2~11                ; 1       ;
+; LessThan2~9                 ; 1       ;
+; LessThan2~7                 ; 1       ;
+; LessThan2~5                 ; 1       ;
+; LessThan2~3                 ; 1       ;
+; LessThan2~1                 ; 1       ;
+; LessThan1~13                ; 1       ;
+; LessThan1~11                ; 1       ;
+; LessThan1~9                 ; 1       ;
+; LessThan1~7                 ; 1       ;
+; LessThan1~5                 ; 1       ;
+; LessThan1~3                 ; 1       ;
+; LessThan1~1                 ; 1       ;
++-----------------------------+---------+
 
 
 +------------------------------------------------------+
@@ -1606,7 +1606,7 @@ Critical Warning (169085): No exact pin location assignment(s) for 45 pins of 45
     Info (169086): Pin divisor[0] not assigned to an exact location on the device
     Info (169086): Pin dividendo[0] not assigned to an exact location on the device
     Info (169086): Pin clk not assigned to an exact location on the device
-    Info (169086): Pin reset not assigned to an exact location on the device
+    Info (169086): Pin rst not assigned to an exact location on the device
     Info (169086): Pin dividendo[1] not assigned to an exact location on the device
     Info (169086): Pin dividendo[2] not assigned to an exact location on the device
     Info (169086): Pin dividendo[3] not assigned to an exact location on the device
@@ -1620,7 +1620,7 @@ Info (332144): No user constrained base clocks found in the design
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
 Info (176353): Automatically promoted node clk (placed in PIN P2 (CLK2, LVDSCLK1p, Input))
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
-Info (176353): Automatically promoted node reset (placed in PIN P1 (CLK3, LVDSCLK1n, Input))
+Info (176353): Automatically promoted node rst (placed in PIN P1 (CLK3, LVDSCLK1n, Input))
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G1
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -1638,7 +1638,7 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  58 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  58 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  56 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
@@ -1674,14 +1674,14 @@ Warning (306006): Found 18 output pins without output pin load capacitance assig
 Info (306005): Delay annotation completed successfully
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file C:/xampp/htdocs/projects/VHDL/divisor_binario/output_files/divisor_binario.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4817 megabytes
-    Info: Processing ended: Tue Jul 26 23:53:50 2022
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 4809 megabytes
+    Info: Processing ended: Wed Jul 27 00:10:27 2022
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:05
 
 
 +----------------------------+
